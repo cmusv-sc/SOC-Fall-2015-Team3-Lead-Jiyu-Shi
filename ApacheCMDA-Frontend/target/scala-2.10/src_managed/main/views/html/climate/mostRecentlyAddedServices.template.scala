@@ -90,52 +90,55 @@ Seq[Any](format.raw/*18.111*/("""
 	</tr>
 	"""),_display_(Seq[Any](/*48.3*/for(climateService <- climateServices) yield /*48.41*/{_display_(Seq[Any](format.raw/*48.42*/("""
 	<tr>
-		<td><a href = """"),_display_(Seq[Any](/*50.19*/climateService/*50.33*/.getUrl())),format.raw/*50.42*/("""">"""),_display_(Seq[Any](/*50.45*/climateService/*50.59*/.getClimateServiceName())),format.raw/*50.83*/("""</a></td>
+		<td><a href = """"),_display_(Seq[Any](/*50.19*/{routes.ClimateServiceController.oneService(climateService.getUrl())})),format.raw/*50.88*/("""">"""),_display_(Seq[Any](/*50.91*/climateService/*50.105*/.getClimateServiceName())),format.raw/*50.129*/("""</a></td>
 
 		<td><span class=""""),_display_(Seq[Any](/*52.21*/climateService/*52.35*/.getClimateServiceName())),format.raw/*52.59*/(""" editable" data-name='purpose'>
 				"""),_display_(Seq[Any](/*53.6*/climateService/*53.20*/.getPurpose())),format.raw/*53.33*/(""" </span></td>
 		
 		<td><span class=""""),_display_(Seq[Any](/*55.21*/climateService/*55.35*/.getClimateServiceName())),format.raw/*55.59*/(""" editable" id = "url" data-name='url'>
-				<a href = """"),_display_(Seq[Any](/*56.17*/climateService/*56.31*/.getUrl())),format.raw/*56.40*/(""""><img src='"""),_display_(Seq[Any](/*56.53*/climateService/*56.67*/.getPhoto())),format.raw/*56.78*/("""' style="height: 100px; width: 100px" ></a> </span></td>
+				<a href = """"),_display_(Seq[Any](/*56.17*/{routes.ClimateServiceController.oneService(climateService.getUrl())})),format.raw/*56.86*/(""""><img src='"""),_display_(Seq[Any](/*56.99*/climateService/*56.113*/.getPhoto())),format.raw/*56.124*/("""' style="height: 100px; width: 100px" ></a> </span></td>
 				
 		<td><span class=""""),_display_(Seq[Any](/*58.21*/climateService/*58.35*/.getClimateServiceName())),format.raw/*58.59*/(""" editable" data-name='scenario'>
 				"""),_display_(Seq[Any](/*59.6*/climateService/*59.20*/.getScenario())),format.raw/*59.34*/(""" </span></td>
-				
+
 		<td><span class=""""),_display_(Seq[Any](/*61.21*/climateService/*61.35*/.getClimateServiceName())),format.raw/*61.59*/(""" editable" data-name='versionNo'>
-				"""),_display_(Seq[Any](/*62.6*/climateService/*62.20*/.getVersion())),format.raw/*62.33*/(""" </span></td>
+		"""),_display_(Seq[Any](/*62.4*/for(version <- climateService.getVerionList()) yield /*62.50*/{_display_(Seq[Any](format.raw/*62.51*/("""
+			<a href = """"),_display_(Seq[Any](/*63.16*/{routes.ClimateServiceController.oneService(climateService.findUrl(version))})),format.raw/*63.93*/("""">"""),_display_(Seq[Any](/*63.96*/version)),format.raw/*63.103*/("""</a><br>
+		""")))})),format.raw/*64.4*/("""
+		</span></td>
 				
-		<td><span class=""""),_display_(Seq[Any](/*64.21*/climateService/*64.35*/.getClimateServiceName())),format.raw/*64.59*/(""" editable" data-name='rootServiceId'>
-				"""),_display_(Seq[Any](/*65.6*/climateService/*65.20*/.getRootservice())),format.raw/*65.37*/(""" </span></td>
+		<td><span class=""""),_display_(Seq[Any](/*67.21*/climateService/*67.35*/.getClimateServiceName())),format.raw/*67.59*/(""" editable" data-name='rootServiceId'>
+				"""),_display_(Seq[Any](/*68.6*/climateService/*68.20*/.getRootservice())),format.raw/*68.37*/(""" </span></td>
 				
-		"""),_display_(Seq[Any](/*67.4*/if(true)/*67.12*/{_display_(Seq[Any](format.raw/*67.13*/(""" 
+		"""),_display_(Seq[Any](/*70.4*/if(true)/*70.12*/{_display_(Seq[Any](format.raw/*70.13*/(""" 
 			<td class="operation">
 				<input type="button" class="edit-btn btn btn-primary" value="Edit" 
-					data-pk='"""),_display_(Seq[Any](/*70.16*/climateService/*70.30*/.getClimateServiceName())),format.raw/*70.54*/("""'
-					data-url='"""),_display_(Seq[Any](/*71.17*/routes/*71.23*/.ClimateServiceController.editClimateService())),format.raw/*71.69*/("""' 
+					data-pk='"""),_display_(Seq[Any](/*73.16*/climateService/*73.30*/.getClimateServiceName())),format.raw/*73.54*/("""'
+					data-url='"""),_display_(Seq[Any](/*74.17*/routes/*74.23*/.ClimateServiceController.editClimateService())),format.raw/*74.69*/("""' 
 				>
-				"""),_display_(Seq[Any](/*73.6*/form(routes.ClimateServiceController.deleteClimateService())/*73.66*/{_display_(Seq[Any](format.raw/*73.67*/(""" 
+				"""),_display_(Seq[Any](/*76.6*/form(routes.ClimateServiceController.deleteClimateService())/*76.66*/{_display_(Seq[Any](format.raw/*76.67*/(""" 
 					<input
 						name="idHolder" class="hidden" type="hidden"
-						value=""""),_display_(Seq[Any](/*76.15*/climateService/*76.29*/.getId())),format.raw/*76.37*/(""""> 
+						value=""""),_display_(Seq[Any](/*79.15*/climateService/*79.29*/.getId())),format.raw/*79.37*/(""""> 
 					<input
 						type="submit" class="btn btn-danger delete-btn span2" value="Delete"
 						onclick="return confirm('Are you sure you want to delete this item?')">
-				""")))})),format.raw/*80.6*/("""
+				""")))})),format.raw/*83.6*/("""
 			</td> 
-		""")))})),format.raw/*82.4*/("""
+		""")))})),format.raw/*85.4*/("""
 	</tr>
-	""")))})),format.raw/*84.3*/("""
+	""")))})),format.raw/*87.3*/("""
     </table>
  
     
-     """),_display_(Seq[Any](/*88.7*/if(true)/*88.15*/{_display_(Seq[Any](format.raw/*88.16*/("""
+     """),_display_(Seq[Any](/*91.7*/if(true)/*91.15*/{_display_(Seq[Any](format.raw/*91.16*/("""
 		    
-	    """),_display_(Seq[Any](/*90.7*/form(routes.ClimateServiceController.downloadClimateService(), 'class -> "form-horizontal", 'role -> "form")/*90.115*/ {_display_(Seq[Any](format.raw/*90.117*/("""
+	    """),_display_(Seq[Any](/*93.7*/form(routes.ClimateServiceController.downloadClimateService(), 'class -> "form-horizontal", 'role -> "form")/*93.115*/ {_display_(Seq[Any](format.raw/*93.117*/("""
 	
 	        <button type="submit" name="action" value="download">Download</button>
-	    """)))})),format.raw/*93.7*/("""
-    """)))})),format.raw/*94.6*/("""
-""")))})),format.raw/*95.2*/("""
+	    """)))})),format.raw/*96.7*/("""
+    """)))})),format.raw/*97.6*/("""
+""")))})),format.raw/*98.2*/("""
 """))}
     }
     
@@ -148,11 +151,11 @@ Seq[Any](format.raw/*18.111*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Nov 05 04:17:49 EST 2015
-                    SOURCE: C:/Users/Joe/Desktop/activator and projects/ApacheCMDA-Frontend/app/views/climate/mostRecentlyAddedServices.scala.html
-                    HASH: ef54e25d4b0d9a0bf65bb9a2f5be3c5b69da6e91
-                    MATRIX: 3290->1222|3494->1356|3509->1363|3594->1367|3647->1384|3662->1390|3724->1430|3828->1506|3857->1507|3917->1540|3945->1541|4003->1331|4034->1353|4063->1558|4103->1563|4145->1596|4185->1598|4227->1605|4264->1620|4318->1638|4342->1653|4371->1660|4772->2026|4789->2034|4828->2035|4909->2085|4957->2098|5011->2136|5050->2137|5113->2164|5136->2178|5167->2187|5206->2190|5229->2204|5275->2228|5344->2261|5367->2275|5413->2299|5486->2337|5509->2351|5544->2364|5619->2403|5642->2417|5688->2441|5780->2497|5803->2511|5834->2520|5883->2533|5906->2547|5939->2558|6059->2642|6082->2656|6128->2680|6202->2719|6225->2733|6261->2747|6338->2788|6361->2802|6407->2826|6482->2866|6505->2880|6540->2893|6617->2934|6640->2948|6686->2972|6765->3016|6788->3030|6827->3047|6886->3071|6903->3079|6942->3080|7096->3198|7119->3212|7165->3236|7220->3255|7235->3261|7303->3307|7354->3323|7423->3383|7462->3384|7580->3466|7603->3480|7633->3488|7842->3666|7889->3682|7932->3694|7998->3725|8015->3733|8054->3734|8105->3750|8223->3858|8264->3860|8387->3952|8425->3959|8459->3962
-                    LINES: 56->18|59->22|59->22|61->22|62->23|62->23|62->23|64->25|64->25|66->27|66->27|69->18|71->21|72->29|74->31|74->31|74->31|76->33|76->33|78->35|78->35|78->35|87->44|87->44|87->44|89->46|91->48|91->48|91->48|93->50|93->50|93->50|93->50|93->50|93->50|95->52|95->52|95->52|96->53|96->53|96->53|98->55|98->55|98->55|99->56|99->56|99->56|99->56|99->56|99->56|101->58|101->58|101->58|102->59|102->59|102->59|104->61|104->61|104->61|105->62|105->62|105->62|107->64|107->64|107->64|108->65|108->65|108->65|110->67|110->67|110->67|113->70|113->70|113->70|114->71|114->71|114->71|116->73|116->73|116->73|119->76|119->76|119->76|123->80|125->82|127->84|131->88|131->88|131->88|133->90|133->90|133->90|136->93|137->94|138->95
+                    DATE: Wed Nov 18 15:27:33 EST 2015
+                    SOURCE: /Users/jiyushi1/Desktop/18655/team_proj_sprint2/ApacheCMDA-Frontend/app/views/climate/mostRecentlyAddedServices.scala.html
+                    HASH: 383425b06457688ccc2b965359aa0b17c97e9e0f
+                    MATRIX: 3260->1205|3463->1335|3478->1342|3563->1346|3615->1362|3630->1368|3692->1408|3794->1482|3823->1483|3881->1514|3909->1515|3965->1314|3994->1333|4022->1530|4060->1533|4102->1566|4142->1568|4182->1573|4219->1588|4271->1604|4295->1619|4324->1626|4716->1983|4733->1991|4772->1992|4851->2040|4897->2051|4951->2089|4990->2090|5051->2115|5142->2184|5181->2187|5205->2201|5252->2225|5319->2256|5342->2270|5388->2294|5460->2331|5483->2345|5518->2358|5591->2395|5614->2409|5660->2433|5751->2488|5842->2557|5891->2570|5915->2584|5949->2595|6067->2677|6090->2691|6136->2715|6209->2753|6232->2767|6268->2781|6339->2816|6362->2830|6408->2854|6480->2891|6542->2937|6581->2938|6633->2954|6732->3031|6771->3034|6801->3041|6844->3053|6921->3094|6944->3108|6990->3132|7068->3175|7091->3189|7130->3206|7187->3228|7204->3236|7243->3237|7394->3352|7417->3366|7463->3390|7517->3408|7532->3414|7600->3460|7649->3474|7718->3534|7757->3535|7872->3614|7895->3628|7925->3636|8130->3810|8175->3824|8216->3834|8278->3861|8295->3869|8334->3870|8383->3884|8501->3992|8542->3994|8662->4083|8699->4089|8732->4091
+                    LINES: 56->18|59->22|59->22|61->22|62->23|62->23|62->23|64->25|64->25|66->27|66->27|69->18|71->21|72->29|74->31|74->31|74->31|76->33|76->33|78->35|78->35|78->35|87->44|87->44|87->44|89->46|91->48|91->48|91->48|93->50|93->50|93->50|93->50|93->50|95->52|95->52|95->52|96->53|96->53|96->53|98->55|98->55|98->55|99->56|99->56|99->56|99->56|99->56|101->58|101->58|101->58|102->59|102->59|102->59|104->61|104->61|104->61|105->62|105->62|105->62|106->63|106->63|106->63|106->63|107->64|110->67|110->67|110->67|111->68|111->68|111->68|113->70|113->70|113->70|116->73|116->73|116->73|117->74|117->74|117->74|119->76|119->76|119->76|122->79|122->79|122->79|126->83|128->85|130->87|134->91|134->91|134->91|136->93|136->93|136->93|139->96|140->97|141->98
                     -- GENERATED --
                 */
             

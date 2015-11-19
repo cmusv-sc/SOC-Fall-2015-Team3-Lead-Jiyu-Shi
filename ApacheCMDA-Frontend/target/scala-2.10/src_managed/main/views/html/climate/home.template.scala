@@ -54,18 +54,24 @@ object home extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,F
  * limitations under the License.											   *
  *******************************************************************************/
     def apply/*18.2*/(email: String, vfile: String, dataset: String, climateServices: List[metadata.ClimateService]):play.api.templates.HtmlFormat.Appendable = {
-        _display_ {import helper._ 
+        _display_ {import helper._
 
 
 Seq[Any](format.raw/*18.97*/("""
 
 """),format.raw/*21.1*/("""
 """),_display_(Seq[Any](/*22.2*/main("Home")/*22.14*/ {_display_(Seq[Any](format.raw/*22.16*/("""
-
 <div class="jumbotron">
+	"""),_display_(Seq[Any](/*24.3*/if(email!= null)/*24.19*/{_display_(Seq[Any](format.raw/*24.20*/("""
+		<div class="alert alert-success fade in">
+			<strong>You have been registered successfully!</strong>
+			<button class="btn btn-success pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+		</div>
+	""")))})),format.raw/*29.3*/("""
 	<p> Our website is to provide you a quick and easy way to find the
 		<b>Climate Services</b> you want.
 	</p>
+
 	<div class="row">
 		<div class="col-lg-5">
 			<br>
@@ -74,29 +80,38 @@ Seq[Any](format.raw/*18.97*/("""
 		</div>
 		<div class="col-lg-7">
 			<h2>Climate Service List</h2>
-			"""),_display_(Seq[Any](/*36.5*/for(climateService <- climateServices) yield /*36.43*/{_display_(Seq[Any](format.raw/*36.44*/("""
+			"""),_display_(Seq[Any](/*42.5*/for(climateService <- climateServices) yield /*42.43*/{_display_(Seq[Any](format.raw/*42.44*/("""
 				<div class="row">
-					<div class="col-md-7"><a href = """"),_display_(Seq[Any](/*38.40*/{routes.ClimateServiceController.oneService(climateService.getUrl())})),format.raw/*38.109*/(""""><font size="3">"""),_display_(Seq[Any](/*38.127*/climateService/*38.141*/.getClimateServiceName())),format.raw/*38.165*/("""</a></font></div>
-					<div class="col-md-4"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
-					</span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
-					</span><span class="glyphicon glyphicon-star-empty"></span>
-					</div>
-				"""),format.raw/*43.93*/("""</div>
-			""")))})),format.raw/*44.5*/("""
-			
-			<!-- """),_display_(Seq[Any](/*46.10*/if(!session.get("username"))/*46.38*/{_display_(Seq[Any](format.raw/*46.39*/(""" -->
-			
+					<div class="col-md-7"><a href = """"),_display_(Seq[Any](/*44.40*/{routes.ClimateServiceController.oneService(climateService.getUrl())})),format.raw/*44.109*/(""""><font size="3">"""),_display_(Seq[Any](/*44.127*/climateService/*44.141*/.getClimateServiceName())),format.raw/*44.165*/("""</a></font></div>
+					<span><div class="col-md-3 col-md-offset-2" ><input value ="3.7" class="rating-input" data-size="xs" type="number" readonly/></div></span>
+				</div>
+			""")))})),format.raw/*47.5*/("""
+
+			<!-- """),_display_(Seq[Any](/*49.10*/if(!session.get("username"))/*49.38*/{_display_(Seq[Any](format.raw/*49.39*/(""" -->
+
 			<p>
-				"""),_display_(Seq[Any](/*49.6*/if(false)/*49.15*/{_display_(Seq[Any](format.raw/*49.16*/(""" <a class="btn btn-primary" href="climate/register"
-					role="button">Register &raquo;</a> """)))})),format.raw/*50.42*/("""
+				"""),_display_(Seq[Any](/*52.6*/if(false)/*52.15*/{_display_(Seq[Any](format.raw/*52.16*/(""" <a class="btn btn-primary" href="climate/register"
+					role="button">Register &raquo;</a> """)))})),format.raw/*53.42*/("""
 			</p>
-			<!-- """)))})),format.raw/*52.10*/(""" -->
+			<!-- """)))})),format.raw/*55.10*/(""" -->
 		</div>
 	</div>
 </div>
-
-""")))})),format.raw/*57.2*/("""
-"""))}
+	<script>
+		jQuery(document).ready(function () """),format.raw/*60.38*/("""{"""),format.raw/*60.39*/("""
+			$('.rating-input').rating("""),format.raw/*61.30*/("""{"""),format.raw/*61.31*/("""
+				min: 0,
+				max: 5,
+				step: 0.1,
+				size: 'xs',
+				showClear: false,
+				showCaption: false,
+				hoverEnabled:false,
+				hoverChangeStars: false
+			"""),format.raw/*70.4*/("""}"""),format.raw/*70.5*/(""");
+	"""),format.raw/*71.2*/("""}"""),format.raw/*71.3*/(""");
+	</script>
+""")))})))}
     }
     
     def render(email:String,vfile:String,dataset:String,climateServices:List[metadata.ClimateService]): play.api.templates.HtmlFormat.Appendable = apply(email,vfile,dataset,climateServices)
@@ -108,11 +123,11 @@ Seq[Any](format.raw/*18.97*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 06 01:51:33 EST 2015
-                    SOURCE: C:/Users/Joe/Desktop/activator and projects/ApacheCMDA-Frontend/app/views/climate/home.scala.html
-                    HASH: 654ceaa3633df3dcbd523844672844880b2e73b1
-                    MATRIX: 3250->1222|3458->1317|3489->1340|3527->1343|3548->1355|3588->1357|3973->1707|4027->1745|4066->1746|4166->1810|4258->1879|4313->1897|4337->1911|4384->1935|4727->2338|4770->2350|4822->2366|4859->2394|4898->2395|4957->2419|4975->2428|5014->2429|5140->2523|5192->2543|5259->2579
-                    LINES: 56->18|60->18|62->21|63->22|63->22|63->22|77->36|77->36|77->36|79->38|79->38|79->38|79->38|79->38|84->43|85->44|87->46|87->46|87->46|90->49|90->49|90->49|91->50|93->52|98->57
+                    DATE: Tue Nov 17 21:34:02 EST 2015
+                    SOURCE: /Users/jiyushi1/Desktop/18655/team_proj_sprint2/ApacheCMDA-Frontend/app/views/climate/home.scala.html
+                    HASH: 76f27304189c7904a6f3f867e21794a97f225af1
+                    MATRIX: 3220->1205|3426->1300|3455->1319|3492->1321|3513->1333|3553->1335|3615->1362|3640->1378|3679->1379|3927->1596|4274->1908|4328->1946|4367->1947|4465->2009|4557->2078|4612->2096|4636->2110|4683->2134|4891->2311|4938->2322|4975->2350|5014->2351|5067->2369|5085->2378|5124->2379|5249->2472|5299->2490|5403->2566|5432->2567|5490->2597|5519->2598|5703->2755|5731->2756|5762->2760|5790->2761
+                    LINES: 56->18|60->18|62->21|63->22|63->22|63->22|65->24|65->24|65->24|70->29|83->42|83->42|83->42|85->44|85->44|85->44|85->44|85->44|88->47|90->49|90->49|90->49|93->52|93->52|93->52|94->53|96->55|101->60|101->60|102->61|102->61|111->70|111->70|112->71|112->71
                     -- GENERATED --
                 */
             

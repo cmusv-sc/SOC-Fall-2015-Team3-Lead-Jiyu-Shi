@@ -84,39 +84,43 @@ Seq[Any](format.raw/*18.62*/("""
 	rel="stylesheet" />
 <link href='"""),_display_(Seq[Any](/*44.14*/routes/*44.20*/.Assets.at("stylesheets/style.css"))),format.raw/*44.55*/("""'
 	rel="stylesheet" />
+	<link rel="stylesheet"  href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href='"""),_display_(Seq[Any](/*48.32*/routes/*48.38*/.Assets.at("stylesheets/star-rating.css"))),format.raw/*48.79*/("""' media="all" rel="stylesheet" type="text/css"/>
 
-<script src='"""),_display_(Seq[Any](/*47.15*/routes/*47.21*/.Assets.at("javascripts/jquery-1.9.0.min.js"))),format.raw/*47.66*/("""'
-	type="text/javascript"></script>	
-<script src='"""),_display_(Seq[Any](/*49.15*/routes/*49.21*/.Assets.at("javascripts/bootstrap.min.js"))),format.raw/*49.63*/("""'
+<script src='"""),_display_(Seq[Any](/*50.15*/routes/*50.21*/.Assets.at("javascripts/jquery-1.9.0.min.js"))),format.raw/*50.66*/("""'
 	type="text/javascript"></script>
-<script type='text/javascript' src='"""),_display_(Seq[Any](/*51.38*/routes/*51.44*/.Assets.at("javascripts/lastLoader.js"))),format.raw/*51.83*/("""'></script>
-<script type='text/javascript' src='"""),_display_(Seq[Any](/*52.38*/routes/*52.44*/.Assets.at("javascripts/jquery.metadata.js"))),format.raw/*52.88*/("""'></script>	
-<script type='text/javascript' src='"""),_display_(Seq[Any](/*53.38*/routes/*53.44*/.Assets.at("javascripts/jquery.tablesorter.js"))),format.raw/*53.91*/("""'></script>
+<script src='"""),_display_(Seq[Any](/*52.15*/routes/*52.21*/.Assets.at("javascripts/bootstrap.min.js"))),format.raw/*52.63*/("""'
+	type="text/javascript"></script>
+<script type='text/javascript' src='"""),_display_(Seq[Any](/*54.38*/routes/*54.44*/.Assets.at("javascripts/lastLoader.js"))),format.raw/*54.83*/("""'></script>
+<script type='text/javascript' src='"""),_display_(Seq[Any](/*55.38*/routes/*55.44*/.Assets.at("javascripts/jquery.metadata.js"))),format.raw/*55.88*/("""'></script>
+<script type='text/javascript' src='"""),_display_(Seq[Any](/*56.38*/routes/*56.44*/.Assets.at("javascripts/jquery.tablesorter.js"))),format.raw/*56.91*/("""'></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type='text/javascript' src='"""),_display_(Seq[Any](/*59.38*/routes/*59.44*/.Assets.at("javascripts/jstree.js"))),format.raw/*59.79*/("""'></script>
+<script type='text/javascript' src='"""),_display_(Seq[Any](/*60.38*/routes/*60.44*/.Assets.at("javascripts/keyword_tree.js"))),format.raw/*60.85*/("""'></script>
+	<script src='"""),_display_(Seq[Any](/*61.16*/routes/*61.22*/.Assets.at("javascripts/star-rating.js"))),format.raw/*61.62*/("""' type="text/javascript"></script>
+
+<script src='"""),_display_(Seq[Any](/*63.15*/routes/*63.21*/.Assets.at("javascripts/bootstrap-editable.min.js"))),format.raw/*63.72*/("""'></script>
 
 
-<script type='text/javascript' src='"""),_display_(Seq[Any](/*56.38*/routes/*56.44*/.Assets.at("javascripts/jstree.js"))),format.raw/*56.79*/("""'></script>
-<script type='text/javascript' src='"""),_display_(Seq[Any](/*57.38*/routes/*57.44*/.Assets.at("javascripts/keyword_tree.js"))),format.raw/*57.85*/("""'></script>
-
-<script src='"""),_display_(Seq[Any](/*59.15*/routes/*59.21*/.Assets.at("javascripts/bootstrap-editable.min.js"))),format.raw/*59.72*/("""'></script>
 
 
 
 
 
 
-
-
-"""),_display_(Seq[Any](/*68.2*/moreScripts)),format.raw/*68.13*/("""
+"""),_display_(Seq[Any](/*72.2*/moreScripts)),format.raw/*72.13*/("""
 </head>
 
 <body>
-	"""),_display_(Seq[Any](/*72.3*/header())),format.raw/*72.11*/("""
+	"""),_display_(Seq[Any](/*76.3*/header())),format.raw/*76.11*/("""
 	
 
 
 	<div class="container">
 
-		"""),_display_(Seq[Any](/*78.4*/content)),format.raw/*78.11*/("""
+		"""),_display_(Seq[Any](/*82.4*/content)),format.raw/*82.11*/("""
 
 	</div>
 	
@@ -144,11 +148,11 @@ Seq[Any](format.raw/*18.62*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 06 16:44:19 EST 2015
-                    SOURCE: C:/Users/Joe/Desktop/activator and projects/ApacheCMDA-Frontend/app/views/climate/main.scala.html
-                    HASH: ee9e1472b01da83ff51b2cae384ed3bed91d81b4
-                    MATRIX: 3216->1222|3371->1282|3456->1332|3483->1337|3713->1532|3728->1538|3789->1577|3860->1613|3875->1619|3943->1665|4014->1701|4029->1707|4087->1743|4173->1794|4188->1800|4244->1834|4335->1890|4350->1896|4404->1928|4457->1945|4472->1951|4542->1999|4616->2037|4631->2043|4707->2097|4781->2135|4796->2141|4853->2176|4930->2217|4945->2223|5012->2268|5101->2321|5116->2327|5180->2369|5291->2444|5306->2450|5367->2489|5453->2539|5468->2545|5534->2589|5621->2640|5636->2646|5705->2693|5795->2747|5810->2753|5867->2788|5953->2838|5968->2844|6031->2885|6096->2914|6111->2920|6184->2971|6249->3001|6282->3012|6340->3035|6370->3043|6445->3083|6474->3090
-                    LINES: 56->18|59->18|66->25|66->25|72->31|72->31|72->31|74->33|74->33|74->33|76->35|76->35|76->35|78->37|78->37|78->37|80->39|80->39|80->39|81->40|81->40|81->40|83->42|83->42|83->42|85->44|85->44|85->44|88->47|88->47|88->47|90->49|90->49|90->49|92->51|92->51|92->51|93->52|93->52|93->52|94->53|94->53|94->53|97->56|97->56|97->56|98->57|98->57|98->57|100->59|100->59|100->59|109->68|109->68|113->72|113->72|119->78|119->78
+                    DATE: Tue Nov 17 21:34:02 EST 2015
+                    SOURCE: /Users/jiyushi1/Desktop/18655/team_proj_sprint2/ApacheCMDA-Frontend/app/views/climate/main.scala.html
+                    HASH: 4749a4a7a70f4c3e8306adbe0628464a7fde057d
+                    MATRIX: 3186->1205|3341->1265|3419->1308|3446->1313|3670->1502|3685->1508|3746->1547|3815->1581|3830->1587|3898->1633|3967->1667|3982->1673|4040->1709|4124->1758|4139->1764|4195->1798|4284->1852|4299->1858|4353->1890|4405->1906|4420->1912|4490->1960|4562->1996|4577->2002|4653->2056|4725->2092|4740->2098|4797->2133|5113->2413|5128->2419|5191->2460|5291->2524|5306->2530|5373->2575|5459->2625|5474->2631|5538->2673|5647->2746|5662->2752|5723->2791|5808->2840|5823->2846|5889->2890|5974->2939|5989->2945|6058->2992|6233->3131|6248->3137|6305->3172|6390->3221|6405->3227|6468->3268|6531->3295|6546->3301|6608->3341|6694->3391|6709->3397|6782->3448|6838->3469|6871->3480|6925->3499|6955->3507|7024->3541|7053->3548
+                    LINES: 56->18|59->18|66->25|66->25|72->31|72->31|72->31|74->33|74->33|74->33|76->35|76->35|76->35|78->37|78->37|78->37|80->39|80->39|80->39|81->40|81->40|81->40|83->42|83->42|83->42|85->44|85->44|85->44|89->48|89->48|89->48|91->50|91->50|91->50|93->52|93->52|93->52|95->54|95->54|95->54|96->55|96->55|96->55|97->56|97->56|97->56|100->59|100->59|100->59|101->60|101->60|101->60|102->61|102->61|102->61|104->63|104->63|104->63|113->72|113->72|117->76|117->76|123->82|123->82
                     -- GENERATED --
                 */
             

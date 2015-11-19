@@ -92,10 +92,10 @@ In these videos, we will help you learn the available web services, how to use t
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Nov 05 04:17:50 EST 2015
-                    SOURCE: C:/Users/Joe/Desktop/activator and projects/ApacheCMDA-Frontend/app/views/climate/tutorial.scala.html
-                    HASH: 17133a964c09dab644e83e220e5fa8f311370675
-                    MATRIX: 3300->1222|3325->1238|3365->1240
+                    DATE: Tue Nov 17 21:34:03 EST 2015
+                    SOURCE: /Users/jiyushi1/Desktop/18655/team_proj_sprint2/ApacheCMDA-Frontend/app/views/climate/tutorial.scala.html
+                    HASH: 1e7bfca2424dd940cf9b13846237a72ca8362f99
+                    MATRIX: 3270->1205|3295->1221|3335->1223
                     LINES: 59->18|59->18|59->18
                     -- GENERATED --
                 */

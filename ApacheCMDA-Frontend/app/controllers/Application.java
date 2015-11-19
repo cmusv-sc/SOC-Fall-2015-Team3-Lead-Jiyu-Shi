@@ -20,37 +20,27 @@ package controllers;
 import java.util.Iterator;
 import java.util.Map.Entry;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import models.User;
+import models.UserService;
 import models.metadata.ClimateService;
+import play.libs.Json;
 import play.mvc.*;
+import util.Constants;
 import views.html.*;
 import play.data.*;
 import views.html.climate.home;
 import views.html.climate.signUp;
+
+
 import static play.data.Form.form;
 
 public class Application extends Controller {
 
+    final static UserService userService = new UserService();
+
     public static Result index() {
         return ok(index.render(""));
-    }
-
-    public static class Account {
-
-        public String email;
-        public String password;
-        public String username;
-        public String validate() {
-            return null;
-        }
-        public String getEmail(){
-            return email;
-        }
-        public String getPassword(){
-            return password;
-        }
-        public String getUsername(){
-            return username;
-        }
     }
 
     public static void flashMsg(JsonNode jsonNode){
@@ -63,15 +53,30 @@ public class Application extends Controller {
 
     public static Result sign() {
         return ok(
-                signUp.render(form(Account.class))
+                signUp.render(form(User.class))
         );
     }
 
     public static Result authenticate() {
-        Form<Account> loginForm = form(Account.class).bindFromRequest();
-        System.out.println(loginForm.get().email);
-        System.out.println(loginForm.get().password);
-        return ok(home.render(loginForm.get().email,loginForm.get().password,loginForm.get().username, ClimateService.all()));
+        Form<User> loginForm = form(User.class).bindFromRequest();
+
+        ObjectNode jsonData = Json.newObject();
+
+
+        System.out.println("email = "+ loginForm.get().getEmail());
+        System.out.println("password = "+ loginForm.get().getPassword());
+        System.out.println("username = "+loginForm.get().getUserName());
+        System.out.println("id = "+loginForm.get().getId());
+        System.out.println("first = "+loginForm.get().getFirstName());
+        System.out.println("last = "+loginForm.get().getLastName());
+//        if (userService.register(loginForm.get()).compareTo("failure") == 0 ){
+//            System.out.println("User ID has been used.");
+//            return  ok(signUp.render(form(User.class)));
+//        }else if (userService.register(loginForm.get()).compareTo("success") == 0 ){
+            return ok(home.render(loginForm.get().getEmail(),loginForm.get().getPassword()
+                    ,loginForm.get().getUserName(), ClimateService.all()));
+//        }
+
     }
 
 }

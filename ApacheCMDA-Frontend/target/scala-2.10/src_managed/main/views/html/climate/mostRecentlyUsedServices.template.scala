@@ -89,53 +89,57 @@ Seq[Any](format.raw/*18.111*/("""
 	     """)))})),format.raw/*46.8*/(""" 
 	</tr>
 	"""),_display_(Seq[Any](/*48.3*/for(climateService <- climateServices) yield /*48.41*/{_display_(Seq[Any](format.raw/*48.42*/("""
-	<tr>
-		<td><a href = """"),_display_(Seq[Any](/*50.19*/climateService/*50.33*/.getUrl())),format.raw/*50.42*/("""">"""),_display_(Seq[Any](/*50.45*/climateService/*50.59*/.getClimateServiceName())),format.raw/*50.83*/("""</a></td>
 
-		<td><span class=""""),_display_(Seq[Any](/*52.21*/climateService/*52.35*/.getClimateServiceName())),format.raw/*52.59*/(""" editable" data-name='purpose'>
-				"""),_display_(Seq[Any](/*53.6*/climateService/*53.20*/.getPurpose())),format.raw/*53.33*/(""" </span></td>
+	<tr>
+		<td><a href = """"),_display_(Seq[Any](/*51.19*/{routes.ClimateServiceController.oneService(climateService.getUrl())})),format.raw/*51.88*/("""">"""),_display_(Seq[Any](/*51.91*/climateService/*51.105*/.getClimateServiceName())),format.raw/*51.129*/("""</a></td>
+
+		<td><span class=""""),_display_(Seq[Any](/*53.21*/climateService/*53.35*/.getClimateServiceName())),format.raw/*53.59*/(""" editable" data-name='purpose'>
+				"""),_display_(Seq[Any](/*54.6*/climateService/*54.20*/.getPurpose())),format.raw/*54.33*/(""" </span></td>
 		
-		<td><span class=""""),_display_(Seq[Any](/*55.21*/climateService/*55.35*/.getClimateServiceName())),format.raw/*55.59*/(""" editable" id = "url" data-name='url'>
-				<a href = """"),_display_(Seq[Any](/*56.17*/climateService/*56.31*/.getUrl())),format.raw/*56.40*/(""""><img src='"""),_display_(Seq[Any](/*56.53*/climateService/*56.67*/.getPhoto())),format.raw/*56.78*/("""' style="height: 100px; width: 100px" ></a> </span></td>
+		<td><span class=""""),_display_(Seq[Any](/*56.21*/climateService/*56.35*/.getClimateServiceName())),format.raw/*56.59*/(""" editable" id = "url" data-name='url'>
+				<a href = """"),_display_(Seq[Any](/*57.17*/{routes.ClimateServiceController.oneService(climateService.getUrl())})),format.raw/*57.86*/(""""><img src='"""),_display_(Seq[Any](/*57.99*/climateService/*57.113*/.getPhoto())),format.raw/*57.124*/("""' style="height: 100px; width: 100px" ></a> </span></td>
 				
-		<td><span class=""""),_display_(Seq[Any](/*58.21*/climateService/*58.35*/.getClimateServiceName())),format.raw/*58.59*/(""" editable" data-name='scenario'>
-				"""),_display_(Seq[Any](/*59.6*/climateService/*59.20*/.getScenario())),format.raw/*59.34*/(""" </span></td>
+		<td><span class=""""),_display_(Seq[Any](/*59.21*/climateService/*59.35*/.getClimateServiceName())),format.raw/*59.59*/(""" editable" data-name='scenario'>
+				"""),_display_(Seq[Any](/*60.6*/climateService/*60.20*/.getScenario())),format.raw/*60.34*/(""" </span></td>
+
+		<td><span class=""""),_display_(Seq[Any](/*62.21*/climateService/*62.35*/.getClimateServiceName())),format.raw/*62.59*/(""" editable" data-name='versionNo'>
+		"""),_display_(Seq[Any](/*63.4*/for(version <- climateService.getVerionList()) yield /*63.50*/{_display_(Seq[Any](format.raw/*63.51*/("""
+			<a href = """"),_display_(Seq[Any](/*64.16*/{routes.ClimateServiceController.oneService(climateService.findUrl(version))})),format.raw/*64.93*/("""">"""),_display_(Seq[Any](/*64.96*/version)),format.raw/*64.103*/("""</a><br>
+		""")))})),format.raw/*65.4*/("""
+		</span></td>
 				
-		<td><span class=""""),_display_(Seq[Any](/*61.21*/climateService/*61.35*/.getClimateServiceName())),format.raw/*61.59*/(""" editable" data-name='versionNo'>
-				"""),_display_(Seq[Any](/*62.6*/climateService/*62.20*/.getVersion())),format.raw/*62.33*/(""" </span></td>
+		<td><span class=""""),_display_(Seq[Any](/*68.21*/climateService/*68.35*/.getClimateServiceName())),format.raw/*68.59*/(""" editable" data-name='rootServiceId'>
+				"""),_display_(Seq[Any](/*69.6*/climateService/*69.20*/.getRootservice())),format.raw/*69.37*/(""" </span></td>
 				
-		<td><span class=""""),_display_(Seq[Any](/*64.21*/climateService/*64.35*/.getClimateServiceName())),format.raw/*64.59*/(""" editable" data-name='rootServiceId'>
-				"""),_display_(Seq[Any](/*65.6*/climateService/*65.20*/.getRootservice())),format.raw/*65.37*/(""" </span></td>
-				
-		"""),_display_(Seq[Any](/*67.4*/if(true)/*67.12*/{_display_(Seq[Any](format.raw/*67.13*/(""" 
+		"""),_display_(Seq[Any](/*71.4*/if(true)/*71.12*/{_display_(Seq[Any](format.raw/*71.13*/(""" 
 			<td class="operation">
 				<input type="button" class="edit-btn btn btn-primary" value="Edit" 
-					data-pk='"""),_display_(Seq[Any](/*70.16*/climateService/*70.30*/.getClimateServiceName())),format.raw/*70.54*/("""'
-					data-url='"""),_display_(Seq[Any](/*71.17*/routes/*71.23*/.ClimateServiceController.editClimateService())),format.raw/*71.69*/("""' 
+					data-pk='"""),_display_(Seq[Any](/*74.16*/climateService/*74.30*/.getClimateServiceName())),format.raw/*74.54*/("""'
+					data-url='"""),_display_(Seq[Any](/*75.17*/routes/*75.23*/.ClimateServiceController.editClimateService())),format.raw/*75.69*/("""' 
 				>
-				"""),_display_(Seq[Any](/*73.6*/form(routes.ClimateServiceController.deleteClimateService())/*73.66*/{_display_(Seq[Any](format.raw/*73.67*/(""" 
+				"""),_display_(Seq[Any](/*77.6*/form(routes.ClimateServiceController.deleteClimateService())/*77.66*/{_display_(Seq[Any](format.raw/*77.67*/(""" 
 					<input
 						name="idHolder" class="hidden" type="hidden"
-						value=""""),_display_(Seq[Any](/*76.15*/climateService/*76.29*/.getId())),format.raw/*76.37*/(""""> 
+						value=""""),_display_(Seq[Any](/*80.15*/climateService/*80.29*/.getId())),format.raw/*80.37*/(""""> 
 					<input
 						type="submit" class="btn btn-danger delete-btn span2" value="Delete"
 						onclick="return confirm('Are you sure you want to delete this item?')">
-				""")))})),format.raw/*80.6*/("""
+				""")))})),format.raw/*84.6*/("""
 			</td> 
-		""")))})),format.raw/*82.4*/("""
+		""")))})),format.raw/*86.4*/("""
 	</tr>
-	""")))})),format.raw/*84.3*/("""
+	""")))})),format.raw/*88.3*/("""
     </table>
  
     
-     """),_display_(Seq[Any](/*88.7*/if(true)/*88.15*/{_display_(Seq[Any](format.raw/*88.16*/("""
+     """),_display_(Seq[Any](/*92.7*/if(true)/*92.15*/{_display_(Seq[Any](format.raw/*92.16*/("""
 		    
-	    """),_display_(Seq[Any](/*90.7*/form(routes.ClimateServiceController.downloadClimateService(), 'class -> "form-horizontal", 'role -> "form")/*90.115*/ {_display_(Seq[Any](format.raw/*90.117*/("""
+	    """),_display_(Seq[Any](/*94.7*/form(routes.ClimateServiceController.downloadClimateService(), 'class -> "form-horizontal", 'role -> "form")/*94.115*/ {_display_(Seq[Any](format.raw/*94.117*/("""
 	
 	        <button type="submit" name="action" value="download">Download</button>
-	    """)))})),format.raw/*93.7*/("""
-    """)))})),format.raw/*94.6*/("""
-""")))})),format.raw/*95.2*/("""
+	    """)))})),format.raw/*97.7*/("""
+    """)))})),format.raw/*98.6*/("""
+""")))})),format.raw/*99.2*/("""
 """))}
     }
     
@@ -148,11 +152,11 @@ Seq[Any](format.raw/*18.111*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Nov 05 04:17:49 EST 2015
-                    SOURCE: C:/Users/Joe/Desktop/activator and projects/ApacheCMDA-Frontend/app/views/climate/mostRecentlyUsedServices.scala.html
-                    HASH: 2c49775b38b94b67784475eb1af1a946a448451d
-                    MATRIX: 3289->1222|3493->1356|3508->1363|3593->1367|3646->1384|3661->1390|3723->1430|3827->1506|3856->1507|3916->1540|3944->1541|4002->1331|4033->1353|4062->1558|4102->1563|4144->1596|4184->1598|4226->1605|4263->1620|4317->1638|4341->1653|4370->1660|4770->2025|4787->2033|4826->2034|4907->2084|4955->2097|5009->2135|5048->2136|5111->2163|5134->2177|5165->2186|5204->2189|5227->2203|5273->2227|5342->2260|5365->2274|5411->2298|5484->2336|5507->2350|5542->2363|5617->2402|5640->2416|5686->2440|5778->2496|5801->2510|5832->2519|5881->2532|5904->2546|5937->2557|6057->2641|6080->2655|6126->2679|6200->2718|6223->2732|6259->2746|6336->2787|6359->2801|6405->2825|6480->2865|6503->2879|6538->2892|6615->2933|6638->2947|6684->2971|6763->3015|6786->3029|6825->3046|6884->3070|6901->3078|6940->3079|7094->3197|7117->3211|7163->3235|7218->3254|7233->3260|7301->3306|7352->3322|7421->3382|7460->3383|7578->3465|7601->3479|7631->3487|7840->3665|7887->3681|7930->3693|7996->3724|8013->3732|8052->3733|8103->3749|8221->3857|8262->3859|8385->3951|8423->3958|8457->3961
-                    LINES: 56->18|59->22|59->22|61->22|62->23|62->23|62->23|64->25|64->25|66->27|66->27|69->18|71->21|72->29|74->31|74->31|74->31|76->33|76->33|78->35|78->35|78->35|87->44|87->44|87->44|89->46|91->48|91->48|91->48|93->50|93->50|93->50|93->50|93->50|93->50|95->52|95->52|95->52|96->53|96->53|96->53|98->55|98->55|98->55|99->56|99->56|99->56|99->56|99->56|99->56|101->58|101->58|101->58|102->59|102->59|102->59|104->61|104->61|104->61|105->62|105->62|105->62|107->64|107->64|107->64|108->65|108->65|108->65|110->67|110->67|110->67|113->70|113->70|113->70|114->71|114->71|114->71|116->73|116->73|116->73|119->76|119->76|119->76|123->80|125->82|127->84|131->88|131->88|131->88|133->90|133->90|133->90|136->93|137->94|138->95
+                    DATE: Wed Nov 18 15:27:33 EST 2015
+                    SOURCE: /Users/jiyushi1/Desktop/18655/team_proj_sprint2/ApacheCMDA-Frontend/app/views/climate/mostRecentlyUsedServices.scala.html
+                    HASH: ec43b4df9bd782577e1b69128555fc160ea383bf
+                    MATRIX: 3259->1205|3462->1335|3477->1342|3562->1346|3614->1362|3629->1368|3691->1408|3793->1482|3822->1483|3880->1514|3908->1515|3964->1314|3993->1333|4021->1530|4059->1533|4101->1566|4141->1568|4181->1573|4218->1588|4270->1604|4294->1619|4323->1626|4714->1982|4731->1990|4770->1991|4849->2039|4895->2050|4949->2088|4988->2089|5050->2115|5141->2184|5180->2187|5204->2201|5251->2225|5318->2256|5341->2270|5387->2294|5459->2331|5482->2345|5517->2358|5590->2395|5613->2409|5659->2433|5750->2488|5841->2557|5890->2570|5914->2584|5948->2595|6066->2677|6089->2691|6135->2715|6208->2753|6231->2767|6267->2781|6338->2816|6361->2830|6407->2854|6479->2891|6541->2937|6580->2938|6632->2954|6731->3031|6770->3034|6800->3041|6843->3053|6920->3094|6943->3108|6989->3132|7067->3175|7090->3189|7129->3206|7186->3228|7203->3236|7242->3237|7393->3352|7416->3366|7462->3390|7516->3408|7531->3414|7599->3460|7648->3474|7717->3534|7756->3535|7871->3614|7894->3628|7924->3636|8129->3810|8174->3824|8215->3834|8277->3861|8294->3869|8333->3870|8382->3884|8500->3992|8541->3994|8661->4083|8698->4089|8731->4091
+                    LINES: 56->18|59->22|59->22|61->22|62->23|62->23|62->23|64->25|64->25|66->27|66->27|69->18|71->21|72->29|74->31|74->31|74->31|76->33|76->33|78->35|78->35|78->35|87->44|87->44|87->44|89->46|91->48|91->48|91->48|94->51|94->51|94->51|94->51|94->51|96->53|96->53|96->53|97->54|97->54|97->54|99->56|99->56|99->56|100->57|100->57|100->57|100->57|100->57|102->59|102->59|102->59|103->60|103->60|103->60|105->62|105->62|105->62|106->63|106->63|106->63|107->64|107->64|107->64|107->64|108->65|111->68|111->68|111->68|112->69|112->69|112->69|114->71|114->71|114->71|117->74|117->74|117->74|118->75|118->75|118->75|120->77|120->77|120->77|123->80|123->80|123->80|127->84|129->86|131->88|135->92|135->92|135->92|137->94|137->94|137->94|140->97|141->98|142->99
                     -- GENERATED --
                 */
             

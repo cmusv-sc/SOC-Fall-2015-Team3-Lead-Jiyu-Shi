@@ -70,10 +70,10 @@ Seq[Any](format.raw/*18.32*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 06 14:52:16 EST 2015
-                    SOURCE: C:/Users/Joe/Desktop/activator and projects/ApacheCMDA-Frontend/app/views/main.scala.html
-                    HASH: 622fcdfce5b681cda9ef18a3074f6ee5ba63d794
-                    MATRIX: 3203->1222|3328->1252|3357->1692
+                    DATE: Tue Nov 17 21:34:02 EST 2015
+                    SOURCE: /Users/jiyushi1/Desktop/18655/team_proj_sprint2/ApacheCMDA-Frontend/app/views/main.scala.html
+                    HASH: eb015d072c9bbd6c7aba9fefa71e227739c34f27
+                    MATRIX: 3173->1205|3298->1235|3326->1660
                     LINES: 56->18|59->18|60->33
                     -- GENERATED --
                 */

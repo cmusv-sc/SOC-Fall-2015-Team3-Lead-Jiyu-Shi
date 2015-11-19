@@ -190,9 +190,25 @@ public class ClimateServiceController extends Controller {
 		return ok(file);
 	}
 
+	// new added by group 3
+	public static Result searchService(){
+		return ok(searchService.render(climateServiceForm));
+	}
+
 	public static Result oneService(String url) {
 		return ok(oneService.render("/assets/html/" + url));
 	}
 
+
+	public static Result getSearchServiceResult(){
+
+		Form<ClimateService> serviceForm = climateServiceForm.bindFromRequest();
+
+//		System.out.println("serviceFornm = " + serviceForm.field("Search Service").value());
+		//get the string of key words.
+
+		return ok(climateServices.render(ClimateService.findService(serviceForm.field("Search Service").value()),
+				climateServiceForm));
+	}
 
 }

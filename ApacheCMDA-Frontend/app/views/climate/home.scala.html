@@ -17,14 +17,20 @@
 
 @(email: String, vfile: String, dataset: String, climateServices: List[metadata.ClimateService])
 
-@import helper._ 
+@import helper._
 
 @main("Home") {
-
 <div class="jumbotron">
+	@if(email!= null){
+		<div class="alert alert-success fade in">
+			<strong>You have been registered successfully!</strong>
+			<button class="btn btn-success pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+		</div>
+	}
 	<p> Our website is to provide you a quick and easy way to find the
 		<b>Climate Services</b> you want.
 	</p>
+
 	<div class="row">
 		<div class="col-lg-5">
 			<br>
@@ -36,15 +42,12 @@
 			@for(climateService <- climateServices){
 				<div class="row">
 					<div class="col-md-7"><a href = "@{routes.ClimateServiceController.oneService(climateService.getUrl())}"><font size="3">@climateService.getClimateServiceName()</a></font></div>
-					<div class="col-md-4"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
-					</span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
-					</span><span class="glyphicon glyphicon-star-empty"></span>
-					</div>
-				@*	<div class="col-md-3"><span class="glyphicon glyphicon-user"></span>150 total</div>*@</div>
+					<span><div class="col-md-3 col-md-offset-2" ><input value ="3.7" class="rating-input" data-size="xs" type="number" readonly/></div></span>
+				</div>
 			}
-			
+
 			<!-- @if(!session.get("username")){ -->
-			
+
 			<p>
 				@if(false){ <a class="btn btn-primary" href="climate/register"
 					role="button">Register &raquo;</a> }
@@ -53,5 +56,18 @@
 		</div>
 	</div>
 </div>
-
+	<script>
+		jQuery(document).ready(function () {
+			$('.rating-input').rating({
+				min: 0,
+				max: 5,
+				step: 0.1,
+				size: 'xs',
+				showClear: false,
+				showCaption: false,
+				hoverEnabled:false,
+				hoverChangeStars: false
+			});
+	});
+	</script>
 }

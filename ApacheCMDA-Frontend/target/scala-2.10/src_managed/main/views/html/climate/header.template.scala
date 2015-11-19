@@ -57,17 +57,19 @@ object header extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable
         _display_ {
 
 Seq[Any](format.raw/*18.4*/("""
-	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<div class="container">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="row">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
+				data-target=".navbar-collapse">
 					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+				class="icon-bar"></span> <span class="icon-bar"></span> <span
+				class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" style="padding-bottom: 0;" href="/climate"><img
-					src='"""),_display_(Seq[Any](/*29.12*/routes/*29.18*/.Assets.at("images/logo.png"))),format.raw/*29.47*/("""' style="height: 15px; width: 250px;"></a>
+				<a class="navbar-brand" style="padding-bottom: 0 ;" href="/climate"><img
+				src='"""),_display_(Seq[Any](/*30.11*/routes/*30.17*/.Assets.at("images/logo.png"))),format.raw/*30.46*/("""' style="height: 15px ; width: 250px ;">
+				</a>
 			</div>
 			<div class="navbar-collapse collapse" style="height:">
 				<form class="navbar-form navbar-right" role="register">
@@ -75,50 +77,54 @@ Seq[Any](format.raw/*18.4*/("""
 				</form>
 				<ul class="nav navbar-nav navbar-right">
 					<form class="navbar-form navbar-right" role="login">
-							<div class="form-group">
-							<input class="form-control" id="ex1" type="text"  placeholder="Username">
+						<div class="form-group">
+							<input class="form-control" id="ex1" type="text" placeholder="Username">
 							<input type="password" class="form-control" placeholder="Password">
-							</div>
+						</div>
 						<button type="submit" class="btn btn-success">Login</button>
 					</form>
 					<li class="dropdown"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown">Service<b
-							class="caret"></b></a>
+					class="dropdown-toggle" data-toggle="dropdown">Service<b
+					class="caret"></b> </a>
 						<ul class="dropdown-menu">
-						<li><a href=""""),_display_(Seq[Any](/*47.21*/routes/*47.27*/.ClimateServiceController.climateServices())),format.raw/*47.70*/("""">Service List</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*49.22*/routes/*49.28*/.ClimateServiceController.searchService())),format.raw/*49.69*/("""">Search Service </a></li>
+							<li><a href=""""),_display_(Seq[Any](/*50.22*/routes/*50.28*/.ClimateServiceController.climateServices())),format.raw/*50.71*/("""">Service List</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*51.22*/routes/*51.28*/.ClimateServiceController.mostPopularClimateServices())),format.raw/*51.82*/("""">Most Popular Service</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*52.22*/routes/*52.28*/.ClimateServiceController.mostRecentlyAddedClimateServices())),format.raw/*52.88*/("""">Recent Added Service</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*53.22*/routes/*53.28*/.ClimateServiceController.mostRecentlyUsedClimateServices())),format.raw/*53.87*/("""">Recent Used  Service</a></li>
 						</ul>
 					</li>
 					<li class="dropdown"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown">Dataset<b
-							class="caret"></b></a>
+					class="dropdown-toggle" data-toggle="dropdown">Dataset<b
+					class="caret"></b> </a>
 						<ul class="dropdown-menu">
-						
-						<li><a href=""""),_display_(Seq[Any](/*55.21*/routes/*55.27*/.DatasetController.datasetList())),format.raw/*55.59*/("""">Dataset List</a></li>
-						<li><a href=""""),_display_(Seq[Any](/*56.21*/routes/*56.27*/.DatasetController.searchDataset())),format.raw/*56.61*/("""">Search dataset</a></li>
+
+							<li><a href=""""),_display_(Seq[Any](/*61.22*/routes/*61.28*/.DatasetController.datasetList())),format.raw/*61.60*/("""">Dataset List</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*62.22*/routes/*62.28*/.DatasetController.searchDataset())),format.raw/*62.62*/("""">Search dataset</a></li>
 						</ul>
 					</li>
-					"""),format.raw/*59.42*/("""
-						"""),format.raw/*60.67*/("""
-							"""),format.raw/*61.34*/("""
-						"""),format.raw/*62.37*/("""
-							"""),format.raw/*63.101*/("""
-							"""),format.raw/*64.106*/("""
-						"""),format.raw/*65.16*/("""
-					"""),format.raw/*66.15*/("""
-					
+					"""),format.raw/*65.42*/("""
+					"""),format.raw/*66.66*/("""
+					"""),format.raw/*67.32*/("""
+					"""),format.raw/*68.36*/("""
+					"""),format.raw/*69.99*/("""
+					"""),format.raw/*70.104*/("""
+					"""),format.raw/*71.15*/("""
+					"""),format.raw/*72.15*/("""
 					<li class="dropdown"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown">About<b
-							class="caret"></b></a>
+					class="dropdown-toggle" data-toggle="dropdown">About<b
+					class="caret"></b> </a>
 						<ul class="dropdown-menu">
-						<li><a href=""""),_display_(Seq[Any](/*72.21*/routes/*72.27*/.ClimateServiceController.home())),format.raw/*72.59*/("""">Home</a></li>
-						<li><a href=""""),_display_(Seq[Any](/*73.21*/routes/*73.27*/.AboutusController.aboutUs())),format.raw/*73.55*/("""">About Us</a></li>
-						<li><a href=""""),_display_(Seq[Any](/*74.21*/routes/*74.27*/.AboutusController.aboutProject())),format.raw/*74.60*/("""">About project</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*77.22*/routes/*77.28*/.ClimateServiceController.home())),format.raw/*77.60*/("""">Home</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*78.22*/routes/*78.28*/.AboutusController.aboutUs())),format.raw/*78.56*/("""">About Us</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*79.22*/routes/*79.28*/.AboutusController.aboutProject())),format.raw/*79.61*/("""">About project</a></li>
 						</ul>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
+</div>
 """))}
     }
     
@@ -131,11 +137,11 @@ Seq[Any](format.raw/*18.4*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 06 18:28:11 EST 2015
-                    SOURCE: C:/Users/Joe/Desktop/activator and projects/ApacheCMDA-Frontend/app/views/climate/header.scala.html
-                    HASH: 37aa4665aca28dc873f2584f668958856376eb16
-                    MATRIX: 3201->1222|3297->1224|3840->1731|3855->1737|3906->1766|4800->2624|4815->2630|4880->2673|5162->2919|5177->2925|5231->2957|5312->3002|5327->3008|5383->3042|5468->3135|5504->3203|5541->3238|5577->3276|5615->3378|5653->3485|5689->3502|5724->3518|5955->3713|5970->3719|6024->3751|6097->3788|6112->3794|6162->3822|6239->3863|6254->3869|6309->3902
-                    LINES: 56->18|59->18|70->29|70->29|70->29|88->47|88->47|88->47|96->55|96->55|96->55|97->56|97->56|97->56|100->59|101->60|102->61|103->62|104->63|105->64|106->65|107->66|113->72|113->72|113->72|114->73|114->73|114->73|115->74|115->74|115->74
+                    DATE: Tue Nov 17 21:34:02 EST 2015
+                    SOURCE: /Users/jiyushi1/Desktop/18655/team_proj_sprint2/ApacheCMDA-Frontend/app/views/climate/header.scala.html
+                    HASH: ae9e2ab798ac08d1031812b665bba39bfc0ee159
+                    MATRIX: 3171->1205|3267->1207|3812->1716|3827->1722|3878->1751|4757->2594|4772->2600|4835->2641|4919->2689|4934->2695|4999->2738|5080->2783|5095->2789|5171->2843|5260->2896|5275->2902|5357->2962|5446->3015|5461->3021|5542->3080|5817->3319|5832->3325|5886->3357|5967->3402|5982->3408|6038->3442|6120->3532|6154->3598|6188->3630|6222->3666|6256->3765|6291->3869|6325->3884|6359->3899|6577->4081|6592->4087|6646->4119|6719->4156|6734->4162|6784->4190|6861->4231|6876->4237|6931->4270
+                    LINES: 56->18|59->18|71->30|71->30|71->30|90->49|90->49|90->49|91->50|91->50|91->50|92->51|92->51|92->51|93->52|93->52|93->52|94->53|94->53|94->53|102->61|102->61|102->61|103->62|103->62|103->62|106->65|107->66|108->67|109->68|110->69|111->70|112->71|113->72|118->77|118->77|118->77|119->78|119->78|119->78|120->79|120->79|120->79
                     -- GENERATED --
                 */
             
