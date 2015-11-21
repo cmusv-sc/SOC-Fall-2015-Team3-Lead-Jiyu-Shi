@@ -99,8 +99,6 @@ Seq[Any](format.raw/*18.19*/("""
    <h3><strong>CMU Advisor</strong></h3>
    <p>Jia Zhang		<a href="http://www.andrew.cmu.edu/user/jiaz/">Personal Website</a></p>
    <br>
-   
-
    <h3><strong>Publications</strong></h3>
    <b>2015</b>
    <p>1. S. Lee. L. Pan, C. Zhai, B. Tang, T. Kubar, J. Zhang, and W. Wang, Climate Model Diagnostic Analyzer, submitted to 2015 IEEE International Conference on Big Data, Oct 29-Nov 01, 2015.</p>
@@ -132,9 +130,9 @@ Seq[Any](format.raw/*18.19*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Nov 17 21:34:02 EST 2015
-                    SOURCE: /Users/jiyushi1/Desktop/18655/team_proj_sprint2/ApacheCMDA-Frontend/app/views/climate/aboutus.scala.html
-                    HASH: a0e5135b7554c04a0e56e57b12e5e053ec8c0d01
+                    DATE: Fri Nov 20 22:58:39 EST 2015
+                    SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/aboutus.scala.html
+                    HASH: 6cd33a607008d9c4a8ad8716cdbb0951f353fce9
                     MATRIX: 3179->1205|3291->1222|3329->1225|3354->1241|3394->1243
                     LINES: 56->18|59->18|61->20|61->20|61->20
                     -- GENERATED --

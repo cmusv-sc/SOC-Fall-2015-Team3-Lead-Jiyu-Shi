@@ -10,8 +10,8 @@ import util.Constants;
  * Created by jiyushi1 on 11/7/15.
  */
 public class UserService {
-    private static final String SEND_USER_INFO = Constants.NEW_BACKEND+"application/getAllClimateServices/json";
-
+    private static final String POST_USER_INFO = Constants.NEW_BACKEND+"users/add";
+    private static final String POST_USER_VALID = Constants.NEW_BACKEND+"users/isUserValid";
     public static String register(User user){
 
         ObjectMapper mapper = new ObjectMapper();
@@ -22,15 +22,60 @@ public class UserService {
         queryJson.put("firstName", user.getFirstName());
         queryJson.put("lastName", user.getLastName());
         queryJson.put("email", user.getEmail());
-        JsonNode userServiceNode = APICall
-                .postAPI(SEND_USER_INFO,queryJson);
 
-        if (userServiceNode == null || userServiceNode.has("error")
-                || !userServiceNode.isArray()) {
+        JsonNode userServiceNode = APICall
+                .postAPI(POST_USER_INFO,queryJson);
+
+//        System.out.println("wo fa de " + queryJson);
+//
+//        System.out.println("shou dao " + userServiceNode);
+//        System.out.println(" url: " + POST_USER_INFO);
+//        System.out.println("test test : "+userServiceNode.path("_children").path("result").path("_value"));
+
+//        if (userServiceNode == null){
+//            System.out.println("null");
+//        }
+//        if (userServiceNode.has("error")){
+//            System.out.println("error o ");
+//        }
+//        if (!userServiceNode.isArray()){
+//            System.out.println("array o ");
+//        }
+
+
+        if (userServiceNode == null || userServiceNode.has("error")) {
             return "error";
         }
-        JsonNode json = userServiceNode.path(0); //only one string message is returned!
-        String result = json.path("result").asText();
+
+        JsonNode json = userServiceNode.path("_children").path("result"); //only one string message is returned!
+
+        System.out.println(" json child: " + json);
+        String result = json.path("_value").asText();
+
+        return result;
+    }
+
+    public static String login(User user){
+
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode queryJson = mapper.createObjectNode();
+        queryJson.put("password", user.getPassword());
+        queryJson.put("email", user.getEmail());
+
+        JsonNode userServiceNode = APICall
+                .postAPI(POST_USER_VALID,queryJson);
+
+        System.out.println("shou dao " + userServiceNode);
+
+        if (userServiceNode == null || userServiceNode.has("error")) {
+            return "error";
+        }
+
+        JsonNode json = userServiceNode.path("_children").path("result"); //only one string message is returned!
+
+        System.out.println(" json child: " + json);
+        String result = json.path("_value").asText();
+
         return result;
     }
 

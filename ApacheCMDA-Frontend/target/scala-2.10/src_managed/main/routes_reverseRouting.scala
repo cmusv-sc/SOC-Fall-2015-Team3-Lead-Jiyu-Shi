@@ -1,6 +1,6 @@
-// @SOURCE:/Users/jiyushi1/Desktop/18655/team_proj_sprint2/ApacheCMDA-Frontend/conf/routes
-// @HASH:879c85b656dbb4a88946682fd00f9389e52b2f04
-// @DATE:Tue Nov 17 21:34:01 EST 2015
+// @SOURCE:/Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/conf/routes
+// @HASH:00c968e3e50cbc3bd1ceae4ff656d4a68116e9ff
+// @DATE:Sat Nov 21 00:40:39 EST 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,6 +13,7 @@ import play.libs.F
 import Router.queryString
 
 
+// @LINE:48
 // @LINE:47
 // @LINE:46
 // @LINE:43
@@ -40,6 +41,7 @@ import Router.queryString
 // @LINE:13
 // @LINE:12
 // @LINE:11
+// @LINE:8
 // @LINE:7
 // @LINE:6
 package controllers {
@@ -118,8 +120,10 @@ def newReport(): Call = {
 }
                           
 
+// @LINE:48
 // @LINE:47
 // @LINE:46
+// @LINE:8
 class ReverseApplication {
     
 
@@ -131,7 +135,19 @@ def sign(): Call = {
 
 // @LINE:47
 def authenticate(): Call = {
-   Call("POST", _prefix + { _defaultPrefix } + "climate")
+   Call("POST", _prefix + { _defaultPrefix } + "climate/authenticate")
+}
+                                                
+
+// @LINE:48
+def login(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "climate/log")
+}
+                                                
+
+// @LINE:8
+def createSuccess(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "createSuccess")
 }
                                                 
     
@@ -286,6 +302,7 @@ def deleteClimateService(): Call = {
                   
 
 
+// @LINE:48
 // @LINE:47
 // @LINE:46
 // @LINE:43
@@ -313,6 +330,7 @@ def deleteClimateService(): Call = {
 // @LINE:13
 // @LINE:12
 // @LINE:11
+// @LINE:8
 // @LINE:7
 // @LINE:6
 package controllers.javascript {
@@ -431,8 +449,10 @@ def newReport : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:48
 // @LINE:47
 // @LINE:46
+// @LINE:8
 class ReverseApplication {
     
 
@@ -452,7 +472,29 @@ def authenticate : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.authenticate",
    """
       function() {
-      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "climate"})
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "climate/authenticate"})
+      }
+   """
+)
+                        
+
+// @LINE:48
+def login : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.login",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "climate/log"})
+      }
+   """
+)
+                        
+
+// @LINE:8
+def createSuccess : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.createSuccess",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "createSuccess"})
       }
    """
 )
@@ -692,6 +734,7 @@ def deleteClimateService : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
+// @LINE:48
 // @LINE:47
 // @LINE:46
 // @LINE:43
@@ -719,6 +762,7 @@ def deleteClimateService : JavascriptReverseRoute = JavascriptReverseRoute(
 // @LINE:13
 // @LINE:12
 // @LINE:11
+// @LINE:8
 // @LINE:7
 // @LINE:6
 package controllers.ref {
@@ -798,8 +842,10 @@ def newReport(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
+// @LINE:48
 // @LINE:47
 // @LINE:46
+// @LINE:8
 class ReverseApplication {
     
 
@@ -811,7 +857,19 @@ def sign(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 
 // @LINE:47
 def authenticate(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.authenticate(), HandlerDef(this, "controllers.Application", "authenticate", Seq(), "POST", """""", _prefix + """climate""")
+   controllers.Application.authenticate(), HandlerDef(this, "controllers.Application", "authenticate", Seq(), "POST", """""", _prefix + """climate/authenticate""")
+)
+                      
+
+// @LINE:48
+def login(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.login(), HandlerDef(this, "controllers.Application", "login", Seq(), "GET", """""", _prefix + """climate/log""")
+)
+                      
+
+// @LINE:8
+def createSuccess(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.createSuccess(), HandlerDef(this, "controllers.Application", "createSuccess", Seq(), "GET", """""", _prefix + """createSuccess""")
 )
                       
     

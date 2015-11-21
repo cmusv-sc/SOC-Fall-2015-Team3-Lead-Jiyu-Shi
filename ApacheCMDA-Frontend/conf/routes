@@ -5,7 +5,7 @@
 # Home page
 GET         /home                                                controllers.ClimateServiceController.home(email ?= null, vfile ?= null, dataset ?= null)
 GET 		/													 controllers.ClimateServiceController.home(email ?= null, vfile ?= null, dataset ?= null)
-
+GET		    /createSuccess				                         controllers.Application.createSuccess()
 
 # BugReporting
 GET         /bugs                                                controllers.BugReportController.reports()
@@ -43,5 +43,6 @@ GET			/climate/searchService 					 			controllers.ClimateServiceController.searc
 GET 		/climate/getSearchServiceResult				 		controllers.ClimateServiceController.getSearchServiceResult()
 
 #Sign Up Page
-GET     /climate/sign                                                   controllers.Application.sign()
-POST    /climate                                                   controllers.Application.authenticate()
+GET     /climate/sign                                           controllers.Application.sign()
+POST    /climate/authenticate                                   controllers.Application.authenticate()
+GET     /climate/log                                           controllers.Application.login()

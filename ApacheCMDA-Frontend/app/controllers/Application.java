@@ -30,8 +30,8 @@ import util.Constants;
 import views.html.*;
 import play.data.*;
 import views.html.climate.home;
-import views.html.climate.signUp;
-
+import views.html.climate.*;
+import views.html.climate.createSuccess;
 
 import static play.data.Form.form;
 
@@ -52,16 +52,19 @@ public class Application extends Controller {
     }
 
     public static Result sign() {
+        String a = "success";
         return ok(
-                signUp.render(form(User.class))
+                signUp.render(form(User.class),"success")
         );
     }
+    public static Result createSuccess(){
+        return ok(createSuccess.render());
+    }
+
+
 
     public static Result authenticate() {
         Form<User> loginForm = form(User.class).bindFromRequest();
-
-        ObjectNode jsonData = Json.newObject();
-
 
         System.out.println("email = "+ loginForm.get().getEmail());
         System.out.println("password = "+ loginForm.get().getPassword());
@@ -69,14 +72,33 @@ public class Application extends Controller {
         System.out.println("id = "+loginForm.get().getId());
         System.out.println("first = "+loginForm.get().getFirstName());
         System.out.println("last = "+loginForm.get().getLastName());
-//        if (userService.register(loginForm.get()).compareTo("failure") == 0 ){
-//            System.out.println("User ID has been used.");
-//            return  ok(signUp.render(form(User.class)));
-//        }else if (userService.register(loginForm.get()).compareTo("success") == 0 ){
-            return ok(home.render(loginForm.get().getEmail(),loginForm.get().getPassword()
-                    ,loginForm.get().getUserName(), ClimateService.all()));
-//        }
 
+
+        String result = userService.register(loginForm.get());
+        System.out.println("result : "+ result);
+
+        if(result.compareTo("error") == 0){
+            System.out.println("User ID has been used.");
+            return  ok(signUp.render(form(User.class),"failure"));
+        }else if(result.compareTo("success") == 0 ){
+            return ok(createSuccess.render());
+        }
+        return null;
     }
+    public static Result login() {
+        Form<User> loginForm = form(User.class).bindFromRequest();
+        System.out.println("password = "+ loginForm.get().getPassword());
+        System.out.println("email = "+loginForm.get().getEmail());
 
+        String result = userService.login(loginForm.get());
+        System.out.println("result = " + result);
+
+        if(result.compareTo("error") == 0){
+            System.out.println("Invalid.");
+            return  ok(signUp.render(form(User.class),"invalid"));
+        }else if(result.compareTo("success") == 0 ){
+            return ok(createSuccess.render());
+        }
+        return null;
+    }
 }
