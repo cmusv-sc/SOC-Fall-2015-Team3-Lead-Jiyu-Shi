@@ -23,11 +23,11 @@ import views.html.climate.aboutProject;
 
 public class AboutusController extends Controller {
 		
-    public static Result aboutUs() {
-    	return ok(aboutus.render("test"));
+    public static Result aboutUs(String email) {
+    	return ok(aboutus.render("test",email));
     }
     
-    public static Result aboutProject(){
-    	return ok(aboutProject.render("test"));
+    public static Result aboutProject(String email){
+    	return ok(aboutProject.render("test",email));
     }
 }

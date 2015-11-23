@@ -57,24 +57,24 @@ public class ClimateServiceController extends Controller {
 		return ok(tutorial.render());
 	}
 
-	public static Result climateServices() {
+	public static Result climateServices(String email) {
 		return ok(climateServices.render(ClimateService.all(),
-				climateServiceForm));
+				climateServiceForm,email));
 	}
 	
-	public static Result mostRecentlyAddedClimateServices() {
+	public static Result mostRecentlyAddedClimateServices(String email) {
 		return ok(mostRecentlyAddedServices.render(ClimateService.getMostRecentlyAdded(),
-				climateServiceForm));
+				climateServiceForm,email));
 	}
 	
-	public static Result mostRecentlyUsedClimateServices() {
+	public static Result mostRecentlyUsedClimateServices(String email) {
 		return ok(mostRecentlyUsedServices.render(ClimateService.getMostRecentlyUsed(),
-				climateServiceForm));
+				climateServiceForm,email));
 	}
 	
-	public static Result mostPopularClimateServices() {
+	public static Result mostPopularClimateServices(String email) {
 		return ok(mostPopularServices.render(ClimateService.getMostPopular(),
-				climateServiceForm));
+				climateServiceForm,email));
 	}
 
 	public static Result newClimateService() {
@@ -191,24 +191,25 @@ public class ClimateServiceController extends Controller {
 	}
 
 	// new added by group 3
-	public static Result searchService(){
-		return ok(searchService.render(climateServiceForm));
+	public static Result searchService(String email){
+		return ok(searchService.render(climateServiceForm,email));
 	}
 
-	public static Result oneService(String url) {
-		return ok(oneService.render("/assets/html/" + url));
+	public static Result oneService(String url,String email) {
+		return ok(oneService.render("/assets/html/" + url,email));
 	}
 
 
-	public static Result getSearchServiceResult(){
+	public static Result getSearchServiceResult(String email){
 
 		Form<ClimateService> serviceForm = climateServiceForm.bindFromRequest();
 
+		//String email =
 //		System.out.println("serviceFornm = " + serviceForm.field("Search Service").value());
 		//get the string of key words.
-
+		System.out.println(serviceForm.field("email").value());
 		return ok(climateServices.render(ClimateService.findService(serviceForm.field("Search Service").value()),
-				climateServiceForm));
+				climateServiceForm,serviceForm.field("email").value()));
 	}
 
 }

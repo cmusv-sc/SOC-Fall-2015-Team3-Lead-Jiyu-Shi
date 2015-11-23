@@ -56,7 +56,7 @@ object tutorial extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendab
     def apply():play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
-Seq[Any](_display_(Seq[Any](/*18.2*/main("Tutorial")/*18.18*/ {_display_(Seq[Any](format.raw/*18.20*/("""
+Seq[Any](_display_(Seq[Any](/*18.2*/main("Tutorial",null)/*18.23*/ {_display_(Seq[Any](format.raw/*18.25*/("""
 
 <ol class="breadcrumb">
 	<li class="active">Tutorial</li>
@@ -92,10 +92,10 @@ In these videos, we will help you learn the available web services, how to use t
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 20 23:16:23 EST 2015
+                    DATE: Sat Nov 21 20:41:38 EST 2015
                     SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/tutorial.scala.html
-                    HASH: 1e7bfca2424dd940cf9b13846237a72ca8362f99
-                    MATRIX: 3270->1205|3295->1221|3335->1223
+                    HASH: 03e8eb14556f23f1f27f285f7afc9b6be8d256ac
+                    MATRIX: 3270->1205|3300->1226|3340->1228
                     LINES: 59->18|59->18|59->18
                     -- GENERATED --
                 */

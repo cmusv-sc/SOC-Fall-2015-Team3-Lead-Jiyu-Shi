@@ -15,7 +15,7 @@
  * limitations under the License.											   *
  *******************************************************************************@ 
 
-@(title: String, moreScripts: Html = Html(""))(content: Html) 
+@(title: String,email:String, moreScripts: Html = Html(""))(content: Html)
 
 <!DOCTYPE html>
 
@@ -73,7 +73,12 @@
 </head>
 
 <body>
-	@header()
+	@if(email == null){
+		@header()
+	}else{
+		@loginHeader(email)
+	}
+
 
 	<div class="container">
 

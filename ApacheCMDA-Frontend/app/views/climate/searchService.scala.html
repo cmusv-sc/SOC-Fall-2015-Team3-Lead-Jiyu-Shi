@@ -1,4 +1,4 @@
-@(climateServiceForm: play.data.Form[metadata.ClimateService])
+@(climateServiceForm: play.data.Form[metadata.ClimateService],email:String)
 
 @import helper._
 
@@ -35,21 +35,21 @@
   </script>
 }
 
-@main("Search Service", scripts){
+@main("Search Service",email,scripts){
   @flash_message()
+
   @*<h1 style="margin-left:490px">Search Service</h1>*@
-  @helper.form(routes.ClimateServiceController.getSearchServiceResult()) {
+    @form(routes.ClimateServiceController.getSearchServiceResult(email)) {
+    @*<form action="@routes.ClimateServiceController.getSearchServiceResult(email)" method="get">*@
     <div class="ui-widget col-sm-offset-3 col-sm-7">
       <div class = "form-group" align="center" >
       @inputText(climateServiceForm("Search Service"), 'class -> "form-control",'id -> "serviceName", 'placeholder -> "Service Name", 'size->70)
+          <input type="text" class="hidden" name="email" value=@email>
       </div>
-
-
       <div align="center">
-
         <input class="btn btn-info" type="submit" value="Search">
       </div>
     </div>
-
-  }
+    @*</form>*@
+    }
 }

@@ -12,6 +12,7 @@ import util.Constants;
 public class UserService {
     private static final String POST_USER_INFO = Constants.NEW_BACKEND+"users/add";
     private static final String POST_USER_VALID = Constants.NEW_BACKEND+"users/isUserValid";
+    public static boolean login;
     public static String register(User user){
 
         ObjectMapper mapper = new ObjectMapper();
@@ -28,7 +29,7 @@ public class UserService {
 
 //        System.out.println("wo fa de " + queryJson);
 //
-//        System.out.println("shou dao " + userServiceNode);
+          System.out.println("shou dao register: " + userServiceNode);
 //        System.out.println(" url: " + POST_USER_INFO);
 //        System.out.println("test test : "+userServiceNode.path("_children").path("result").path("_value"));
 
@@ -65,7 +66,7 @@ public class UserService {
         JsonNode userServiceNode = APICall
                 .postAPI(POST_USER_VALID,queryJson);
 
-        System.out.println("shou dao " + userServiceNode);
+        System.out.println("shou dao login" + userServiceNode);
 
         if (userServiceNode == null || userServiceNode.has("error")) {
             return "error";
@@ -73,11 +74,15 @@ public class UserService {
 
         JsonNode json = userServiceNode.path("_children").path("result"); //only one string message is returned!
 
-        System.out.println(" json child: " + json);
+        //System.out.println(" json child: " + json);
         String result = json.path("_value").asText();
 
         return result;
     }
-
-
+    public static boolean getLogin(){
+        return login;
+    }
+    public static void setLogin(boolean flag){
+        login = flag;
+    }
 }

@@ -77,7 +77,7 @@ public class Application extends Controller {
         String result = userService.register(loginForm.get());
         System.out.println("result : "+ result);
 
-        if(result.compareTo("error") == 0){
+        if(result.compareTo("error") == 0||result.compareTo("")==0){
             System.out.println("User ID has been used.");
             return  ok(signUp.render(form(User.class),"failure"));
         }else if(result.compareTo("success") == 0 ){
@@ -93,12 +93,18 @@ public class Application extends Controller {
         String result = userService.login(loginForm.get());
         System.out.println("result = " + result);
 
-        if(result.compareTo("error") == 0){
+        if(result.compareTo("error") == 0 ){
             System.out.println("Invalid.");
-            return  ok(signUp.render(form(User.class),"invalid"));
+            return ClimateServiceController.home(null,"logfailed",null);
         }else if(result.compareTo("success") == 0 ){
-            return ok(createSuccess.render());
+            userService.setLogin(true);
+            return ClimateServiceController.home(loginForm.get().getEmail(),"loginSucess",null);
         }
         return null;
     }
+
+//    public static void setUserLogout(){
+//        System.out.println("Set log out");
+//        userService.setLogin(false);
+//    }
 }

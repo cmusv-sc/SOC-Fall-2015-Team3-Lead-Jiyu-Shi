@@ -35,7 +35,7 @@ import views.html._
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-object aboutProject extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template1[String,play.api.templates.HtmlFormat.Appendable] {
+object aboutProject extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[String,String,play.api.templates.HtmlFormat.Appendable] {
 
     /*******************************************************************************
  * Licensed to the Apache Software Foundation (ASF) under one or more		   *
@@ -53,12 +53,12 @@ object aboutProject extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appe
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-    def apply/*18.2*/(message: String):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*18.2*/(message: String,email:String):play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
-Seq[Any](format.raw/*18.19*/("""
+Seq[Any](format.raw/*18.32*/("""
 
-"""),_display_(Seq[Any](/*20.2*/main("About Project")/*20.23*/ {_display_(Seq[Any](format.raw/*20.25*/("""
+"""),_display_(Seq[Any](/*20.2*/main("About Project",email)/*20.29*/ {_display_(Seq[Any](format.raw/*20.31*/("""
 
    <h1>About Project</h1>
    <div class="jumbotron">
@@ -80,19 +80,19 @@ Seq[Any](format.raw/*18.19*/("""
 """)))})))}
     }
     
-    def render(message:String): play.api.templates.HtmlFormat.Appendable = apply(message)
+    def render(message:String,email:String): play.api.templates.HtmlFormat.Appendable = apply(message,email)
     
-    def f:((String) => play.api.templates.HtmlFormat.Appendable) = (message) => apply(message)
+    def f:((String,String) => play.api.templates.HtmlFormat.Appendable) = (message,email) => apply(message,email)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 20 23:16:20 EST 2015
+                    DATE: Mon Nov 23 00:43:15 EST 2015
                     SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/aboutProject.scala.html
-                    HASH: 7cb317fa19429d31e30582c2c4e2ec9270f50fa4
-                    MATRIX: 3184->1206|3296->1223|3334->1226|3364->1247|3404->1249
+                    HASH: 6d399f712c9cc64ba4a883da0a2ff4cac196b72f
+                    MATRIX: 3191->1206|3316->1236|3354->1239|3390->1266|3430->1268
                     LINES: 56->18|59->18|61->20|61->20|61->20
                     -- GENERATED --
                 */

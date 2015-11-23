@@ -48,6 +48,16 @@ public class User {
 	public User() {
 	}
 
+	public User(String userName, String password, String firstName, String lastName, String email){
+		super();
+
+		this.userName = userName;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+	}
+
 	public User(String userName, String password, String firstName,
 			String lastName, String middleInitial, String affiliation,
 			String title, String email, String mailingAddress,

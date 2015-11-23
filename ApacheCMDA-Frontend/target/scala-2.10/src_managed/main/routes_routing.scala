@@ -1,6 +1,6 @@
 // @SOURCE:/Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/conf/routes
-// @HASH:00c968e3e50cbc3bd1ceae4ff656d4a68116e9ff
-// @DATE:Sat Nov 21 00:40:39 EST 2015
+// @HASH:3e15666f11d6bdd3134a10d99044a07043e1ddc9
+// @DATE:Mon Nov 23 15:51:11 EST 2015
 
 
 import play.core._
@@ -116,42 +116,42 @@ private[this] lazy val controllers_ClimateServiceController_addClimateServices20
 private[this] lazy val controllers_ClimateServiceController_oneService21 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/oneService"))))
         
 
-// @LINE:35
+// @LINE:36
 private[this] lazy val controllers_DatasetController_datasetList22 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/datasets"))))
         
 
-// @LINE:36
+// @LINE:37
 private[this] lazy val controllers_DatasetController_searchDataset23 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/searchDataSet"))))
         
 
-// @LINE:37
+// @LINE:38
 private[this] lazy val controllers_DatasetController_getSearchResult24 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/getSearchResult"))))
         
 
-// @LINE:40
+// @LINE:41
 private[this] lazy val controllers_Assets_at25 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
         
 
-// @LINE:42
+// @LINE:43
 private[this] lazy val controllers_ClimateServiceController_searchService26 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/searchService"))))
         
 
-// @LINE:43
+// @LINE:44
 private[this] lazy val controllers_ClimateServiceController_getSearchServiceResult27 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/getSearchServiceResult"))))
         
 
-// @LINE:46
+// @LINE:47
 private[this] lazy val controllers_Application_sign28 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/sign"))))
         
 
-// @LINE:47
+// @LINE:48
 private[this] lazy val controllers_Application_authenticate29 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/authenticate"))))
         
 
-// @LINE:48
+// @LINE:49
 private[this] lazy val controllers_Application_login30 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/log"))))
         
-def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """home""","""controllers.ClimateServiceController.home(email:String ?= null, vfile:String ?= null, dataset:String ?= null)"""),("""GET""", prefix,"""controllers.ClimateServiceController.home(email:String ?= null, vfile:String ?= null, dataset:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """createSuccess""","""controllers.Application.createSuccess()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """bugs""","""controllers.BugReportController.reports()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """newReport""","""controllers.BugReportController.newReport()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """bug/list""","""controllers.BugReportController.list()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """delete/report""","""controllers.BugReportController.deleteReport()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """solve/report""","""controllers.BugReportController.solveReport()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """aboutus""","""controllers.AboutusController.aboutUs()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """aboutProject""","""controllers.AboutusController.aboutProject()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate""","""controllers.ClimateServiceController.home(email:String ?= null, vfile:String ?= null, dataset:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/tutorial""","""controllers.ClimateServiceController.tutorial()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/climateServices""","""controllers.ClimateServiceController.climateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/mostRecentlyAddedClimateServices""","""controllers.ClimateServiceController.mostRecentlyAddedClimateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/mostRecentlyUsedClimateServices""","""controllers.ClimateServiceController.mostRecentlyUsedClimateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/mostPopularClimateServices""","""controllers.ClimateServiceController.mostPopularClimateServices()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/new/climateServices""","""controllers.ClimateServiceController.newClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/delete/climateServices""","""controllers.ClimateServiceController.deleteClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/download/climateServices""","""controllers.ClimateServiceController.downloadClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/edit/climateServices""","""controllers.ClimateServiceController.editClimateService()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/new/climateServices""","""controllers.ClimateServiceController.addClimateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/oneService""","""controllers.ClimateServiceController.oneService(url:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/datasets""","""controllers.DatasetController.datasetList()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/searchDataSet""","""controllers.DatasetController.searchDataset()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/getSearchResult""","""controllers.DatasetController.getSearchResult()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/searchService""","""controllers.ClimateServiceController.searchService()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/getSearchServiceResult""","""controllers.ClimateServiceController.getSearchServiceResult()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/sign""","""controllers.Application.sign()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/authenticate""","""controllers.Application.authenticate()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/log""","""controllers.Application.login()""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """home""","""controllers.ClimateServiceController.home(email:String ?= null, vfile:String ?= null, dataset:String ?= null)"""),("""GET""", prefix,"""controllers.ClimateServiceController.home(email:String ?= null, vfile:String ?= null, dataset:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """createSuccess""","""controllers.Application.createSuccess()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """bugs""","""controllers.BugReportController.reports()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """newReport""","""controllers.BugReportController.newReport()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """bug/list""","""controllers.BugReportController.list()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """delete/report""","""controllers.BugReportController.deleteReport()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """solve/report""","""controllers.BugReportController.solveReport()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """aboutus""","""controllers.AboutusController.aboutUs(email:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """aboutProject""","""controllers.AboutusController.aboutProject(email:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate""","""controllers.ClimateServiceController.home(email:String ?= null, vfile:String ?= null, dataset:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/tutorial""","""controllers.ClimateServiceController.tutorial()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/climateServices""","""controllers.ClimateServiceController.climateServices(email:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/mostRecentlyAddedClimateServices""","""controllers.ClimateServiceController.mostRecentlyAddedClimateServices(email:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/mostRecentlyUsedClimateServices""","""controllers.ClimateServiceController.mostRecentlyUsedClimateServices(email:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/mostPopularClimateServices""","""controllers.ClimateServiceController.mostPopularClimateServices(email:String ?= null)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/new/climateServices""","""controllers.ClimateServiceController.newClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/delete/climateServices""","""controllers.ClimateServiceController.deleteClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/download/climateServices""","""controllers.ClimateServiceController.downloadClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/edit/climateServices""","""controllers.ClimateServiceController.editClimateService()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/new/climateServices""","""controllers.ClimateServiceController.addClimateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/oneService""","""controllers.ClimateServiceController.oneService(url:String ?= null, email:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/datasets""","""controllers.DatasetController.datasetList(email:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/searchDataSet""","""controllers.DatasetController.searchDataset(email:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/getSearchResult""","""controllers.DatasetController.getSearchResult(email:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/searchService""","""controllers.ClimateServiceController.searchService(email:String ?= "")"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/getSearchServiceResult""","""controllers.ClimateServiceController.getSearchServiceResult(email:String ?= "")"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/sign""","""controllers.Application.sign()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/authenticate""","""controllers.Application.authenticate()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/log""","""controllers.Application.login()""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
@@ -225,16 +225,16 @@ case controllers_BugReportController_solveReport7(params) => {
 
 // @LINE:18
 case controllers_AboutusController_aboutUs8(params) => {
-   call { 
-        invokeHandler(controllers.AboutusController.aboutUs(), HandlerDef(this, "controllers.AboutusController", "aboutUs", Nil,"GET", """ About Us""", Routes.prefix + """aboutus"""))
+   call(params.fromQuery[String]("email", Some(null))) { (email) =>
+        invokeHandler(controllers.AboutusController.aboutUs(email), HandlerDef(this, "controllers.AboutusController", "aboutUs", Seq(classOf[String]),"GET", """ About Us""", Routes.prefix + """aboutus"""))
    }
 }
         
 
 // @LINE:19
 case controllers_AboutusController_aboutProject9(params) => {
-   call { 
-        invokeHandler(controllers.AboutusController.aboutProject(), HandlerDef(this, "controllers.AboutusController", "aboutProject", Nil,"GET", """""", Routes.prefix + """aboutProject"""))
+   call(params.fromQuery[String]("email", Some(null))) { (email) =>
+        invokeHandler(controllers.AboutusController.aboutProject(email), HandlerDef(this, "controllers.AboutusController", "aboutProject", Seq(classOf[String]),"GET", """""", Routes.prefix + """aboutProject"""))
    }
 }
         
@@ -257,32 +257,32 @@ case controllers_ClimateServiceController_tutorial11(params) => {
 
 // @LINE:24
 case controllers_ClimateServiceController_climateServices12(params) => {
-   call { 
-        invokeHandler(controllers.ClimateServiceController.climateServices(), HandlerDef(this, "controllers.ClimateServiceController", "climateServices", Nil,"GET", """""", Routes.prefix + """climate/climateServices"""))
+   call(params.fromQuery[String]("email", Some(null))) { (email) =>
+        invokeHandler(controllers.ClimateServiceController.climateServices(email), HandlerDef(this, "controllers.ClimateServiceController", "climateServices", Seq(classOf[String]),"GET", """""", Routes.prefix + """climate/climateServices"""))
    }
 }
         
 
 // @LINE:25
 case controllers_ClimateServiceController_mostRecentlyAddedClimateServices13(params) => {
-   call { 
-        invokeHandler(controllers.ClimateServiceController.mostRecentlyAddedClimateServices(), HandlerDef(this, "controllers.ClimateServiceController", "mostRecentlyAddedClimateServices", Nil,"GET", """""", Routes.prefix + """climate/mostRecentlyAddedClimateServices"""))
+   call(params.fromQuery[String]("email", Some(null))) { (email) =>
+        invokeHandler(controllers.ClimateServiceController.mostRecentlyAddedClimateServices(email), HandlerDef(this, "controllers.ClimateServiceController", "mostRecentlyAddedClimateServices", Seq(classOf[String]),"GET", """""", Routes.prefix + """climate/mostRecentlyAddedClimateServices"""))
    }
 }
         
 
 // @LINE:26
 case controllers_ClimateServiceController_mostRecentlyUsedClimateServices14(params) => {
-   call { 
-        invokeHandler(controllers.ClimateServiceController.mostRecentlyUsedClimateServices(), HandlerDef(this, "controllers.ClimateServiceController", "mostRecentlyUsedClimateServices", Nil,"GET", """""", Routes.prefix + """climate/mostRecentlyUsedClimateServices"""))
+   call(params.fromQuery[String]("email", Some(null))) { (email) =>
+        invokeHandler(controllers.ClimateServiceController.mostRecentlyUsedClimateServices(email), HandlerDef(this, "controllers.ClimateServiceController", "mostRecentlyUsedClimateServices", Seq(classOf[String]),"GET", """""", Routes.prefix + """climate/mostRecentlyUsedClimateServices"""))
    }
 }
         
 
 // @LINE:27
 case controllers_ClimateServiceController_mostPopularClimateServices15(params) => {
-   call { 
-        invokeHandler(controllers.ClimateServiceController.mostPopularClimateServices(), HandlerDef(this, "controllers.ClimateServiceController", "mostPopularClimateServices", Nil,"GET", """""", Routes.prefix + """climate/mostPopularClimateServices"""))
+   call(params.fromQuery[String]("email", Some(null))) { (email) =>
+        invokeHandler(controllers.ClimateServiceController.mostPopularClimateServices(email), HandlerDef(this, "controllers.ClimateServiceController", "mostPopularClimateServices", Seq(classOf[String]),"GET", """""", Routes.prefix + """climate/mostPopularClimateServices"""))
    }
 }
         
@@ -329,37 +329,37 @@ case controllers_ClimateServiceController_addClimateServices20(params) => {
 
 // @LINE:33
 case controllers_ClimateServiceController_oneService21(params) => {
-   call(params.fromQuery[String]("url", Some(null))) { (url) =>
-        invokeHandler(controllers.ClimateServiceController.oneService(url), HandlerDef(this, "controllers.ClimateServiceController", "oneService", Seq(classOf[String]),"GET", """""", Routes.prefix + """climate/oneService"""))
-   }
-}
-        
-
-// @LINE:35
-case controllers_DatasetController_datasetList22(params) => {
-   call { 
-        invokeHandler(controllers.DatasetController.datasetList(), HandlerDef(this, "controllers.DatasetController", "datasetList", Nil,"GET", """Keyword search""", Routes.prefix + """climate/datasets"""))
+   call(params.fromQuery[String]("url", Some(null)), params.fromQuery[String]("email", Some(null))) { (url, email) =>
+        invokeHandler(controllers.ClimateServiceController.oneService(url, email), HandlerDef(this, "controllers.ClimateServiceController", "oneService", Seq(classOf[String], classOf[String]),"GET", """""", Routes.prefix + """climate/oneService"""))
    }
 }
         
 
 // @LINE:36
-case controllers_DatasetController_searchDataset23(params) => {
-   call { 
-        invokeHandler(controllers.DatasetController.searchDataset(), HandlerDef(this, "controllers.DatasetController", "searchDataset", Nil,"GET", """""", Routes.prefix + """climate/searchDataSet"""))
+case controllers_DatasetController_datasetList22(params) => {
+   call(params.fromQuery[String]("email", Some(null))) { (email) =>
+        invokeHandler(controllers.DatasetController.datasetList(email), HandlerDef(this, "controllers.DatasetController", "datasetList", Seq(classOf[String]),"GET", """Keyword search""", Routes.prefix + """climate/datasets"""))
    }
 }
         
 
 // @LINE:37
-case controllers_DatasetController_getSearchResult24(params) => {
-   call { 
-        invokeHandler(controllers.DatasetController.getSearchResult(), HandlerDef(this, "controllers.DatasetController", "getSearchResult", Nil,"GET", """""", Routes.prefix + """climate/getSearchResult"""))
+case controllers_DatasetController_searchDataset23(params) => {
+   call(params.fromQuery[String]("email", Some(null))) { (email) =>
+        invokeHandler(controllers.DatasetController.searchDataset(email), HandlerDef(this, "controllers.DatasetController", "searchDataset", Seq(classOf[String]),"GET", """""", Routes.prefix + """climate/searchDataSet"""))
    }
 }
         
 
-// @LINE:40
+// @LINE:38
+case controllers_DatasetController_getSearchResult24(params) => {
+   call(params.fromQuery[String]("email", Some(null))) { (email) =>
+        invokeHandler(controllers.DatasetController.getSearchResult(email), HandlerDef(this, "controllers.DatasetController", "getSearchResult", Seq(classOf[String]),"GET", """""", Routes.prefix + """climate/getSearchResult"""))
+   }
+}
+        
+
+// @LINE:41
 case controllers_Assets_at25(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
         invokeHandler(controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
@@ -367,23 +367,23 @@ case controllers_Assets_at25(params) => {
 }
         
 
-// @LINE:42
-case controllers_ClimateServiceController_searchService26(params) => {
-   call { 
-        invokeHandler(controllers.ClimateServiceController.searchService(), HandlerDef(this, "controllers.ClimateServiceController", "searchService", Nil,"GET", """""", Routes.prefix + """climate/searchService"""))
-   }
-}
-        
-
 // @LINE:43
-case controllers_ClimateServiceController_getSearchServiceResult27(params) => {
-   call { 
-        invokeHandler(controllers.ClimateServiceController.getSearchServiceResult(), HandlerDef(this, "controllers.ClimateServiceController", "getSearchServiceResult", Nil,"GET", """""", Routes.prefix + """climate/getSearchServiceResult"""))
+case controllers_ClimateServiceController_searchService26(params) => {
+   call(params.fromQuery[String]("email", Some(""))) { (email) =>
+        invokeHandler(controllers.ClimateServiceController.searchService(email), HandlerDef(this, "controllers.ClimateServiceController", "searchService", Seq(classOf[String]),"GET", """""", Routes.prefix + """climate/searchService"""))
    }
 }
         
 
-// @LINE:46
+// @LINE:44
+case controllers_ClimateServiceController_getSearchServiceResult27(params) => {
+   call(params.fromQuery[String]("email", Some(""))) { (email) =>
+        invokeHandler(controllers.ClimateServiceController.getSearchServiceResult(email), HandlerDef(this, "controllers.ClimateServiceController", "getSearchServiceResult", Seq(classOf[String]),"GET", """""", Routes.prefix + """climate/getSearchServiceResult"""))
+   }
+}
+        
+
+// @LINE:47
 case controllers_Application_sign28(params) => {
    call { 
         invokeHandler(controllers.Application.sign(), HandlerDef(this, "controllers.Application", "sign", Nil,"GET", """Sign Up Page""", Routes.prefix + """climate/sign"""))
@@ -391,7 +391,7 @@ case controllers_Application_sign28(params) => {
 }
         
 
-// @LINE:47
+// @LINE:48
 case controllers_Application_authenticate29(params) => {
    call { 
         invokeHandler(controllers.Application.authenticate(), HandlerDef(this, "controllers.Application", "authenticate", Nil,"POST", """""", Routes.prefix + """climate/authenticate"""))
@@ -399,7 +399,7 @@ case controllers_Application_authenticate29(params) => {
 }
         
 
-// @LINE:48
+// @LINE:49
 case controllers_Application_login30(params) => {
    call { 
         invokeHandler(controllers.Application.login(), HandlerDef(this, "controllers.Application", "login", Nil,"GET", """""", Routes.prefix + """climate/log"""))

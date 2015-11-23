@@ -15,32 +15,33 @@ POST        /delete/report                                       controllers.Bug
 POST        /solve/report                                        controllers.BugReportController.solveReport()
 
 # About Us
-GET         /aboutus                                             controllers.AboutusController.aboutUs()
-GET         /aboutProject                                        controllers.AboutusController.aboutProject()
+GET         /aboutus                                             controllers.AboutusController.aboutUs(email ?= null)
+GET         /aboutProject                                        controllers.AboutusController.aboutProject(email ?= null)
 
 # Climate Model
 GET			/climate											controllers.ClimateServiceController.home(email ?= null, vfile ?= null, dataset ?= null)
 GET			/climate/tutorial									controllers.ClimateServiceController.tutorial()
-GET			/climate/climateServices							controllers.ClimateServiceController.climateServices()
-GET			/climate/mostRecentlyAddedClimateServices			controllers.ClimateServiceController.mostRecentlyAddedClimateServices()
-GET			/climate/mostRecentlyUsedClimateServices			controllers.ClimateServiceController.mostRecentlyUsedClimateServices()
-GET			/climate/mostPopularClimateServices					controllers.ClimateServiceController.mostPopularClimateServices()
+GET			/climate/climateServices							controllers.ClimateServiceController.climateServices(email ?= null)
+GET			/climate/mostRecentlyAddedClimateServices			controllers.ClimateServiceController.mostRecentlyAddedClimateServices(email ?= null)
+GET			/climate/mostRecentlyUsedClimateServices			controllers.ClimateServiceController.mostRecentlyUsedClimateServices(email ?= null)
+GET			/climate/mostPopularClimateServices					controllers.ClimateServiceController.mostPopularClimateServices(email ?= null)
 POST		/climate/new/climateServices    					controllers.ClimateServiceController.newClimateService()
 POST    	/climate/delete/climateServices   					controllers.ClimateServiceController.deleteClimateService()
 POST		/climate/download/climateServices					controllers.ClimateServiceController.downloadClimateService()
 POST		/climate/edit/climateServices						controllers.ClimateServiceController.editClimateService()
 GET			/climate/new/climateServices						controllers.ClimateServiceController.addClimateServices()
-GET			/climate/oneService									controllers.ClimateServiceController.oneService(url ?= null)
+GET			/climate/oneService									controllers.ClimateServiceController.oneService(url ?= null,email ?= null)
+
 #Keyword search
-GET 		/climate/datasets									controllers.DatasetController.datasetList()
-GET			/climate/searchDataSet 					 			controllers.DatasetController.searchDataset()
-GET 		/climate/getSearchResult				 			controllers.DatasetController.getSearchResult()
+GET 		/climate/datasets									controllers.DatasetController.datasetList(email ?= null)
+GET			/climate/searchDataSet 					 			controllers.DatasetController.searchDataset(email ?= null)
+GET 		/climate/getSearchResult				 			controllers.DatasetController.getSearchResult(email ?= null)
 
 #Map static resources from the /public folder to the /assets URL path
 GET     	/assets/*file               						controllers.Assets.at(path="/public", file)
 
-GET			/climate/searchService 					 			controllers.ClimateServiceController.searchService()
-GET 		/climate/getSearchServiceResult				 		controllers.ClimateServiceController.getSearchServiceResult()
+GET			/climate/searchService 					 			controllers.ClimateServiceController.searchService(email: String ?= "")
+GET 		/climate/getSearchServiceResult				 		controllers.ClimateServiceController.getSearchServiceResult(email: String ?= "")
 
 #Sign Up Page
 GET     /climate/sign                                           controllers.Application.sign()

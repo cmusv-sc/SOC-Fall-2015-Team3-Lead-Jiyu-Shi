@@ -19,8 +19,11 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.User;
 import models.UserRepository;
+import play.libs.Json;
 import play.mvc.*;
 
 import javax.inject.Inject;
@@ -49,9 +52,13 @@ public class UserController extends Controller {
 
 	public Result addUser() {
 		JsonNode json = request().body().asJson();
+		ObjectNode obj = Json.newObject();
+
+
 		if (json == null) {
 			System.out.println("User not created, expecting Json data");
-			return badRequest("User not created, expecting Json data");
+			obj.put("result", "failure");
+			return badRequest(new Gson().toJson(obj));
 		}
 
 		// Parse JSON file
@@ -59,29 +66,36 @@ public class UserController extends Controller {
 		String password = json.path("password").asText();
 		String firstName = json.path("firstName").asText();
 		String lastName = json.path("lastName").asText();
-		String middleInitial = json.path("middleInitial").asText();
-	    String affiliation = json.path("affiliation").asText();
-	    String title = json.path("title").asText();
+//		String middleInitial = json.path("middleInitial").asText();
+//	    String affiliation = json.path("affiliation").asText();
+//	    String title = json.path("title").asText();
 	    String email = json.path("email").asText();
-	    String mailingAddress = json.path("mailingAddress").asText();
-	    String phoneNumber = json.path("phoneNumber").asText();
-	    String faxNumber = json.path("faxNumber").asText();
-	    String researchFields = json.path("researchFields").asText();
-	    String highestDegree = json.path("highestDegree").asText();
+//	    String mailingAddress = json.path("mailingAddress").asText();
+//	    String phoneNumber = json.path("phoneNumber").asText();
+//	    String faxNumber = json.path("faxNumber").asText();
+//	    String researchFields = json.path("researchFields").asText();
+//	    String highestDegree = json.path("highestDegree").asText();
 
 		try {
 			if (userRepository.findByUserName(userName).size()>0) {
 				System.out.println("UserName has been used: " + userName);
-				return badRequest("UserName has been used");
+//				return badRequest("UserName has been used");
+				obj.put("result", "failure");
+				return badRequest(new Gson().toJson(obj));
 			}
-			User user = new User(userName, password, firstName, lastName, middleInitial, affiliation, title, email, mailingAddress, phoneNumber, faxNumber, researchFields, highestDegree);	
+//			User user = new User(userName, password, firstName, lastName, middleInitial, affiliation, title, email, mailingAddress, phoneNumber, faxNumber, researchFields, highestDegree);
+			User user = new User(userName, password, firstName, lastName, email);
 			userRepository.save(user);
 			System.out.println("User saved: " + user.getId());
-			return created(new Gson().toJson(user.getId()));
+//			return created(new Gson().toJson(user.getId()));
+			obj.put("result", "success");
+			return ok(new Gson().toJson(obj));
 		} catch (PersistenceException pe) {
 			pe.printStackTrace();
 			System.out.println("User not saved: " + firstName + " " + lastName);
-			return badRequest("User not saved: " + firstName + " " + lastName);
+//			return badRequest("User not saved: " + firstName + " " + lastName);
+			obj.put("result", "failure");
+			return badRequest(new Gson().toJson(obj));
 		}
 	}
 
@@ -179,19 +193,28 @@ public class UserController extends Controller {
 	
 	public Result isUserValid() {
 		JsonNode json = request().body().asJson();
+		ObjectNode obj = Json.newObject();
+
+
 		if (json == null) {
 			System.out.println("Cannot check user, expecting Json data");
-			return badRequest("Cannot check user, expecting Json data");
+			obj.put("result", "failure");
+			return badRequest(new Gson().toJson(obj));
+//			return badRequest("Cannot check user, expecting Json data");
 		}
 		String email = json.path("email").asText();
 		String password = json.path("password").asText();
 		User user = userRepository.findByEmail(email);
 		if (user.getPassword().equals(password)) {
 			System.out.println("User is valid");
-			return ok("User is valid");
+			obj.put("result", "success");
+			return ok(new Gson().toJson(obj));
+//			return ok("User is valid");
 		} else {
 			System.out.println("User is not valid");
-			return badRequest("User is not valid");
+			obj.put("result", "failure");
+			return badRequest(new Gson().toJson(obj));
+//			return badRequest("User is not valid");
 		}
 	}
 	

@@ -26,7 +26,7 @@ object createSuccess extends BaseScalaTemplate[play.api.templates.HtmlFormat.App
     def apply():play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
-Seq[Any](_display_(Seq[Any](/*1.2*/main("Create Successfully")/*1.29*/ {_display_(Seq[Any](format.raw/*1.31*/("""
+Seq[Any](_display_(Seq[Any](/*1.2*/main("Create Successfully",null)/*1.34*/ {_display_(Seq[Any](format.raw/*1.36*/("""
 <html>
 	<head> 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
@@ -69,10 +69,10 @@ Seq[Any](_display_(Seq[Any](/*1.2*/main("Create Successfully")/*1.29*/ {_display
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 20 17:07:41 EST 2015
+                    DATE: Sat Nov 21 20:41:38 EST 2015
                     SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/createSuccess.scala.html
-                    HASH: 741b96dfab5adb85d6d19c5df9d8976e39af2f69
-                    MATRIX: 880->1|915->28|954->30|1124->174|1151->175|1246->243|1274->244|1548->490|1577->491|1622->508|1651->509|1710->532|1725->538|1779->570|1815->579|1843->580|2009->719|2037->720
+                    HASH: e7fcd5a1db1bad2ee143d57d7149954c702980f5
+                    MATRIX: 880->1|920->33|959->35|1129->179|1156->180|1251->248|1279->249|1553->495|1582->496|1627->513|1656->514|1715->537|1730->543|1784->575|1820->584|1848->585|2014->724|2042->725
                     LINES: 29->1|29->1|29->1|35->7|35->7|39->11|39->11|48->20|48->20|49->21|49->21|50->22|50->22|50->22|51->23|51->23|55->27|55->27
                     -- GENERATED --
                 */

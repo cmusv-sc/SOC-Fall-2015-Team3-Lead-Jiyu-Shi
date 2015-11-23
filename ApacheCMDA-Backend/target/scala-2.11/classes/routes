@@ -56,3 +56,8 @@ DELETE		  /users/delete/userName/:userName/password/:password										@controll
 
 # Map static resources from the /public folder to the /assets URL path
 GET           /assets/*file                                                                             controllers.Assets.at(path="/public", file)
+
+
+# Post
+#GET           /posts/getAllPosts/json                                                                   @controllers.PostController.getAllPosts(format: String="json")
+#POST          /posts/add                                                                                @controllers.PostController.createPost

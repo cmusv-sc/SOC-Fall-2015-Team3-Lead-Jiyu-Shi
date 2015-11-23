@@ -35,7 +35,7 @@ import views.html._
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-object mostRecentlyUsedServices extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[List[metadata.ClimateService],play.data.Form[metadata.ClimateService],play.api.templates.HtmlFormat.Appendable] {
+object mostRecentlyUsedServices extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template3[List[metadata.ClimateService],play.data.Form[metadata.ClimateService],String,play.api.templates.HtmlFormat.Appendable] {
 
     /*******************************************************************************
  * Licensed to the Apache Software Foundation (ASF) under one or more		   *
@@ -53,7 +53,7 @@ object mostRecentlyUsedServices extends BaseScalaTemplate[play.api.templates.Htm
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-    def apply/*18.2*/(climateServices: List[metadata.ClimateService], climateServiceForm: play.data.Form[metadata.ClimateService]):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*18.2*/(climateServices: List[metadata.ClimateService], climateServiceForm: play.data.Form[metadata.ClimateService],email:String):play.api.templates.HtmlFormat.Appendable = {
         _display_ {import helper._
 
 def /*22.2*/scripts/*22.9*/:play.api.templates.HtmlFormat.Appendable = {_display_(
@@ -66,12 +66,12 @@ Seq[Any](format.raw/*22.13*/("""
 	"""),format.raw/*27.2*/("""}"""),format.raw/*27.3*/(""");
 	</script>
 """)))};
-Seq[Any](format.raw/*18.111*/("""
+Seq[Any](format.raw/*18.124*/("""
 
 """),format.raw/*21.1*/("""
 """),format.raw/*29.2*/("""
 
-"""),_display_(Seq[Any](/*31.2*/main("Climate Services", scripts)/*31.35*/ {_display_(Seq[Any](format.raw/*31.37*/("""
+"""),_display_(Seq[Any](/*31.2*/main("Climate Services",email, scripts)/*31.41*/ {_display_(Seq[Any](format.raw/*31.43*/("""
 	
 	"""),_display_(Seq[Any](/*33.3*/flash_message())),format.raw/*33.18*/("""   
 	 
@@ -91,20 +91,20 @@ Seq[Any](format.raw/*18.111*/("""
 	"""),_display_(Seq[Any](/*48.3*/for(climateService <- climateServices) yield /*48.41*/{_display_(Seq[Any](format.raw/*48.42*/("""
 
 	<tr>
-		<td><a href = """"),_display_(Seq[Any](/*51.19*/{routes.ClimateServiceController.oneService(climateService.getUrl())})),format.raw/*51.88*/("""">"""),_display_(Seq[Any](/*51.91*/climateService/*51.105*/.getClimateServiceName())),format.raw/*51.129*/("""</a></td>
+		<td><a href = """"),_display_(Seq[Any](/*51.19*/{routes.ClimateServiceController.oneService(climateService.getUrl(),email)})),format.raw/*51.94*/("""">"""),_display_(Seq[Any](/*51.97*/climateService/*51.111*/.getClimateServiceName())),format.raw/*51.135*/("""</a></td>
 
 		<td><span class=""""),_display_(Seq[Any](/*53.21*/climateService/*53.35*/.getClimateServiceName())),format.raw/*53.59*/(""" editable" data-name='purpose'>
 				"""),_display_(Seq[Any](/*54.6*/climateService/*54.20*/.getPurpose())),format.raw/*54.33*/(""" </span></td>
 		
 		<td><span class=""""),_display_(Seq[Any](/*56.21*/climateService/*56.35*/.getClimateServiceName())),format.raw/*56.59*/(""" editable" id = "url" data-name='url'>
-				<a href = """"),_display_(Seq[Any](/*57.17*/{routes.ClimateServiceController.oneService(climateService.getUrl())})),format.raw/*57.86*/(""""><img src='"""),_display_(Seq[Any](/*57.99*/climateService/*57.113*/.getPhoto())),format.raw/*57.124*/("""' style="height: 100px; width: 100px" ></a> </span></td>
+				<a href = """"),_display_(Seq[Any](/*57.17*/{routes.ClimateServiceController.oneService(climateService.getUrl(),email)})),format.raw/*57.92*/(""""><img src='"""),_display_(Seq[Any](/*57.105*/climateService/*57.119*/.getPhoto())),format.raw/*57.130*/("""' style="height: 100px; width: 100px" ></a> </span></td>
 				
 		<td><span class=""""),_display_(Seq[Any](/*59.21*/climateService/*59.35*/.getClimateServiceName())),format.raw/*59.59*/(""" editable" data-name='scenario'>
 				"""),_display_(Seq[Any](/*60.6*/climateService/*60.20*/.getScenario())),format.raw/*60.34*/(""" </span></td>
 
 		<td><span class=""""),_display_(Seq[Any](/*62.21*/climateService/*62.35*/.getClimateServiceName())),format.raw/*62.59*/(""" editable" data-name='versionNo'>
 		"""),_display_(Seq[Any](/*63.4*/for(version <- climateService.getVerionList()) yield /*63.50*/{_display_(Seq[Any](format.raw/*63.51*/("""
-			<a href = """"),_display_(Seq[Any](/*64.16*/{routes.ClimateServiceController.oneService(climateService.findUrl(version))})),format.raw/*64.93*/("""">"""),_display_(Seq[Any](/*64.96*/version)),format.raw/*64.103*/("""</a><br>
+			<a href = """"),_display_(Seq[Any](/*64.16*/{routes.ClimateServiceController.oneService(climateService.findUrl(version),email)})),format.raw/*64.99*/("""">"""),_display_(Seq[Any](/*64.102*/version)),format.raw/*64.109*/("""</a><br>
 		""")))})),format.raw/*65.4*/("""
 		</span></td>
 				
@@ -143,19 +143,19 @@ Seq[Any](format.raw/*18.111*/("""
 """))}
     }
     
-    def render(climateServices:List[metadata.ClimateService],climateServiceForm:play.data.Form[metadata.ClimateService]): play.api.templates.HtmlFormat.Appendable = apply(climateServices,climateServiceForm)
+    def render(climateServices:List[metadata.ClimateService],climateServiceForm:play.data.Form[metadata.ClimateService],email:String): play.api.templates.HtmlFormat.Appendable = apply(climateServices,climateServiceForm,email)
     
-    def f:((List[metadata.ClimateService],play.data.Form[metadata.ClimateService]) => play.api.templates.HtmlFormat.Appendable) = (climateServices,climateServiceForm) => apply(climateServices,climateServiceForm)
+    def f:((List[metadata.ClimateService],play.data.Form[metadata.ClimateService],String) => play.api.templates.HtmlFormat.Appendable) = (climateServices,climateServiceForm,email) => apply(climateServices,climateServiceForm,email)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 20 23:16:22 EST 2015
+                    DATE: Mon Nov 23 13:22:13 EST 2015
                     SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/mostRecentlyUsedServices.scala.html
-                    HASH: ec43b4df9bd782577e1b69128555fc160ea383bf
-                    MATRIX: 3259->1205|3462->1335|3477->1342|3562->1346|3614->1362|3629->1368|3691->1408|3793->1482|3822->1483|3880->1514|3908->1515|3964->1314|3993->1333|4021->1530|4059->1533|4101->1566|4141->1568|4181->1573|4218->1588|4270->1604|4294->1619|4323->1626|4714->1982|4731->1990|4770->1991|4849->2039|4895->2050|4949->2088|4988->2089|5050->2115|5141->2184|5180->2187|5204->2201|5251->2225|5318->2256|5341->2270|5387->2294|5459->2331|5482->2345|5517->2358|5590->2395|5613->2409|5659->2433|5750->2488|5841->2557|5890->2570|5914->2584|5948->2595|6066->2677|6089->2691|6135->2715|6208->2753|6231->2767|6267->2781|6338->2816|6361->2830|6407->2854|6479->2891|6541->2937|6580->2938|6632->2954|6731->3031|6770->3034|6800->3041|6843->3053|6920->3094|6943->3108|6989->3132|7067->3175|7090->3189|7129->3206|7186->3228|7203->3236|7242->3237|7393->3352|7416->3366|7462->3390|7516->3408|7531->3414|7599->3460|7648->3474|7717->3534|7756->3535|7871->3614|7894->3628|7924->3636|8129->3810|8174->3824|8215->3834|8277->3861|8294->3869|8333->3870|8382->3884|8500->3992|8541->3994|8661->4083|8698->4089|8731->4091
+                    HASH: f8a1960f0aa0769e79280f6157942d360ffe5408
+                    MATRIX: 3266->1205|3482->1348|3497->1355|3582->1359|3634->1375|3649->1381|3711->1421|3813->1495|3842->1496|3900->1527|3928->1528|3984->1327|4013->1346|4041->1543|4079->1546|4127->1585|4167->1587|4207->1592|4244->1607|4296->1623|4320->1638|4349->1645|4740->2001|4757->2009|4796->2010|4875->2058|4921->2069|4975->2107|5014->2108|5076->2134|5173->2209|5212->2212|5236->2226|5283->2250|5350->2281|5373->2295|5419->2319|5491->2356|5514->2370|5549->2383|5622->2420|5645->2434|5691->2458|5782->2513|5879->2588|5929->2601|5953->2615|5987->2626|6105->2708|6128->2722|6174->2746|6247->2784|6270->2798|6306->2812|6377->2847|6400->2861|6446->2885|6518->2922|6580->2968|6619->2969|6671->2985|6776->3068|6816->3071|6846->3078|6889->3090|6966->3131|6989->3145|7035->3169|7113->3212|7136->3226|7175->3243|7232->3265|7249->3273|7288->3274|7439->3389|7462->3403|7508->3427|7562->3445|7577->3451|7645->3497|7694->3511|7763->3571|7802->3572|7917->3651|7940->3665|7970->3673|8175->3847|8220->3861|8261->3871|8323->3898|8340->3906|8379->3907|8428->3921|8546->4029|8587->4031|8707->4120|8744->4126|8777->4128
                     LINES: 56->18|59->22|59->22|61->22|62->23|62->23|62->23|64->25|64->25|66->27|66->27|69->18|71->21|72->29|74->31|74->31|74->31|76->33|76->33|78->35|78->35|78->35|87->44|87->44|87->44|89->46|91->48|91->48|91->48|94->51|94->51|94->51|94->51|94->51|96->53|96->53|96->53|97->54|97->54|97->54|99->56|99->56|99->56|100->57|100->57|100->57|100->57|100->57|102->59|102->59|102->59|103->60|103->60|103->60|105->62|105->62|105->62|106->63|106->63|106->63|107->64|107->64|107->64|107->64|108->65|111->68|111->68|111->68|112->69|112->69|112->69|114->71|114->71|114->71|117->74|117->74|117->74|118->75|118->75|118->75|120->77|120->77|120->77|123->80|123->80|123->80|127->84|129->86|131->88|135->92|135->92|135->92|137->94|137->94|137->94|140->97|141->98|142->99
                     -- GENERATED --
                 */

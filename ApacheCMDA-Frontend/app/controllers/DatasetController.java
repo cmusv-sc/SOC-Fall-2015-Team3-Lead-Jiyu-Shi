@@ -34,16 +34,16 @@ public class DatasetController extends Controller{
 	final static Form<DataSet> dataSetForm = Form
 			.form(DataSet.class);
 	
-	public static Result datasetList() {
+	public static Result datasetList(String email) {
 		return ok(dataSetList.render(DataSet.all(),
-				dataSetForm));
+				dataSetForm,email));
 	}
 	
-	public static Result searchDataset(){
-		return ok(searchDataSet.render(dataSetForm));
+	public static Result searchDataset(String email){
+		return ok(searchDataSet.render(dataSetForm,email));
 	}
 	
-	public static Result getSearchResult(){
+	public static Result getSearchResult(String email){
 		Form<DataSet> dc = dataSetForm.bindFromRequest();
 		ObjectNode jsonData = Json.newObject();
 		String dataSetName = "";
@@ -106,6 +106,6 @@ public class DatasetController extends Controller{
 			Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
 		}
 		List<DataSet> response = DataSet.queryDataSet(dataSetName, agency, instrument, physicalVariable, gridDimension, dataSetStartTime, dataSetEndTime);
-		return ok(dataSetList.render(response, dataSetForm));
+		return ok(dataSetList.render(response, dataSetForm,dc.field("email").value()));
 	}
 }

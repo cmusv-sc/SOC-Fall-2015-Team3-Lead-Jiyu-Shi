@@ -15,7 +15,7 @@
  * limitations under the License.											   *
  *******************************************************************************@ 
 
-@(dataSetForm: play.data.Form[DataSet])
+@(dataSetForm: play.data.Form[DataSet],email:String)
 
 @import helper._
 
@@ -503,7 +503,7 @@
 	</script>
 }
 
-@main("Search Dataset", scripts){
+@main("Search Dataset",email, scripts){
 	
 	@flash_message()   
 	 
@@ -511,7 +511,8 @@
     @helper.form(routes.DatasetController.getSearchResult()) {
     	<div class="ui-widget col-sm-offset-3 col-sm-7">
     	<div class = "form-group">
-    		@inputText(dataSetForm("Dataset Name"), 'class -> "form-control", 'id -> "dataSetName", '_label -> Messages("Dataset Name"), 'placeholder -> "ARGO Ocean Temperature", 'size->70) 
+    		@inputText(dataSetForm("Dataset Name"), 'class -> "form-control", 'id -> "dataSetName", '_label -> Messages("Dataset Name"), 'placeholder -> "ARGO Ocean Temperature", 'size->70)
+			<input type="text" class="hidden" name="email" value=@email>
     	</div>
     	<div class = "form-group">
     		@inputText(dataSetForm("Agency"), 'class -> "form-control", 'id -> "agency", '_label -> Messages("Agency"), 'placeholder -> "NOAA", 'size->70) 
@@ -534,6 +535,7 @@
 	    		<textarea style="width: 640px" rows="4" id="content"></textarea>
 	    	</div>
 	    </div>
+
 	    <div align="center">
 	    	<button id="preview" type="button" class="btn btn-info"> Preview</button>
 	    	<input class="btn" type="submit" value="Search">

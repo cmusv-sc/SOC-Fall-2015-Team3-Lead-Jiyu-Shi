@@ -35,7 +35,7 @@ import views.html._
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-object searchDataSet extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template1[play.data.Form[DataSet],play.api.templates.HtmlFormat.Appendable] {
+object searchDataSet extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[play.data.Form[DataSet],String,play.api.templates.HtmlFormat.Appendable] {
 
     /*******************************************************************************
  * Licensed to the Apache Software Foundation (ASF) under one or more		   *
@@ -53,7 +53,7 @@ object searchDataSet extends BaseScalaTemplate[play.api.templates.HtmlFormat.App
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-    def apply/*18.2*/(dataSetForm: play.data.Form[DataSet]):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*18.2*/(dataSetForm: play.data.Form[DataSet],email:String):play.api.templates.HtmlFormat.Appendable = {
         _display_ {import helper._
 
 def /*22.2*/scripts/*22.9*/:play.api.templates.HtmlFormat.Appendable = {_display_(
@@ -541,12 +541,12 @@ Seq[Any](format.raw/*22.13*/("""
 						"""),format.raw/*502.7*/("""}"""),format.raw/*502.8*/(""");
 	</script>
 """)))};
-Seq[Any](format.raw/*18.40*/("""
+Seq[Any](format.raw/*18.53*/("""
 
 """),format.raw/*21.1*/("""
 """),format.raw/*504.2*/("""
 
-"""),_display_(Seq[Any](/*506.2*/main("Search Dataset", scripts)/*506.33*/{_display_(Seq[Any](format.raw/*506.34*/("""
+"""),_display_(Seq[Any](/*506.2*/main("Search Dataset",email, scripts)/*506.39*/{_display_(Seq[Any](format.raw/*506.40*/("""
 	
 	"""),_display_(Seq[Any](/*508.3*/flash_message())),format.raw/*508.18*/("""   
 	 
@@ -554,53 +554,55 @@ Seq[Any](format.raw/*18.40*/("""
     """),_display_(Seq[Any](/*511.6*/helper/*511.12*/.form(routes.DatasetController.getSearchResult())/*511.61*/ {_display_(Seq[Any](format.raw/*511.63*/("""
     	<div class="ui-widget col-sm-offset-3 col-sm-7">
     	<div class = "form-group">
-    		"""),_display_(Seq[Any](/*514.8*/inputText(dataSetForm("Dataset Name"), 'class -> "form-control", 'id -> "dataSetName", '_label -> Messages("Dataset Name"), 'placeholder -> "ARGO Ocean Temperature", 'size->70))),format.raw/*514.184*/(""" 
+    		"""),_display_(Seq[Any](/*514.8*/inputText(dataSetForm("Dataset Name"), 'class -> "form-control", 'id -> "dataSetName", '_label -> Messages("Dataset Name"), 'placeholder -> "ARGO Ocean Temperature", 'size->70))),format.raw/*514.184*/("""
+			<input type="text" class="hidden" name="email" value="""),_display_(Seq[Any](/*515.58*/email)),format.raw/*515.63*/(""">
     	</div>
     	<div class = "form-group">
-    		"""),_display_(Seq[Any](/*517.8*/inputText(dataSetForm("Agency"), 'class -> "form-control", 'id -> "agency", '_label -> Messages("Agency"), 'placeholder -> "NOAA", 'size->70))),format.raw/*517.149*/(""" 
+    		"""),_display_(Seq[Any](/*518.8*/inputText(dataSetForm("Agency"), 'class -> "form-control", 'id -> "agency", '_label -> Messages("Agency"), 'placeholder -> "NOAA", 'size->70))),format.raw/*518.149*/(""" 
     	</div>
     	<div class = "form-group">
-    		"""),_display_(Seq[Any](/*520.8*/inputText(dataSetForm("Instrument"), 'class -> "form-control", 'id -> "instrument", '_label -> Messages("Instrument"), 'placeholder -> "ARGO", 'size->70))),format.raw/*520.161*/(""" 
+    		"""),_display_(Seq[Any](/*521.8*/inputText(dataSetForm("Instrument"), 'class -> "form-control", 'id -> "instrument", '_label -> Messages("Instrument"), 'placeholder -> "ARGO", 'size->70))),format.raw/*521.161*/(""" 
        	</div>
        	<div class = "form-group">
-       		"""),_display_(Seq[Any](/*523.11*/inputText(dataSetForm("Physical Variable"), 'class -> "form-control", 'id -> "physicalVariable", '_label -> Messages("Physical Variable"), 'placeholder -> "Ocean temperature", 'size->70))),format.raw/*523.197*/("""
+       		"""),_display_(Seq[Any](/*524.11*/inputText(dataSetForm("Physical Variable"), 'class -> "form-control", 'id -> "physicalVariable", '_label -> Messages("Physical Variable"), 'placeholder -> "Ocean temperature", 'size->70))),format.raw/*524.197*/("""
 	    </div>
 	    <div class = "form-group">
-	    	"""),_display_(Seq[Any](/*526.8*/inputText(dataSetForm("Grid Dimension"), 'class -> "form-control", 'id -> "gridDimension", '_label -> Messages("Grids Dimension"), 'placeholder -> "3D", 'size->70))),format.raw/*526.171*/("""
+	    	"""),_display_(Seq[Any](/*527.8*/inputText(dataSetForm("Grid Dimension"), 'class -> "form-control", 'id -> "gridDimension", '_label -> Messages("Grids Dimension"), 'placeholder -> "3D", 'size->70))),format.raw/*527.171*/("""
 	    	
 	    </div>
 	    <div class = "form-group">
-	    	"""),_display_(Seq[Any](/*530.8*/inputText(dataSetForm("Dataset Start Time"), 'class -> "form-control", 'id -> "dataSetStartTime", '_label -> Messages("Dataset Start Time"), 'placeholder -> "YYYYMM", 'size->70))),format.raw/*530.185*/("""
-	    	"""),_display_(Seq[Any](/*531.8*/inputText(dataSetForm("Dataset End Time"), 'class -> "form-control", 'id -> "dataSetEndTime", '_label -> Messages("Dataset End Time"), 'placeholder -> "YYYYMM", 'size->70))),format.raw/*531.179*/("""
+	    	"""),_display_(Seq[Any](/*531.8*/inputText(dataSetForm("Dataset Start Time"), 'class -> "form-control", 'id -> "dataSetStartTime", '_label -> Messages("Dataset Start Time"), 'placeholder -> "YYYYMM", 'size->70))),format.raw/*531.185*/("""
+	    	"""),_display_(Seq[Any](/*532.8*/inputText(dataSetForm("Dataset End Time"), 'class -> "form-control", 'id -> "dataSetEndTime", '_label -> Messages("Dataset End Time"), 'placeholder -> "YYYYMM", 'size->70))),format.raw/*532.179*/("""
 	    	
 	    	<div id="show" style="display: none;">
 	    		<textarea style="width: 640px" rows="4" id="content"></textarea>
 	    	</div>
 	    </div>
+
 	    <div align="center">
 	    	<button id="preview" type="button" class="btn btn-info"> Preview</button>
 	    	<input class="btn" type="submit" value="Search">
 	    </div>
 	    </div>
 	    
-	    """)))})),format.raw/*543.7*/("""
+	    """)))})),format.raw/*545.7*/("""
 	 """)))})))}
     }
     
-    def render(dataSetForm:play.data.Form[DataSet]): play.api.templates.HtmlFormat.Appendable = apply(dataSetForm)
+    def render(dataSetForm:play.data.Form[DataSet],email:String): play.api.templates.HtmlFormat.Appendable = apply(dataSetForm,email)
     
-    def f:((play.data.Form[DataSet]) => play.api.templates.HtmlFormat.Appendable) = (dataSetForm) => apply(dataSetForm)
+    def f:((play.data.Form[DataSet],String) => play.api.templates.HtmlFormat.Appendable) = (dataSetForm,email) => apply(dataSetForm,email)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 20 23:16:23 EST 2015
+                    DATE: Mon Nov 23 17:08:34 EST 2015
                     SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/searchDataSet.scala.html
-                    HASH: c2dd8ec623e9aa8a68a5cd2ec3161c619c2d5e43
-                    MATRIX: 3202->1205|3334->1264|3349->1271|3434->1275|3486->1291|3501->1297|3563->1337|3870->1616|3899->1617|20964->18653|20994->18654|21061->18693|21090->18694|21151->18726|21181->18727|21242->18760|21271->18761|21336->18797|21366->18798|21432->18836|21461->18837|21532->18879|21562->18880|21633->18923|21662->18924|21730->18963|21760->18964|21828->19004|21857->19005|21890->19010|21919->19011|21995->19058|22025->19059|22115->19120|22145->19121|22296->19243|22326->19244|23097->19986|23127->19987|23296->20127|23326->20128|23420->20193|23450->20194|23608->20323|23638->20324|23740->20397|23770->20398|23936->20535|23966->20536|24080->20621|24110->20622|24289->20772|24319->20773|24427->20852|24457->20853|24630->20997|24660->20998|24774->21083|24804->21084|24984->21235|25014->21236|25124->21317|25154->21318|25330->21465|25360->21466|25403->21480|25433->21481|25468->21487|25498->21488|25680->21641|25710->21642|25751->21654|25781->21655|25818->21664|25847->21665|25902->1243|25931->1262|25960->21680|25999->21683|26040->21714|26080->21715|26121->21720|26159->21735|26261->21801|26277->21807|26336->21856|26377->21858|26507->21952|26707->22128|26796->22181|26961->22322|27050->22375|27227->22528|27326->22590|27536->22776|27624->22828|27811->22991|27906->23050|28107->23227|28151->23235|28346->23406|28725->23753
-                    LINES: 56->18|59->22|59->22|61->22|62->23|62->23|62->23|67->28|67->28|436->397|436->397|438->399|438->399|439->400|439->400|441->402|441->402|442->403|442->403|444->405|444->405|445->406|445->406|447->408|447->408|448->409|448->409|450->411|450->411|451->412|451->412|455->416|455->416|458->419|458->419|461->422|461->422|485->446|485->446|490->451|490->451|492->453|492->453|497->458|497->458|499->460|499->460|504->465|504->465|506->467|506->467|511->472|511->472|513->474|513->474|518->479|518->479|520->481|520->481|525->486|525->486|527->488|527->488|532->493|532->493|534->495|534->495|534->495|534->495|539->500|539->500|540->501|540->501|541->502|541->502|544->18|546->21|547->504|549->506|549->506|549->506|551->508|551->508|554->511|554->511|554->511|554->511|557->514|557->514|560->517|560->517|563->520|563->520|566->523|566->523|569->526|569->526|573->530|573->530|574->531|574->531|586->543
+                    HASH: a156be3b7519ce1aad5f6597d34239d8c6cb15a0
+                    MATRIX: 3209->1205|3354->1277|3369->1284|3454->1288|3506->1304|3521->1310|3583->1350|3890->1629|3919->1630|20984->18666|21014->18667|21081->18706|21110->18707|21171->18739|21201->18740|21262->18773|21291->18774|21356->18810|21386->18811|21452->18849|21481->18850|21552->18892|21582->18893|21653->18936|21682->18937|21750->18976|21780->18977|21848->19017|21877->19018|21910->19023|21939->19024|22015->19071|22045->19072|22135->19133|22165->19134|22316->19256|22346->19257|23117->19999|23147->20000|23316->20140|23346->20141|23440->20206|23470->20207|23628->20336|23658->20337|23760->20410|23790->20411|23956->20548|23986->20549|24100->20634|24130->20635|24309->20785|24339->20786|24447->20865|24477->20866|24650->21010|24680->21011|24794->21096|24824->21097|25004->21248|25034->21249|25144->21330|25174->21331|25350->21478|25380->21479|25423->21493|25453->21494|25488->21500|25518->21501|25700->21654|25730->21655|25771->21667|25801->21668|25838->21677|25867->21678|25922->1256|25951->1275|25980->21693|26019->21696|26066->21733|26106->21734|26147->21739|26185->21754|26287->21820|26303->21826|26362->21875|26403->21877|26533->21971|26733->22147|26828->22205|26856->22210|26945->22263|27110->22404|27199->22457|27376->22610|27475->22672|27685->22858|27773->22910|27960->23073|28055->23132|28256->23309|28300->23317|28495->23488|28875->23836
+                    LINES: 56->18|59->22|59->22|61->22|62->23|62->23|62->23|67->28|67->28|436->397|436->397|438->399|438->399|439->400|439->400|441->402|441->402|442->403|442->403|444->405|444->405|445->406|445->406|447->408|447->408|448->409|448->409|450->411|450->411|451->412|451->412|455->416|455->416|458->419|458->419|461->422|461->422|485->446|485->446|490->451|490->451|492->453|492->453|497->458|497->458|499->460|499->460|504->465|504->465|506->467|506->467|511->472|511->472|513->474|513->474|518->479|518->479|520->481|520->481|525->486|525->486|527->488|527->488|532->493|532->493|534->495|534->495|534->495|534->495|539->500|539->500|540->501|540->501|541->502|541->502|544->18|546->21|547->504|549->506|549->506|549->506|551->508|551->508|554->511|554->511|554->511|554->511|557->514|557->514|558->515|558->515|561->518|561->518|564->521|564->521|567->524|567->524|570->527|570->527|574->531|574->531|575->532|575->532|588->545
                     -- GENERATED --
                 */
             

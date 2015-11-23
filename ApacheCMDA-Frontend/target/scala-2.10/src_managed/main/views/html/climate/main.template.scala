@@ -35,7 +35,7 @@ import views.html._
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-object main extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template3[String,Html,Html,play.api.templates.HtmlFormat.Appendable] {
+object main extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template4[String,String,Html,Html,play.api.templates.HtmlFormat.Appendable] {
 
     /*******************************************************************************
  * Licensed to the Apache Software Foundation (ASF) under one or more		   *
@@ -53,10 +53,10 @@ object main extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,F
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-    def apply/*18.2*/(title: String, moreScripts: Html = Html(""))(content: Html):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*18.2*/(title: String,email:String, moreScripts: Html = Html(""))(content: Html):play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
-Seq[Any](format.raw/*18.62*/(""" 
+Seq[Any](format.raw/*18.75*/("""
 
 <!DOCTYPE html>
 
@@ -114,11 +114,16 @@ Seq[Any](format.raw/*18.62*/("""
 </head>
 
 <body>
-	"""),_display_(Seq[Any](/*76.3*/header())),format.raw/*76.11*/("""
+	"""),_display_(Seq[Any](/*76.3*/if(email == null)/*76.20*/{_display_(Seq[Any](format.raw/*76.21*/("""
+		"""),_display_(Seq[Any](/*77.4*/header())),format.raw/*77.12*/("""
+	""")))}/*78.3*/else/*78.7*/{_display_(Seq[Any](format.raw/*78.8*/("""
+		"""),_display_(Seq[Any](/*79.4*/loginHeader(email))),format.raw/*79.22*/("""
+	""")))})),format.raw/*80.3*/("""
+
 
 	<div class="container">
 
-		"""),_display_(Seq[Any](/*80.4*/content)),format.raw/*80.11*/("""
+		"""),_display_(Seq[Any](/*85.4*/content)),format.raw/*85.11*/("""
 
 	</div>
 	
@@ -137,20 +142,20 @@ Seq[Any](format.raw/*18.62*/("""
 """))}
     }
     
-    def render(title:String,moreScripts:Html,content:Html): play.api.templates.HtmlFormat.Appendable = apply(title,moreScripts)(content)
+    def render(title:String,email:String,moreScripts:Html,content:Html): play.api.templates.HtmlFormat.Appendable = apply(title,email,moreScripts)(content)
     
-    def f:((String,Html) => (Html) => play.api.templates.HtmlFormat.Appendable) = (title,moreScripts) => (content) => apply(title,moreScripts)(content)
+    def f:((String,String,Html) => (Html) => play.api.templates.HtmlFormat.Appendable) = (title,email,moreScripts) => (content) => apply(title,email,moreScripts)(content)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Sat Nov 21 00:50:48 EST 2015
+                    DATE: Sat Nov 21 21:02:18 EST 2015
                     SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/main.scala.html
-                    HASH: 4dfb14bd2403704895ceed9c1232f280d8787056
-                    MATRIX: 3186->1205|3341->1265|3419->1308|3446->1313|3670->1502|3685->1508|3746->1547|3815->1581|3830->1587|3898->1633|3967->1667|3982->1673|4040->1709|4124->1758|4139->1764|4195->1798|4284->1852|4299->1858|4353->1890|4405->1906|4420->1912|4490->1960|4562->1996|4577->2002|4653->2056|4725->2092|4740->2098|4797->2133|5113->2413|5128->2419|5191->2460|5291->2524|5306->2530|5373->2575|5459->2625|5474->2631|5538->2673|5647->2746|5662->2752|5723->2791|5808->2840|5823->2846|5889->2890|5974->2939|5989->2945|6058->2992|6233->3131|6248->3137|6305->3172|6390->3221|6405->3227|6468->3268|6531->3295|6546->3301|6608->3341|6694->3391|6709->3397|6782->3448|6838->3469|6871->3480|6925->3499|6955->3507|7021->3538|7050->3545
-                    LINES: 56->18|59->18|66->25|66->25|72->31|72->31|72->31|74->33|74->33|74->33|76->35|76->35|76->35|78->37|78->37|78->37|80->39|80->39|80->39|81->40|81->40|81->40|83->42|83->42|83->42|85->44|85->44|85->44|89->48|89->48|89->48|91->50|91->50|91->50|93->52|93->52|93->52|95->54|95->54|95->54|96->55|96->55|96->55|97->56|97->56|97->56|100->59|100->59|100->59|101->60|101->60|101->60|102->61|102->61|102->61|104->63|104->63|104->63|113->72|113->72|117->76|117->76|121->80|121->80
+                    HASH: 635f83c58b69329fb9b6fae6d099cdf6e8a61729
+                    MATRIX: 3193->1205|3361->1278|3438->1320|3465->1325|3689->1514|3704->1520|3765->1559|3834->1593|3849->1599|3917->1645|3986->1679|4001->1685|4059->1721|4143->1770|4158->1776|4214->1810|4303->1864|4318->1870|4372->1902|4424->1918|4439->1924|4509->1972|4581->2008|4596->2014|4672->2068|4744->2104|4759->2110|4816->2145|5132->2425|5147->2431|5210->2472|5310->2536|5325->2542|5392->2587|5478->2637|5493->2643|5557->2685|5666->2758|5681->2764|5742->2803|5827->2852|5842->2858|5908->2902|5993->2951|6008->2957|6077->3004|6252->3143|6267->3149|6324->3184|6409->3233|6424->3239|6487->3280|6550->3307|6565->3313|6627->3353|6713->3403|6728->3409|6801->3460|6857->3481|6890->3492|6944->3511|6970->3528|7009->3529|7048->3533|7078->3541|7099->3544|7111->3548|7149->3549|7188->3553|7228->3571|7262->3574|7329->3606|7358->3613
+                    LINES: 56->18|59->18|66->25|66->25|72->31|72->31|72->31|74->33|74->33|74->33|76->35|76->35|76->35|78->37|78->37|78->37|80->39|80->39|80->39|81->40|81->40|81->40|83->42|83->42|83->42|85->44|85->44|85->44|89->48|89->48|89->48|91->50|91->50|91->50|93->52|93->52|93->52|95->54|95->54|95->54|96->55|96->55|96->55|97->56|97->56|97->56|100->59|100->59|100->59|101->60|101->60|101->60|102->61|102->61|102->61|104->63|104->63|104->63|113->72|113->72|117->76|117->76|117->76|118->77|118->77|119->78|119->78|119->78|120->79|120->79|121->80|126->85|126->85
                     -- GENERATED --
                 */
             

@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object searchService extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template1[play.data.Form[metadata.ClimateService],play.api.templates.HtmlFormat.Appendable] {
+object searchService extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[play.data.Form[metadata.ClimateService],String,play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(climateServiceForm: play.data.Form[metadata.ClimateService]):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(climateServiceForm: play.data.Form[metadata.ClimateService],email:String):play.api.templates.HtmlFormat.Appendable = {
         _display_ {import helper._
 
 def /*5.2*/scripts/*5.9*/:play.api.templates.HtmlFormat.Appendable = {_display_(
@@ -60,45 +60,45 @@ Seq[Any](format.raw/*5.13*/("""
 
   </script>
 """)))};
-Seq[Any](format.raw/*1.63*/("""
+Seq[Any](format.raw/*1.76*/("""
 
 """),format.raw/*4.1*/("""
 """),format.raw/*36.2*/("""
 
-"""),_display_(Seq[Any](/*38.2*/main("Search Service", scripts)/*38.33*/{_display_(Seq[Any](format.raw/*38.34*/("""
+"""),_display_(Seq[Any](/*38.2*/main("Search Service",email,scripts)/*38.38*/{_display_(Seq[Any](format.raw/*38.39*/("""
   """),_display_(Seq[Any](/*39.4*/flash_message())),format.raw/*39.19*/("""
-  """),format.raw/*40.56*/("""
-  """),_display_(Seq[Any](/*41.4*/helper/*41.10*/.form(routes.ClimateServiceController.getSearchServiceResult())/*41.73*/ {_display_(Seq[Any](format.raw/*41.75*/("""
+
+  """),format.raw/*41.56*/("""
+    """),_display_(Seq[Any](/*42.6*/form(routes.ClimateServiceController.getSearchServiceResult(email))/*42.73*/ {_display_(Seq[Any](format.raw/*42.75*/("""
+    """),format.raw/*43.100*/("""
     <div class="ui-widget col-sm-offset-3 col-sm-7">
       <div class = "form-group" align="center" >
-      """),_display_(Seq[Any](/*44.8*/inputText(climateServiceForm("Search Service"), 'class -> "form-control",'id -> "serviceName", 'placeholder -> "Service Name", 'size->70))),format.raw/*44.145*/("""
+      """),_display_(Seq[Any](/*46.8*/inputText(climateServiceForm("Search Service"), 'class -> "form-control",'id -> "serviceName", 'placeholder -> "Service Name", 'size->70))),format.raw/*46.145*/("""
+          <input type="text" class="hidden" name="email" value="""),_display_(Seq[Any](/*47.65*/email)),format.raw/*47.70*/(""">
       </div>
-
-
       <div align="center">
-
         <input class="btn btn-info" type="submit" value="Search">
       </div>
     </div>
-
-  """)))})),format.raw/*54.4*/("""
+    """),format.raw/*53.16*/("""
+    """)))})),format.raw/*54.6*/("""
 """)))})))}
     }
     
-    def render(climateServiceForm:play.data.Form[metadata.ClimateService]): play.api.templates.HtmlFormat.Appendable = apply(climateServiceForm)
+    def render(climateServiceForm:play.data.Form[metadata.ClimateService],email:String): play.api.templates.HtmlFormat.Appendable = apply(climateServiceForm,email)
     
-    def f:((play.data.Form[metadata.ClimateService]) => play.api.templates.HtmlFormat.Appendable) = (climateServiceForm) => apply(climateServiceForm)
+    def f:((play.data.Form[metadata.ClimateService],String) => play.api.templates.HtmlFormat.Appendable) = (climateServiceForm,email) => apply(climateServiceForm,email)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 20 23:16:23 EST 2015
+                    DATE: Mon Nov 23 17:02:57 EST 2015
                     SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/searchService.scala.html
-                    HASH: cfc85f6e303a95f5a5aec0ecef3fc79aa2a3061b
-                    MATRIX: 823->1|977->83|991->90|1075->94|1127->111|1141->117|1202->157|1520->447|1549->448|2342->1213|2371->1214|2457->1272|2486->1273|2527->1286|2556->1287|2613->62|2641->81|2669->1305|2707->1308|2747->1339|2786->1340|2825->1344|2862->1359|2893->1415|2932->1419|2947->1425|3019->1488|3059->1490|3204->1600|3364->1737|3533->1875
-                    LINES: 26->1|29->5|29->5|31->5|32->6|32->6|32->6|37->11|37->11|55->29|55->29|57->31|57->31|58->32|58->32|63->1|65->4|66->36|68->38|68->38|68->38|69->39|69->39|70->40|71->41|71->41|71->41|71->41|74->44|74->44|84->54
+                    HASH: b5a342bf484de4ce87864b12ffd672aa030d81e3
+                    MATRIX: 830->1|997->96|1011->103|1095->107|1147->124|1161->130|1222->170|1540->460|1569->461|2362->1226|2391->1227|2477->1285|2506->1286|2547->1299|2576->1300|2633->75|2661->94|2689->1318|2727->1321|2772->1357|2811->1358|2850->1362|2887->1377|2919->1434|2960->1440|3036->1507|3076->1509|3110->1609|3255->1719|3415->1856|3516->1921|3543->1926|3707->2073|3744->2079
+                    LINES: 26->1|29->5|29->5|31->5|32->6|32->6|32->6|37->11|37->11|55->29|55->29|57->31|57->31|58->32|58->32|63->1|65->4|66->36|68->38|68->38|68->38|69->39|69->39|71->41|72->42|72->42|72->42|73->43|76->46|76->46|77->47|77->47|83->53|84->54
                     -- GENERATED --
                 */
             

@@ -15,7 +15,7 @@
  * limitations under the License.											   *
  *******************************************************************************@ 
 
-@(dataSets: List[DataSet], dataSetForm: play.data.Form[DataSet])
+@(dataSets: List[DataSet], dataSetForm: play.data.Form[DataSet],email:String)
 
 @import helper._
 
@@ -28,7 +28,7 @@
 	</script>
 }
 
-@main("Dataset List", scripts) {
+@main("Dataset List", email ,scripts) {
 	
 	@flash_message()   
 	 

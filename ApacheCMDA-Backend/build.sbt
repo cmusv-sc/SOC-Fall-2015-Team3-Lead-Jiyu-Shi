@@ -9,8 +9,6 @@ scalaVersion := "2.11.4"
 jacoco.settings
 
 libraryDependencies ++= Seq(
-  javaJdbc,
-  javaEbean,
   cache,
   javaWs,
   javaCore,

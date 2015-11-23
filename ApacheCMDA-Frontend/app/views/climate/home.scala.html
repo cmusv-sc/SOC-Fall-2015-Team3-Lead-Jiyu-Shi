@@ -19,53 +19,70 @@
 
 @import helper._
 
-@main("Home") {
-<div class="jumbotron">
-	@if(email!= null){
-		<div class="alert alert-success fade in">
-			<strong>You have been registered successfully!</strong>
-			<button class="btn btn-success pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
-		</div>
-	}
 
+@main("Home",email) {
+	<div class="jumbotron">
 
-	<div class="row">
-		<div class="col-lg-5">
-			<br>
-			<br>
-			<img src="/assets/images/iceberg.jpg" height="400" width="430" />
-		</div>
-		<div class="col-lg-7">
-			<h2>Climate Service List</h2>
-			@for(climateService <- climateServices){
-				<div class="row">
-					<div class="col-md-7"><a href = "@{routes.ClimateServiceController.oneService(climateService.getUrl())}"><font size="3">@climateService.getClimateServiceName()</a></font></div>
-					<span><div class="col-md-3 col-md-offset-2" ><input value ="3.7" class="rating-input" data-size="xs" type="number" readonly/></div></span>
-				</div>
-			}
+		@if(email!= null && vfile!= null && vfile.compareTo("loginSucess")==0){
+			<div class="alert alert-success fade in">
+				<strong>You have been log in successfully!</strong>
+				<button class="btn btn-success pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+			</div>
+		}
 
-			<!-- @if(!session.get("username")){ -->
+		@if(vfile!= null && vfile.compareTo("logfailed")==0){
+			<div class="alert alert-danger fade in">
+				<strong>Invalid Password or User ID!</strong>
+				<button class="btn btn-danger pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+			</div>
+		}
 
-			<p>
+		@if(dataset!= null && dataset.compareTo("logout")==0){
+			<div class="alert alert-success fade in">
+				<strong>You have been log out successfully!</strong>
+				<button class="btn btn-success pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+			</div>
+		}
+
+		<div class="row">
+			<div class="col-lg-5">
+				<br>
+				<br>
+				<img src="/assets/images/iceberg.jpg" height="400" width="430" />
+			</div>
+			<div class="col-lg-7">
+				<h2>Climate Service List</h2>
+				@for(climateService <- climateServices){
+					<div class="row">
+						<div class="col-md-7"><a href = "@{routes.ClimateServiceController.oneService(climateService.getUrl(),email)}"><font size="3">@climateService.getClimateServiceName()</a></font></div>
+						<span><div class="col-md-3 col-md-offset-2" ><input value ="3.7" class="rating-input" data-size="xs" type="number" readonly/></div></span>
+					</div>
+				}
+
+					<!-- @if(!session.get("username")){ -->
+
+				<p>
 				@if(false){ <a class="btn btn-primary" href="climate/register"
-					role="button">Register &raquo;</a> }
-			</p>
-			<!-- } -->
+				role="button">Register &raquo;</a> }
+				</p>
+					<!-- } -->
+			</div>
 		</div>
 	</div>
-</div>
 	<script>
-		jQuery(document).ready(function () {
-			$('.rating-input').rating({
-				min: 0,
-				max: 5,
-				step: 0.1,
-				size: 'xs',
-				showClear: false,
-				showCaption: false,
-				hoverEnabled:false,
-				hoverChangeStars: false
+			jQuery(document).ready(function () {
+				$('.rating-input').rating({
+					min: 0,
+					max: 5,
+					step: 0.1,
+					size: 'xs',
+					showClear: false,
+					showCaption: false,
+					hoverEnabled:false,
+					hoverChangeStars: false
+				});
 			});
-	});
 	</script>
 }
+
+

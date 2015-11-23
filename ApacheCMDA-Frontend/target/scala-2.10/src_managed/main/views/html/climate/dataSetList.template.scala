@@ -35,7 +35,7 @@ import views.html._
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-object dataSetList extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[List[DataSet],play.data.Form[DataSet],play.api.templates.HtmlFormat.Appendable] {
+object dataSetList extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template3[List[DataSet],play.data.Form[DataSet],String,play.api.templates.HtmlFormat.Appendable] {
 
     /*******************************************************************************
  * Licensed to the Apache Software Foundation (ASF) under one or more		   *
@@ -53,7 +53,7 @@ object dataSetList extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appen
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-    def apply/*18.2*/(dataSets: List[DataSet], dataSetForm: play.data.Form[DataSet]):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*18.2*/(dataSets: List[DataSet], dataSetForm: play.data.Form[DataSet],email:String):play.api.templates.HtmlFormat.Appendable = {
         _display_ {import helper._
 
 def /*22.2*/scripts/*22.9*/:play.api.templates.HtmlFormat.Appendable = {_display_(
@@ -66,12 +66,12 @@ Seq[Any](format.raw/*22.13*/("""
 	"""),format.raw/*27.2*/("""}"""),format.raw/*27.3*/(""");
 	</script>
 """)))};
-Seq[Any](format.raw/*18.65*/("""
+Seq[Any](format.raw/*18.78*/("""
 
 """),format.raw/*21.1*/("""
 """),format.raw/*29.2*/("""
 
-"""),_display_(Seq[Any](/*31.2*/main("Dataset List", scripts)/*31.31*/ {_display_(Seq[Any](format.raw/*31.33*/("""
+"""),_display_(Seq[Any](/*31.2*/main("Dataset List", email ,scripts)/*31.38*/ {_display_(Seq[Any](format.raw/*31.40*/("""
 	
 	"""),_display_(Seq[Any](/*33.3*/flash_message())),format.raw/*33.18*/("""   
 	 
@@ -140,19 +140,19 @@ Seq[Any](format.raw/*18.65*/("""
 """))}
     }
     
-    def render(dataSets:List[DataSet],dataSetForm:play.data.Form[DataSet]): play.api.templates.HtmlFormat.Appendable = apply(dataSets,dataSetForm)
+    def render(dataSets:List[DataSet],dataSetForm:play.data.Form[DataSet],email:String): play.api.templates.HtmlFormat.Appendable = apply(dataSets,dataSetForm,email)
     
-    def f:((List[DataSet],play.data.Form[DataSet]) => play.api.templates.HtmlFormat.Appendable) = (dataSets,dataSetForm) => apply(dataSets,dataSetForm)
+    def f:((List[DataSet],play.data.Form[DataSet],String) => play.api.templates.HtmlFormat.Appendable) = (dataSets,dataSetForm,email) => apply(dataSets,dataSetForm,email)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 20 23:16:21 EST 2015
+                    DATE: Mon Nov 23 00:49:56 EST 2015
                     SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/dataSetList.scala.html
-                    HASH: 402412ba366036282131f1c841db4a247124d200
-                    MATRIX: 3214->1205|3371->1289|3386->1296|3471->1300|3523->1316|3538->1322|3600->1362|3702->1436|3731->1437|3789->1468|3817->1469|3872->1268|3901->1287|3929->1484|3967->1487|4005->1516|4045->1518|4085->1523|4122->1538|4204->1584|4221->1592|4250->1599|5804->3118|5844->3142|5883->3143|5948->3172|5964->3179|5994->3187|6065->3222|6081->3229|6120->3246|6191->3281|6207->3288|6243->3302|6314->3337|6330->3344|6368->3360|6439->3395|6455->3402|6499->3424|6570->3459|6586->3466|6626->3484|6697->3519|6713->3526|6746->3537|6817->3572|6833->3579|6874->3598|6952->3640|6968->3647|7002->3659|7073->3694|7089->3701|7123->3713|7194->3748|7210->3755|7255->3778|7326->3813|7342->3820|7384->3840|7461->3881|7477->3888|7517->3906|7588->3941|7604->3948|7647->3969|7722->4008|7738->4015|7783->4038|7858->4077|7874->4084|7911->4099|7982->4134|7998->4141|8033->4154|8091->4181|8170->4229
+                    HASH: a9c3cf000ed3870a9534f5fdd5e589cbd8c39889
+                    MATRIX: 3221->1205|3391->1302|3406->1309|3491->1313|3543->1329|3558->1335|3620->1375|3722->1449|3751->1450|3809->1481|3837->1482|3892->1281|3921->1300|3949->1497|3987->1500|4032->1536|4072->1538|4112->1543|4149->1558|4231->1604|4248->1612|4277->1619|5831->3138|5871->3162|5910->3163|5975->3192|5991->3199|6021->3207|6092->3242|6108->3249|6147->3266|6218->3301|6234->3308|6270->3322|6341->3357|6357->3364|6395->3380|6466->3415|6482->3422|6526->3444|6597->3479|6613->3486|6653->3504|6724->3539|6740->3546|6773->3557|6844->3592|6860->3599|6901->3618|6979->3660|6995->3667|7029->3679|7100->3714|7116->3721|7150->3733|7221->3768|7237->3775|7282->3798|7353->3833|7369->3840|7411->3860|7488->3901|7504->3908|7544->3926|7615->3961|7631->3968|7674->3989|7749->4028|7765->4035|7810->4058|7885->4097|7901->4104|7938->4119|8009->4154|8025->4161|8060->4174|8118->4201|8197->4249
                     LINES: 56->18|59->22|59->22|61->22|62->23|62->23|62->23|64->25|64->25|66->27|66->27|69->18|71->21|72->29|74->31|74->31|74->31|76->33|76->33|79->36|79->36|79->36|108->65|108->65|108->65|110->67|110->67|110->67|111->68|111->68|111->68|112->69|112->69|112->69|113->70|113->70|113->70|114->71|114->71|114->71|115->72|115->72|115->72|116->73|116->73|116->73|117->74|117->74|117->74|119->76|119->76|119->76|120->77|120->77|120->77|121->78|121->78|121->78|122->79|122->79|122->79|124->81|124->81|124->81|125->82|125->82|125->82|126->83|126->83|126->83|127->84|127->84|127->84|128->85|128->85|128->85|132->89|139->96
                     -- GENERATED --
                 */

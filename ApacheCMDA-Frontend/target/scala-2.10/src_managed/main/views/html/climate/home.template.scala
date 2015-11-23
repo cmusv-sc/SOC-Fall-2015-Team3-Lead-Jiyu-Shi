@@ -60,56 +60,74 @@ object home extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,F
 Seq[Any](format.raw/*18.97*/("""
 
 """),format.raw/*21.1*/("""
-"""),_display_(Seq[Any](/*22.2*/main("Home")/*22.14*/ {_display_(Seq[Any](format.raw/*22.16*/("""
-<div class="jumbotron">
-	"""),_display_(Seq[Any](/*24.3*/if(email!= null)/*24.19*/{_display_(Seq[Any](format.raw/*24.20*/("""
-		<div class="alert alert-success fade in">
-			<strong>You have been registered successfully!</strong>
-			<button class="btn btn-success pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
-		</div>
-	""")))})),format.raw/*29.3*/("""
 
+"""),_display_(Seq[Any](/*23.2*/main("Home",email)/*23.20*/ {_display_(Seq[Any](format.raw/*23.22*/("""
+	<div class="jumbotron">
 
-	<div class="row">
-		<div class="col-lg-5">
-			<br>
-			<br>
-			<img src="/assets/images/iceberg.jpg" height="400" width="430" />
-		</div>
-		<div class="col-lg-7">
-			<h2>Climate Service List</h2>
-			"""),_display_(Seq[Any](/*40.5*/for(climateService <- climateServices) yield /*40.43*/{_display_(Seq[Any](format.raw/*40.44*/("""
-				<div class="row">
-					<div class="col-md-7"><a href = """"),_display_(Seq[Any](/*42.40*/{routes.ClimateServiceController.oneService(climateService.getUrl())})),format.raw/*42.109*/(""""><font size="3">"""),_display_(Seq[Any](/*42.127*/climateService/*42.141*/.getClimateServiceName())),format.raw/*42.165*/("""</a></font></div>
-					<span><div class="col-md-3 col-md-offset-2" ><input value ="3.7" class="rating-input" data-size="xs" type="number" readonly/></div></span>
-				</div>
-			""")))})),format.raw/*45.5*/("""
+		"""),_display_(Seq[Any](/*26.4*/if(email!= null && vfile!= null && vfile.compareTo("loginSucess")==0)/*26.73*/{_display_(Seq[Any](format.raw/*26.74*/("""
+			<div class="alert alert-success fade in">
+				<strong>You have been log in successfully!</strong>
+				<button class="btn btn-success pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+			</div>
+		""")))})),format.raw/*31.4*/("""
 
-			<!-- """),_display_(Seq[Any](/*47.10*/if(!session.get("username"))/*47.38*/{_display_(Seq[Any](format.raw/*47.39*/(""" -->
+		"""),_display_(Seq[Any](/*33.4*/if(vfile!= null && vfile.compareTo("logfailed")==0)/*33.55*/{_display_(Seq[Any](format.raw/*33.56*/("""
+			<div class="alert alert-danger fade in">
+				<strong>Invalid Password or User ID!</strong>
+				<button class="btn btn-danger pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+			</div>
+		""")))})),format.raw/*38.4*/("""
 
-			<p>
-				"""),_display_(Seq[Any](/*50.6*/if(false)/*50.15*/{_display_(Seq[Any](format.raw/*50.16*/(""" <a class="btn btn-primary" href="climate/register"
-					role="button">Register &raquo;</a> """)))})),format.raw/*51.42*/("""
-			</p>
-			<!-- """)))})),format.raw/*53.10*/(""" -->
+		"""),_display_(Seq[Any](/*40.4*/if(dataset!= null && dataset.compareTo("logout")==0)/*40.56*/{_display_(Seq[Any](format.raw/*40.57*/("""
+			<div class="alert alert-success fade in">
+				<strong>You have been log out successfully!</strong>
+				<button class="btn btn-success pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+			</div>
+		""")))})),format.raw/*45.4*/("""
+
+		<div class="row">
+			<div class="col-lg-5">
+				<br>
+				<br>
+				<img src="/assets/images/iceberg.jpg" height="400" width="430" />
+			</div>
+			<div class="col-lg-7">
+				<h2>Climate Service List</h2>
+				"""),_display_(Seq[Any](/*55.6*/for(climateService <- climateServices) yield /*55.44*/{_display_(Seq[Any](format.raw/*55.45*/("""
+					<div class="row">
+						<div class="col-md-7"><a href = """"),_display_(Seq[Any](/*57.41*/{routes.ClimateServiceController.oneService(climateService.getUrl(),email)})),format.raw/*57.116*/(""""><font size="3">"""),_display_(Seq[Any](/*57.134*/climateService/*57.148*/.getClimateServiceName())),format.raw/*57.172*/("""</a></font></div>
+						<span><div class="col-md-3 col-md-offset-2" ><input value ="3.7" class="rating-input" data-size="xs" type="number" readonly/></div></span>
+					</div>
+				""")))})),format.raw/*60.6*/("""
+
+					<!-- """),_display_(Seq[Any](/*62.12*/if(!session.get("username"))/*62.40*/{_display_(Seq[Any](format.raw/*62.41*/(""" -->
+
+				<p>
+				"""),_display_(Seq[Any](/*65.6*/if(false)/*65.15*/{_display_(Seq[Any](format.raw/*65.16*/(""" <a class="btn btn-primary" href="climate/register"
+				role="button">Register &raquo;</a> """)))})),format.raw/*66.41*/("""
+				</p>
+					<!-- """)))})),format.raw/*68.12*/(""" -->
+			</div>
 		</div>
 	</div>
-</div>
 	<script>
-		jQuery(document).ready(function () """),format.raw/*58.38*/("""{"""),format.raw/*58.39*/("""
-			$('.rating-input').rating("""),format.raw/*59.30*/("""{"""),format.raw/*59.31*/("""
-				min: 0,
-				max: 5,
-				step: 0.1,
-				size: 'xs',
-				showClear: false,
-				showCaption: false,
-				hoverEnabled:false,
-				hoverChangeStars: false
-			"""),format.raw/*68.4*/("""}"""),format.raw/*68.5*/(""");
-	"""),format.raw/*69.2*/("""}"""),format.raw/*69.3*/(""");
+			jQuery(document).ready(function () """),format.raw/*73.39*/("""{"""),format.raw/*73.40*/("""
+				$('.rating-input').rating("""),format.raw/*74.31*/("""{"""),format.raw/*74.32*/("""
+					min: 0,
+					max: 5,
+					step: 0.1,
+					size: 'xs',
+					showClear: false,
+					showCaption: false,
+					hoverEnabled:false,
+					hoverChangeStars: false
+				"""),format.raw/*83.5*/("""}"""),format.raw/*83.6*/(""");
+			"""),format.raw/*84.4*/("""}"""),format.raw/*84.5*/(""");
 	</script>
-""")))})))}
+""")))})),format.raw/*86.2*/("""
+
+
+"""))}
     }
     
     def render(email:String,vfile:String,dataset:String,climateServices:List[metadata.ClimateService]): play.api.templates.HtmlFormat.Appendable = apply(email,vfile,dataset,climateServices)
@@ -121,11 +139,11 @@ Seq[Any](format.raw/*18.97*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 20 23:16:22 EST 2015
+                    DATE: Mon Nov 23 00:34:18 EST 2015
                     SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/home.scala.html
-                    HASH: 1464403cc7b6ff4eb0c56947de8176b415a121e4
-                    MATRIX: 3220->1205|3426->1300|3455->1319|3492->1321|3513->1333|3553->1335|3615->1362|3640->1378|3679->1379|3927->1596|4165->1799|4219->1837|4258->1838|4356->1900|4448->1969|4503->1987|4527->2001|4574->2025|4782->2202|4829->2213|4866->2241|4905->2242|4958->2260|4976->2269|5015->2270|5140->2363|5190->2381|5294->2457|5323->2458|5381->2488|5410->2489|5594->2646|5622->2647|5653->2651|5681->2652
-                    LINES: 56->18|60->18|62->21|63->22|63->22|63->22|65->24|65->24|65->24|70->29|81->40|81->40|81->40|83->42|83->42|83->42|83->42|83->42|86->45|88->47|88->47|88->47|91->50|91->50|91->50|92->51|94->53|99->58|99->58|100->59|100->59|109->68|109->68|110->69|110->69
+                    HASH: b14cebfdb784138454537f74a0623970f190aebe
+                    MATRIX: 3220->1205|3426->1300|3455->1319|3493->1322|3520->1340|3560->1342|3625->1372|3703->1441|3742->1442|3991->1660|4031->1665|4091->1716|4130->1717|4371->1927|4411->1932|4472->1984|4511->1985|4761->2204|5007->2415|5061->2453|5100->2454|5200->2518|5298->2593|5353->2611|5377->2625|5424->2649|5635->2829|5684->2842|5721->2870|5760->2871|5814->2890|5832->2899|5871->2900|5995->2992|6048->3013|6156->3093|6185->3094|6244->3125|6273->3126|6466->3292|6494->3293|6527->3299|6555->3300|6601->3315
+                    LINES: 56->18|60->18|62->21|64->23|64->23|64->23|67->26|67->26|67->26|72->31|74->33|74->33|74->33|79->38|81->40|81->40|81->40|86->45|96->55|96->55|96->55|98->57|98->57|98->57|98->57|98->57|101->60|103->62|103->62|103->62|106->65|106->65|106->65|107->66|109->68|114->73|114->73|115->74|115->74|124->83|124->83|125->84|125->84|127->86
                     -- GENERATED --
                 */
             
