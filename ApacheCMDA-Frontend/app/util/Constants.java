@@ -49,5 +49,5 @@ public class Constants {
 	public static final String GET_CONFIG_ITEMS_BY_CONFIG= "serviceConfigurationItemByServiceConfig/";
 
 	//group3 add here
-	public static final String UPDATE_FREQUENCY =	"";
+	public static final String UPDATE_FREQUENCY =	"addFreq/";
 }

@@ -398,6 +398,7 @@ public class ClimateServiceController extends Controller {
         return ok(result);
     }
 
+
     public Result getAllClimateServicesOrderByCount(String format){
 //        Iterable<ClimateService> climateServices = climateServiceRepository
 //                .findByOrderByCreateTimeDesc();

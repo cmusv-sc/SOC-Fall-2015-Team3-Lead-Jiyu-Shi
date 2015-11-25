@@ -114,7 +114,7 @@ public class ClimateService {
 			+ util.Constants.NEW_EDIT_CLIMATE_SERVICE + "/name/";
 
 	//group 3 add here
-	private static final String POST_UPDATE_FREQUENCY = Constants.NEW_BACKEND + util.Constants.UPDATE_FREQUENCY;
+	private static final String PUT_UPDATE_FREQUENCY = Constants.NEW_BACKEND + util.Constants.UPDATE_FREQUENCY;
 
 	public ClimateService() {
 		// TODO Auto-generated constructor stub
@@ -209,7 +209,6 @@ public class ClimateService {
 				//climateMap.get(json.get("name").asText()).setVerionNum();
 				climateMap.get(json.get("name").asText()).setVersionList(json.path("versionNo").asText());
 				climateMap.get(json.get("name").asText()).setVersionMap( json.path("versionNo").asText(), json.path("url").asText());
-
 
 
 
@@ -534,19 +533,23 @@ public class ClimateService {
 		ObjectNode queryJson = mapper.createObjectNode();
 		queryJson.put("id", id);
 
+		System.out.println(PUT_UPDATE_FREQUENCY);
 		JsonNode userServiceNode = APICall
-				.postAPI(POST_UPDATE_FREQUENCY,queryJson);
+				.putAPI(PUT_UPDATE_FREQUENCY,queryJson);
 
-		System.out.println("shou dao login" + userServiceNode);
+		System.out.println("shou dao frequency" + userServiceNode);
 
 		if (userServiceNode == null || userServiceNode.has("error")) {
 			System.out.println("error");
 		}
 	}
 
-	public static void postComment(){
+
+//	public static void postComment(){
+//
+//
+//	}
 
 
-	}
 }
 

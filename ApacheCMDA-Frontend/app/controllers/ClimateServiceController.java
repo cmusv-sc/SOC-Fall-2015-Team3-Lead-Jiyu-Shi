@@ -216,9 +216,9 @@ public class ClimateServiceController extends Controller {
 
 
 	//call to post a comment
-//	public static Result postCommentAndGrade(){
-//
-//	}
+	//	public static Result postCommentAndGrade(){
+	//
+	//	}
 
 
 }
