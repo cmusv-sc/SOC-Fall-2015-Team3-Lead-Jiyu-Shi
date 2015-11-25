@@ -54,7 +54,7 @@
 				<h2>Climate Service List</h2>
 				@for(climateService <- climateServices){
 					<div class="row">
-						<div class="col-md-7"><a href = "@{routes.ClimateServiceController.oneService(climateService.getUrl(),email)}"><font size="3">@climateService.getClimateServiceName()</a></font></div>
+						<div class="col-md-7"><a href = "@{routes.ClimateServiceController.oneService(climateService.getUrl(),email,climateService.getId())}"><font size="3">@climateService.getClimateServiceName()</a></font></div>
 						<span><div class="col-md-3 col-md-offset-2" ><input value ="3.7" class="rating-input" data-size="xs" type="number" readonly/></div></span>
 					</div>
 				}

@@ -21,6 +21,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.*;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import util.APICall;
 import util.Constants;
 
@@ -111,8 +113,8 @@ public class ClimateService {
 	private static final String EDIT_CLIMATE_SERVICE_CALL = Constants.NEW_BACKEND+ "climateService/"
 			+ util.Constants.NEW_EDIT_CLIMATE_SERVICE + "/name/";
 
-
-
+	//group 3 add here
+	private static final String POST_UPDATE_FREQUENCY = Constants.NEW_BACKEND + util.Constants.UPDATE_FREQUENCY;
 
 	public ClimateService() {
 		// TODO Auto-generated constructor stub
@@ -526,6 +528,22 @@ public class ClimateService {
 		}
 		return result;
 	}
+
+	public static void updateFrequency(String id){
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode queryJson = mapper.createObjectNode();
+		queryJson.put("id", id);
+
+		JsonNode userServiceNode = APICall
+				.postAPI(POST_UPDATE_FREQUENCY,queryJson);
+
+		System.out.println("shou dao login" + userServiceNode);
+
+		if (userServiceNode == null || userServiceNode.has("error")) {
+			System.out.println("error");
+		}
+	}
+
 
 
 }

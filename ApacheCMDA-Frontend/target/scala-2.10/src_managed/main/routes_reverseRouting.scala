@@ -1,6 +1,6 @@
 // @SOURCE:/Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/conf/routes
-// @HASH:3e15666f11d6bdd3134a10d99044a07043e1ddc9
-// @DATE:Mon Nov 23 15:51:11 EST 2015
+// @HASH:09cf922b5129e53856ed6dc930a752a0f017f667
+// @DATE:Tue Nov 24 21:45:39 EST 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -218,6 +218,12 @@ def searchService(email:String = ""): Call = {
 }
                                                 
 
+// @LINE:33
+def oneService(url:String = null, email:String = null, id:String = null): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "climate/oneService" + queryString(List(if(url == null) None else Some(implicitly[QueryStringBindable[String]].unbind("url", url)), if(email == null) None else Some(implicitly[QueryStringBindable[String]].unbind("email", email)), if(id == null) None else Some(implicitly[QueryStringBindable[String]].unbind("id", id)))))
+}
+                                                
+
 // @LINE:23
 def tutorial(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "climate/tutorial")
@@ -227,12 +233,6 @@ def tutorial(): Call = {
 // @LINE:44
 def getSearchServiceResult(email:String = ""): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "climate/getSearchServiceResult" + queryString(List(if(email == "") None else Some(implicitly[QueryStringBindable[String]].unbind("email", email)))))
-}
-                                                
-
-// @LINE:33
-def oneService(url:String = null, email:String = null): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "climate/oneService" + queryString(List(if(url == null) None else Some(implicitly[QueryStringBindable[String]].unbind("url", url)), if(email == null) None else Some(implicitly[QueryStringBindable[String]].unbind("email", email)))))
 }
                                                 
 
@@ -597,6 +597,17 @@ def searchService : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
+// @LINE:33
+def oneService : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.ClimateServiceController.oneService",
+   """
+      function(url,email,id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "climate/oneService" + _qS([(url == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("url", url)), (email == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("email", email)), (id == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("id", id))])})
+      }
+   """
+)
+                        
+
 // @LINE:23
 def tutorial : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.ClimateServiceController.tutorial",
@@ -614,17 +625,6 @@ def getSearchServiceResult : JavascriptReverseRoute = JavascriptReverseRoute(
    """
       function(email) {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "climate/getSearchServiceResult" + _qS([(email == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("email", email))])})
-      }
-   """
-)
-                        
-
-// @LINE:33
-def oneService : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.ClimateServiceController.oneService",
-   """
-      function(url,email) {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "climate/oneService" + _qS([(url == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("url", url)), (email == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("email", email))])})
       }
    """
 )
@@ -940,6 +940,12 @@ def searchService(email:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.H
 )
                       
 
+// @LINE:33
+def oneService(url:String, email:String, id:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.ClimateServiceController.oneService(url, email, id), HandlerDef(this, "controllers.ClimateServiceController", "oneService", Seq(classOf[String], classOf[String], classOf[String]), "GET", """""", _prefix + """climate/oneService""")
+)
+                      
+
 // @LINE:23
 def tutorial(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.ClimateServiceController.tutorial(), HandlerDef(this, "controllers.ClimateServiceController", "tutorial", Seq(), "GET", """""", _prefix + """climate/tutorial""")
@@ -949,12 +955,6 @@ def tutorial(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 // @LINE:44
 def getSearchServiceResult(email:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.ClimateServiceController.getSearchServiceResult(email), HandlerDef(this, "controllers.ClimateServiceController", "getSearchServiceResult", Seq(classOf[String]), "GET", """""", _prefix + """climate/getSearchServiceResult""")
-)
-                      
-
-// @LINE:33
-def oneService(url:String, email:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.ClimateServiceController.oneService(url, email), HandlerDef(this, "controllers.ClimateServiceController", "oneService", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """climate/oneService""")
 )
                       
 

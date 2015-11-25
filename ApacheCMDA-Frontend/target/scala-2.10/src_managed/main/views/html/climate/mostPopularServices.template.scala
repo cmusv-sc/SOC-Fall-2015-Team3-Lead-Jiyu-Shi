@@ -90,20 +90,20 @@ Seq[Any](format.raw/*18.124*/("""
 	</tr>
 	"""),_display_(Seq[Any](/*48.3*/for(climateService <- climateServices) yield /*48.41*/{_display_(Seq[Any](format.raw/*48.42*/("""
 	<tr>
-		<td><a href = """"),_display_(Seq[Any](/*50.19*/{routes.ClimateServiceController.oneService(climateService.getUrl(),email)})),format.raw/*50.94*/("""">"""),_display_(Seq[Any](/*50.97*/climateService/*50.111*/.getClimateServiceName())),format.raw/*50.135*/("""</a></td>
+		<td><a href = """"),_display_(Seq[Any](/*50.19*/{routes.ClimateServiceController.oneService(climateService.getUrl(),email,climateService.getId())})),format.raw/*50.117*/("""">"""),_display_(Seq[Any](/*50.120*/climateService/*50.134*/.getClimateServiceName())),format.raw/*50.158*/("""</a></td>
 
 		<td><span class=""""),_display_(Seq[Any](/*52.21*/climateService/*52.35*/.getClimateServiceName())),format.raw/*52.59*/(""" editable" data-name='purpose'>
 				"""),_display_(Seq[Any](/*53.6*/climateService/*53.20*/.getPurpose())),format.raw/*53.33*/(""" </span></td>
 		
 		<td><span class=""""),_display_(Seq[Any](/*55.21*/climateService/*55.35*/.getClimateServiceName())),format.raw/*55.59*/(""" editable" id = "url" data-name='url'>
-				<a href = """"),_display_(Seq[Any](/*56.17*/{routes.ClimateServiceController.oneService(climateService.getUrl(),email)})),format.raw/*56.92*/(""""><img src='"""),_display_(Seq[Any](/*56.105*/climateService/*56.119*/.getPhoto())),format.raw/*56.130*/("""' style="height: 100px; width: 100px" ></a> </span></td>
+				<a href = """"),_display_(Seq[Any](/*56.17*/{routes.ClimateServiceController.oneService(climateService.getUrl(),email,climateService.getId())})),format.raw/*56.115*/(""""><img src='"""),_display_(Seq[Any](/*56.128*/climateService/*56.142*/.getPhoto())),format.raw/*56.153*/("""' style="height: 100px; width: 100px" ></a> </span></td>
 				
 		<td><span class=""""),_display_(Seq[Any](/*58.21*/climateService/*58.35*/.getClimateServiceName())),format.raw/*58.59*/(""" editable" data-name='scenario'>
 				"""),_display_(Seq[Any](/*59.6*/climateService/*59.20*/.getScenario())),format.raw/*59.34*/(""" </span></td>
 
 		<td><span class=""""),_display_(Seq[Any](/*61.21*/climateService/*61.35*/.getClimateServiceName())),format.raw/*61.59*/(""" editable" data-name='versionNo'>
 		"""),_display_(Seq[Any](/*62.4*/for(version <- climateService.getVerionList()) yield /*62.50*/{_display_(Seq[Any](format.raw/*62.51*/("""
-			<a href = """"),_display_(Seq[Any](/*63.16*/{routes.ClimateServiceController.oneService(climateService.findUrl(version),email)})),format.raw/*63.99*/("""">"""),_display_(Seq[Any](/*63.102*/version)),format.raw/*63.109*/("""</a><br>
+			<a href = """"),_display_(Seq[Any](/*63.16*/{routes.ClimateServiceController.oneService(climateService.findUrl(version),email,climateService.getId())})),format.raw/*63.122*/("""">"""),_display_(Seq[Any](/*63.125*/version)),format.raw/*63.132*/("""</a><br>
 		""")))})),format.raw/*64.4*/("""
 		</span></td>
 				
@@ -151,10 +151,10 @@ Seq[Any](format.raw/*18.124*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Nov 23 13:22:12 EST 2015
+                    DATE: Tue Nov 24 22:10:12 EST 2015
                     SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/mostPopularServices.scala.html
-                    HASH: f4496904c61bbc2e5ed6254d2483efe237052bda
-                    MATRIX: 3261->1205|3477->1348|3492->1355|3577->1359|3629->1375|3644->1381|3706->1421|3808->1495|3837->1496|3895->1527|3923->1528|3979->1327|4008->1346|4036->1543|4074->1546|4122->1585|4162->1587|4202->1592|4239->1607|4291->1623|4315->1638|4344->1645|4734->2000|4751->2008|4790->2009|4869->2057|4915->2068|4969->2106|5008->2107|5069->2132|5166->2207|5205->2210|5229->2224|5276->2248|5343->2279|5366->2293|5412->2317|5484->2354|5507->2368|5542->2381|5615->2418|5638->2432|5684->2456|5775->2511|5872->2586|5922->2599|5946->2613|5980->2624|6098->2706|6121->2720|6167->2744|6240->2782|6263->2796|6299->2810|6370->2845|6393->2859|6439->2883|6511->2920|6573->2966|6612->2967|6664->2983|6769->3066|6809->3069|6839->3076|6882->3088|6959->3129|6982->3143|7028->3167|7106->3210|7129->3224|7168->3241|7225->3263|7242->3271|7281->3272|7432->3387|7455->3401|7501->3425|7555->3443|7570->3449|7638->3495|7687->3509|7756->3569|7795->3570|7910->3649|7933->3663|7963->3671|8168->3845|8213->3859|8254->3869|8316->3896|8333->3904|8372->3905|8421->3919|8539->4027|8580->4029|8700->4118|8737->4124|8770->4126
+                    HASH: 6a143449ed59892037954c37666a4f32d3ec8078
+                    MATRIX: 3261->1205|3477->1348|3492->1355|3577->1359|3629->1375|3644->1381|3706->1421|3808->1495|3837->1496|3895->1527|3923->1528|3979->1327|4008->1346|4036->1543|4074->1546|4122->1585|4162->1587|4202->1592|4239->1607|4291->1623|4315->1638|4344->1645|4734->2000|4751->2008|4790->2009|4869->2057|4915->2068|4969->2106|5008->2107|5069->2132|5190->2230|5230->2233|5254->2247|5301->2271|5368->2302|5391->2316|5437->2340|5509->2377|5532->2391|5567->2404|5640->2441|5663->2455|5709->2479|5800->2534|5921->2632|5971->2645|5995->2659|6029->2670|6147->2752|6170->2766|6216->2790|6289->2828|6312->2842|6348->2856|6419->2891|6442->2905|6488->2929|6560->2966|6622->3012|6661->3013|6713->3029|6842->3135|6882->3138|6912->3145|6955->3157|7032->3198|7055->3212|7101->3236|7179->3279|7202->3293|7241->3310|7298->3332|7315->3340|7354->3341|7505->3456|7528->3470|7574->3494|7628->3512|7643->3518|7711->3564|7760->3578|7829->3638|7868->3639|7983->3718|8006->3732|8036->3740|8241->3914|8286->3928|8327->3938|8389->3965|8406->3973|8445->3974|8494->3988|8612->4096|8653->4098|8773->4187|8810->4193|8843->4195
                     LINES: 56->18|59->22|59->22|61->22|62->23|62->23|62->23|64->25|64->25|66->27|66->27|69->18|71->21|72->29|74->31|74->31|74->31|76->33|76->33|78->35|78->35|78->35|87->44|87->44|87->44|89->46|91->48|91->48|91->48|93->50|93->50|93->50|93->50|93->50|95->52|95->52|95->52|96->53|96->53|96->53|98->55|98->55|98->55|99->56|99->56|99->56|99->56|99->56|101->58|101->58|101->58|102->59|102->59|102->59|104->61|104->61|104->61|105->62|105->62|105->62|106->63|106->63|106->63|106->63|107->64|110->67|110->67|110->67|111->68|111->68|111->68|113->70|113->70|113->70|116->73|116->73|116->73|117->74|117->74|117->74|119->76|119->76|119->76|122->79|122->79|122->79|126->83|128->85|130->87|134->91|134->91|134->91|136->93|136->93|136->93|139->96|140->97|141->98
                     -- GENERATED --
                 */

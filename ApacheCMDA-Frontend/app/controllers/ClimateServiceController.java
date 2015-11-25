@@ -195,8 +195,10 @@ public class ClimateServiceController extends Controller {
 		return ok(searchService.render(climateServiceForm,email));
 	}
 
-	public static Result oneService(String url,String email) {
-		return ok(oneService.render("/assets/html/" + url,email));
+	public static Result oneService(String url,String email,String id) {
+		System.out.println(id);
+		ClimateService.updateFrequency(id);
+		return ok(oneService.render("/assets/html/" + url,email,id));
 	}
 
 
@@ -211,5 +213,4 @@ public class ClimateServiceController extends Controller {
 		return ok(climateServices.render(ClimateService.findService(serviceForm.field("Search Service").value()),
 				climateServiceForm,serviceForm.field("email").value()));
 	}
-
 }

@@ -35,7 +35,7 @@ import views.html._
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-object oneService extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[String,String,play.api.templates.HtmlFormat.Appendable] {
+object oneService extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template3[String,String,String,play.api.templates.HtmlFormat.Appendable] {
 
     /*******************************************************************************
  * Licensed to the Apache Software Foundation (ASF) under one or more		   *
@@ -53,7 +53,7 @@ object oneService extends BaseScalaTemplate[play.api.templates.HtmlFormat.Append
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-    def apply/*18.2*/(url: String,email:String):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*18.2*/(url: String,email:String,id:String):play.api.templates.HtmlFormat.Appendable = {
         _display_ {import helper._
 
 def /*22.2*/scripts/*22.9*/:play.api.templates.HtmlFormat.Appendable = {_display_(
@@ -103,7 +103,7 @@ Seq[Any](format.raw/*22.13*/("""
     """),format.raw/*64.5*/("""}"""),format.raw/*64.6*/(""");
 </script>
 """)))};
-Seq[Any](format.raw/*18.28*/("""
+Seq[Any](format.raw/*18.38*/("""
 
 """),format.raw/*21.1*/("""
 """),format.raw/*66.2*/("""
@@ -170,19 +170,19 @@ Seq[Any](format.raw/*18.28*/("""
 """)))})))}
     }
     
-    def render(url:String,email:String): play.api.templates.HtmlFormat.Appendable = apply(url,email)
+    def render(url:String,email:String,id:String): play.api.templates.HtmlFormat.Appendable = apply(url,email,id)
     
-    def f:((String,String) => play.api.templates.HtmlFormat.Appendable) = (url,email) => apply(url,email)
+    def f:((String,String,String) => play.api.templates.HtmlFormat.Appendable) = (url,email,id) => apply(url,email,id)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Nov 23 00:32:56 EST 2015
+                    DATE: Tue Nov 24 21:59:00 EST 2015
                     SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/oneService.scala.html
-                    HASH: 957583c5d4241542067a49c19d92fd80eed14c61
-                    MATRIX: 3189->1204|3309->1251|3324->1258|3409->1262|3500->1325|3529->1326|3626->1396|3654->1397|3714->1429|3743->1430|3846->1506|3874->1507|3920->1525|3949->1526|4049->1598|4078->1599|4199->1692|4228->1693|4670->2107|4699->2108|4789->2170|4818->2171|5118->2434|5134->2440|5190->2473|5833->3088|5862->3089|5898->3098|5927->3099|5961->3106|5989->3107|6043->1230|6072->1249|6100->3121|6138->3124|6177->3154|6217->3156|6335->3246|6364->3247|6482->3338|6511->3339|6571->3371|6600->3372|6730->3475|6759->3476|6811->3500|6840->3501|6905->3539|6934->3540|6981->3559|7010->3560|7072->3595|7101->3596|7150->3617|7179->3618|7247->3659|7276->3660|7324->3680|7353->3681|7457->3758|7486->3759|7532->3776|7562->3777|7630->3817|7660->3818|7769->3890|7795->3893
+                    HASH: daa4c181f3b91e9fd8d59102120c9d5d25eca3f2
+                    MATRIX: 3196->1204|3326->1261|3341->1268|3426->1272|3517->1335|3546->1336|3643->1406|3671->1407|3731->1439|3760->1440|3863->1516|3891->1517|3937->1535|3966->1536|4066->1608|4095->1609|4216->1702|4245->1703|4687->2117|4716->2118|4806->2180|4835->2181|5135->2444|5151->2450|5207->2483|5850->3098|5879->3099|5915->3108|5944->3109|5978->3116|6006->3117|6060->1240|6089->1259|6117->3131|6155->3134|6194->3164|6234->3166|6352->3256|6381->3257|6499->3348|6528->3349|6588->3381|6617->3382|6747->3485|6776->3486|6828->3510|6857->3511|6922->3549|6951->3550|6998->3569|7027->3570|7089->3605|7118->3606|7167->3627|7196->3628|7264->3669|7293->3670|7341->3690|7370->3691|7474->3768|7503->3769|7549->3786|7579->3787|7647->3827|7677->3828|7786->3900|7812->3903
                     LINES: 56->18|59->22|59->22|61->22|64->25|64->25|67->28|67->28|69->30|69->30|71->32|71->32|73->34|73->34|76->37|76->37|78->39|78->39|87->48|87->48|89->50|89->50|92->53|92->53|92->53|101->62|101->62|102->63|102->63|103->64|103->64|106->18|108->21|109->66|111->68|111->68|111->68|116->73|116->73|120->77|120->77|121->78|121->78|125->82|125->82|127->84|127->84|129->86|129->86|131->88|131->88|133->90|133->90|135->92|135->92|137->94|137->94|139->96|139->96|142->99|142->99|144->101|144->101|146->103|146->103|148->105|148->105
                     -- GENERATED --
                 */

@@ -30,7 +30,7 @@ POST    	/climate/delete/climateServices   					controllers.ClimateServiceContro
 POST		/climate/download/climateServices					controllers.ClimateServiceController.downloadClimateService()
 POST		/climate/edit/climateServices						controllers.ClimateServiceController.editClimateService()
 GET			/climate/new/climateServices						controllers.ClimateServiceController.addClimateServices()
-GET			/climate/oneService									controllers.ClimateServiceController.oneService(url ?= null,email ?= null)
+GET			/climate/oneService									controllers.ClimateServiceController.oneService(url ?= null,email ?= null,id ?= null)
 
 #Keyword search
 GET 		/climate/datasets									controllers.DatasetController.datasetList(email ?= null)
