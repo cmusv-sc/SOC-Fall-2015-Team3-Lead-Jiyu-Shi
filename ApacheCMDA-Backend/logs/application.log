@@ -1,16 +1,16 @@
-2015-11-23 20:14:06,361 - [INFO] - from play in pool-4-thread-3 
+2015-11-25 19:08:12,198 - [INFO] - from play in pool-4-thread-4 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9034
 
-2015-11-23 20:14:32,745 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-25 19:09:05,591 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-11-23 20:14:45,906 - [ERROR] - from play in play-akka.actor.default-dispatcher-7 
+2015-11-25 19:11:37,298 - [ERROR] - from play in play-akka.actor.default-dispatcher-5 
 Cannot invoke the action, eventually got an error: java.lang.NullPointerException
 
-2015-11-23 20:14:45,928 - [ERROR] - from application in play-akka.actor.default-dispatcher-7 
+2015-11-25 19:11:37,316 - [ERROR] - from application in play-akka.actor.default-dispatcher-5 
 
 
-! @6o89c69f9 - Internal server error, for (POST) [/users/isUserValid] ->
+! @6o8ni2aba - Internal server error, for (POST) [/users/isUserValid] ->
 
 play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
 	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11-2.3.7.jar:2.3.7]

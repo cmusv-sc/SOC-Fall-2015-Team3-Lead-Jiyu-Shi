@@ -544,7 +544,9 @@ public class ClimateService {
 		}
 	}
 
+	public static void postComment(){
 
 
+	}
 }
 

@@ -205,12 +205,20 @@ public class ClimateServiceController extends Controller {
 	public static Result getSearchServiceResult(String email){
 
 		Form<ClimateService> serviceForm = climateServiceForm.bindFromRequest();
-
 		//String email =
-//		System.out.println("serviceFornm = " + serviceForm.field("Search Service").value());
+		//System.out.println("serviceFornm = " + serviceForm.field("Search Service").value());
 		//get the string of key words.
+
 		System.out.println(serviceForm.field("email").value());
 		return ok(climateServices.render(ClimateService.findService(serviceForm.field("Search Service").value()),
 				climateServiceForm,serviceForm.field("email").value()));
 	}
+
+
+	//call to post a comment
+//	public static Result postCommentAndGrade(){
+//
+//	}
+
+
 }
