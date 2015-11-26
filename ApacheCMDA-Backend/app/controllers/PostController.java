@@ -57,10 +57,10 @@ public class PostController extends Controller{
         }
 
         // Parse JSON file
-        long postId = json.findPath("postId").asLong();
+//        long postId = json.findPath("postId").asLong();
         String comment = json.findPath("comment").asText();
         String userEmail = json.findPath("userEmail").asText();
-        String climateName = json.findPath("climateName").asText();
+        long climateId = json.findPath("climateId").asLong();
         double grade = json.findPath("grade").asDouble();
 
         Date createTime = new Date();
@@ -75,16 +75,38 @@ public class PostController extends Controller{
         try {
             User user = userRepository.findByEmail(userEmail);
             ClimateService climateService = climateServiceRepository
-                    .findFirstByName(climateName);
-            Post post = new Post( postId,  comment,  createTime,  user.getUserName(), grade, climateService.getName());
+                    .findOne(climateId);
+            int postNum = climateService.getPostNum();
+            double oldGrade = climateService.getGrade();
+
+            // Update the postNum and grade
+            climateService.setPostNum(postNum+1);
+            climateService.setGrade( (oldGrade+grade)/(postNum+1) );
+
+            Post post = new Post( comment,  createTime,  user.getUserName(), grade, climateService.getName());
             postRepository.save(post);
 
-            return created(new Gson().toJson(post.getPostId()));
+            return created(new Gson().toJson(post));
 
         } catch (PersistenceException pe) {
             pe.printStackTrace();
             System.out.println("Post not saved comment: " + comment);
             return badRequest("Post not saved comment: " + comment);
         }
+    }
+
+    public Result getAllAtClimateServices(String name, String format) {
+        Iterable<Post> posts = postRepository
+                .findAllByAtClimateService(name);
+        if (posts == null) {
+            System.out.println("No Posts found");
+        }
+
+        String result = new String();
+        if (format.equals("json")) {
+            result = new Gson().toJson(posts);
+        }
+
+        return ok(result);
     }
 }

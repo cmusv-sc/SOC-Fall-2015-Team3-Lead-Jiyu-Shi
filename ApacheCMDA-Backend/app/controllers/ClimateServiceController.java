@@ -23,10 +23,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.*;
+import play.libs.Json;
 import util.Common;
 import util.Constants;
 import play.mvc.*;
@@ -398,7 +402,6 @@ public class ClimateServiceController extends Controller {
         return ok(result);
     }
 
-
     public Result getAllClimateServicesOrderByCount(String format){
 //        Iterable<ClimateService> climateServices = climateServiceRepository
 //                .findByOrderByCreateTimeDesc();
@@ -487,5 +490,88 @@ public class ClimateServiceController extends Controller {
         return ok(result);
 
     }
+
+	public Result getTop3MostRecentlyUsedServices(String format){
+		Iterable<ClimateService> services = climateServiceRepository
+				.findByOrderByFreqDesc();
+		if( services == null ){
+			System.out.println("No top 3 climate services");
+		}
+
+		List<ClimateService> top3 = new ArrayList<>();
+
+		int i = 0;
+		for (ClimateService each : services){
+			i ++ ;
+			top3.add(each);
+
+			if( i == 3 ){
+				break;
+			}
+		}
+
+		String result = new String();
+		if (format.equals("json")) {
+			result = new Gson().toJson(top3);
+		}
+
+		return ok(result);
+	}
+
+	public Result getTop3GradesServices(String format){
+		Iterable<ClimateService> services = climateServiceRepository
+				.findByOrderByGradeDesc();
+		if( services == null ){
+			System.out.println("No top 3 climate services");
+		}
+
+		List<ClimateService> top3 = new ArrayList<>();
+
+		int i = 0;
+		for (ClimateService each : services){
+			i ++ ;
+			top3.add(each);
+
+			if( i == 3 ){
+				break;
+			}
+		}
+
+		String result = new String();
+		if (format.equals("json")) {
+			result = new Gson().toJson(top3);
+		}
+
+		return ok(result);
+	}
+
+	public Result addFreq(){
+		JsonNode json = request().body().asJson();
+		ObjectNode obj = Json.newObject();
+
+
+		long id = json.path("id").asLong();
+		String name = "";
+
+		try {
+			ClimateService climateService = climateServiceRepository
+					.findOne(id);
+
+			int oldFreq = climateService.getFreq();
+			climateService.setFreq(oldFreq+1);
+
+			ClimateService newClimateService = climateServiceRepository.save(climateService);
+
+			name = newClimateService.getName();
+			System.out.println("Climate Service freq updated: "
+					+ name);
+			return created("Climate Service freq updated: "
+					+ name);
+		} catch (PersistenceException pe) {
+			pe.printStackTrace();
+			System.out.println("Climate Service freq not updated: " + name);
+			return badRequest("Climate Service freq not updated: " + name);
+		}
+	}
 
 }

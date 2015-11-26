@@ -46,6 +46,11 @@ public class ClimateService {
 	private Date createTime;
 
 	private String versionNo;
+	private int freq;
+
+	private double grade;
+	private int postNum;
+
 
 	public ClimateService() {
 	}
@@ -65,6 +70,28 @@ public class ClimateService {
 			createTime = new Date();
 		this.createTime = createTime;
 		this.versionNo = versionNo;
+	}
+
+	public int getPostNum(){
+		return postNum;
+	}
+
+	public void setPostNum(int postNum){
+		this.postNum = postNum;
+	}
+
+	public double getGrade(){
+		return grade;
+	}
+
+	public void setGrade(double grade){
+		this.grade = grade;
+	}
+
+	public int getFreq(){ return freq; }
+
+	public void setFreq( int freq ){
+		this.freq = freq;
 	}
 
 	public long getId() {
@@ -140,7 +167,7 @@ public class ClimateService {
 		return "ClimateService [id=" + id + ", rootServiceId=" + rootServiceId
 				+ ", user=" + user + ", name=" + name + ", purpose=" + purpose
 				+ ", url=" + url + ", scenario=" + scenario + ", createTime="
-				+ createTime + ", versionNo=" + versionNo + "]";
+				+ createTime + ", versionNo=" + versionNo + ", freq=" + freq + "]";
 	}
 
 }

@@ -11,21 +11,24 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private long postId;
+//    private long postId;
 
     private String comment;
     private Date postTime;
     private String user;
     private String climateService;
 
+    private String atUser;
+    private String atClimateService;
+
     private double grade;
 
     public Post(){
     }
 
-    public Post(long postId, String comment, Date postTime, String user, double grade, String climateService){
+    public Post(String comment, Date postTime, String user, double grade, String climateService){
         super();
-        this.postId = postId;
+//        this.postId = postId;
         this.comment = comment;
         this.postTime = postTime;
         this.user = user;
@@ -33,9 +36,25 @@ public class Post {
         this.climateService = climateService;
     }
 
-    public long getPostId(){
-        return id;
+    public String getAtUser(){
+        return atUser;
     }
+
+    public String getAtClimateService(){
+        return  atClimateService;
+    }
+
+    public void setAtUser( String atUser ){
+        this.atUser = atUser;
+    }
+
+    public void setAtClimateService( String atClimateService ){
+        this.atClimateService = atClimateService;
+    }
+
+//    public long getPostId(){
+//        return id;
+//    }
 
     public String getComment(){
         return comment;
@@ -57,9 +76,9 @@ public class Post {
         return climateService;
     }
 
-    public void setPostId(long postId){
-        this.postId = postId;
-    }
+//    public void setPostId(long postId){
+//        this.postId = postId;
+//    }
 
     public void setComment(){
         this.comment = comment;
@@ -83,9 +102,12 @@ public class Post {
 
     @Override
     public String toString(){
-        return "ClimateService [id=" + id + ", postId=" + postId
+        return "ClimateService [id=" + id /*+ ", postId=" + postId*/
                 + ", user=" + user + ", comment=" + comment + ", grade=" + grade
-                +", postTime=" + postTime +", climateService="+climateService+"]";
+                +", postTime=" + postTime +", climateService="
+                +climateService+", atUser="
+                +atUser+", atClimateService="
+                +atClimateService+"]";
     }
 
 }

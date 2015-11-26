@@ -103,8 +103,8 @@ public class ClimateService {
 
 	private static final String GET_MOST_RECENTLY_ADDED_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getAllMostRecentClimateServicesByCreateTime/json";
 	
-	private static final String GET_MOST_RECENTLY_USED_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getAllMostRecentClimateServicesByLatestAccessTime/json";
-	
+	//private static final String GET_MOST_RECENTLY_USED_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getAllMostRecentClimateServicesByLatestAccessTime/json";
+	private static final String GET_MOST_RECENTLY_USED_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getTop3MostRecentlyUsedServices/json";
 	private static final String GET_MOST_POPULAR_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getAllMostUsedClimateServices/json";
 	
 	private static final String ADD_CLIMATE_SERVICE_CALL = Constants.NEW_BACKEND+"climateService/addClimateService";
@@ -114,7 +114,7 @@ public class ClimateService {
 			+ util.Constants.NEW_EDIT_CLIMATE_SERVICE + "/name/";
 
 	//group 3 add here
-	private static final String PUT_UPDATE_FREQUENCY = Constants.NEW_BACKEND + util.Constants.UPDATE_FREQUENCY;
+	private static final String PUT_UPDATE_FREQUENCY = Constants.NEW_BACKEND + "climateService/addFreq/";
 
 	public ClimateService() {
 		// TODO Auto-generated constructor stub
@@ -534,6 +534,7 @@ public class ClimateService {
 		queryJson.put("id", id);
 
 		System.out.println(PUT_UPDATE_FREQUENCY);
+
 		JsonNode userServiceNode = APICall
 				.putAPI(PUT_UPDATE_FREQUENCY,queryJson);
 
@@ -543,13 +544,6 @@ public class ClimateService {
 			System.out.println("error");
 		}
 	}
-
-
-//	public static void postComment(){
-//
-//
-//	}
-
 
 }
 

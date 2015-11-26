@@ -20,6 +20,9 @@ PUT           /climateService/updateClimateService/id/:id                       
 PUT           /climateService/updateClimateService/name/:oldName                                        @controllers.ClimateServiceController.updateClimateServiceByName(oldName: String)
 DELETE        /climateService/deleteClimateService/id/:id                                               @controllers.ClimateServiceController.deleteClimateServiceById(id: Long)
 DELETE        /climateService/deleteClimateService/name/:name                                           @controllers.ClimateServiceController.deleteClimateServiceByName(name: String)
+GET           /climateService/getTop3GradesServices/json                                                @controllers.ClimateServiceController.getTop3GradesServices(format: String="json")
+GET           /climateService/getTop3MostRecentlyUsedServices/json                                      @controllers.ClimateServiceController.getTop3MostRecentlyUsedServices(format: String="json")
+PUT           /climateService/addFreq/                                                                  @controllers.ClimateServiceController.addFreq
 
 # Instrument
 GET           /instrument/getAllInstruments/json                                                        @controllers.InstrumentController.getAllInstruments(format: String="json")
@@ -59,5 +62,6 @@ GET           /assets/*file                                                     
 
 
 # Post
-#GET           /posts/getAllPosts/json                                                                   @controllers.PostController.getAllPosts(format: String="json")
-#POST          /posts/add                                                                                @controllers.PostController.createPost
+GET           /posts/getAllPosts/json                                                                   @controllers.PostController.getAllPosts(format: String="json")
+POST          /posts/add                                                                                @controllers.PostController.createPost
+GET           /posts/getAllAtClimateServices/name/:name/json                                            @controllers.PostController.getAllAtClimateServices(name: String, format: String="json")
