@@ -21,6 +21,11 @@
 
 
 @main("Home",email) {
+	<style type="text/css">
+		#climateImage {
+			margin-top: 20px;
+		}
+	</style>
 	<div class="jumbotron">
 
 		@if(email!= null && vfile!= null && vfile.compareTo("loginSucess")==0){
@@ -45,10 +50,10 @@
 		}
 
 		<div class="row">
-			<div class="col-lg-5">
+			<div class="col-lg-5" id="climateImage">
 				<br>
 				<br>
-				<img src="/assets/images/iceberg.jpg" height="400" width="430" />
+				<img src="/assets/images/iceberg.jpg" height="550" width="430" />
 			</div>
 			<div class="col-lg-7">
 				<h2>Climate Service List</h2>

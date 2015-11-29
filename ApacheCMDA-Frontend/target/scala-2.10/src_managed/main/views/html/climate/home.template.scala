@@ -62,57 +62,62 @@ Seq[Any](format.raw/*18.97*/("""
 """),format.raw/*21.1*/("""
 
 """),_display_(Seq[Any](/*23.2*/main("Home",email)/*23.20*/ {_display_(Seq[Any](format.raw/*23.22*/("""
+	<style type="text/css">
+		#climateImage """),format.raw/*25.17*/("""{"""),format.raw/*25.18*/("""
+			margin-top: 20px;
+		"""),format.raw/*27.3*/("""}"""),format.raw/*27.4*/("""
+	</style>
 	<div class="jumbotron">
 
-		"""),_display_(Seq[Any](/*26.4*/if(email!= null && vfile!= null && vfile.compareTo("loginSucess")==0)/*26.73*/{_display_(Seq[Any](format.raw/*26.74*/("""
+		"""),_display_(Seq[Any](/*31.4*/if(email!= null && vfile!= null && vfile.compareTo("loginSucess")==0)/*31.73*/{_display_(Seq[Any](format.raw/*31.74*/("""
 			<div class="alert alert-success fade in">
 				<strong>You have been log in successfully!</strong>
 				<button class="btn btn-success pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
 			</div>
-		""")))})),format.raw/*31.4*/("""
+		""")))})),format.raw/*36.4*/("""
 
-		"""),_display_(Seq[Any](/*33.4*/if(vfile!= null && vfile.compareTo("logfailed")==0)/*33.55*/{_display_(Seq[Any](format.raw/*33.56*/("""
+		"""),_display_(Seq[Any](/*38.4*/if(vfile!= null && vfile.compareTo("logfailed")==0)/*38.55*/{_display_(Seq[Any](format.raw/*38.56*/("""
 			<div class="alert alert-danger fade in">
 				<strong>Invalid Password or User ID!</strong>
 				<button class="btn btn-danger pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
 			</div>
-		""")))})),format.raw/*38.4*/("""
+		""")))})),format.raw/*43.4*/("""
 
-		"""),_display_(Seq[Any](/*40.4*/if(dataset!= null && dataset.compareTo("logout")==0)/*40.56*/{_display_(Seq[Any](format.raw/*40.57*/("""
+		"""),_display_(Seq[Any](/*45.4*/if(dataset!= null && dataset.compareTo("logout")==0)/*45.56*/{_display_(Seq[Any](format.raw/*45.57*/("""
 			<div class="alert alert-success fade in">
 				<strong>You have been log out successfully!</strong>
 				<button class="btn btn-success pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
 			</div>
-		""")))})),format.raw/*45.4*/("""
+		""")))})),format.raw/*50.4*/("""
 
 		<div class="row">
-			<div class="col-lg-5">
+			<div class="col-lg-5" id="climateImage">
 				<br>
 				<br>
-				<img src="/assets/images/iceberg.jpg" height="400" width="430" />
+				<img src="/assets/images/iceberg.jpg" height="550" width="430" />
 			</div>
 			<div class="col-lg-7">
 				<h2>Climate Service List</h2>
-				"""),_display_(Seq[Any](/*55.6*/for(climateService <- climateServices) yield /*55.44*/{_display_(Seq[Any](format.raw/*55.45*/("""
+				"""),_display_(Seq[Any](/*60.6*/for(climateService <- climateServices) yield /*60.44*/{_display_(Seq[Any](format.raw/*60.45*/("""
 					<div class="row">
-						<div class="col-md-7"><a href = """"),_display_(Seq[Any](/*57.41*/{routes.ClimateServiceController.oneService(climateService.getUrl(),email,climateService.getId())})),format.raw/*57.139*/(""""><font size="3">"""),_display_(Seq[Any](/*57.157*/climateService/*57.171*/.getClimateServiceName())),format.raw/*57.195*/("""</a></font></div>
+						<div class="col-md-7"><a href = """"),_display_(Seq[Any](/*62.41*/{routes.ClimateServiceController.oneService(climateService.getUrl(),email,climateService.getId())})),format.raw/*62.139*/(""""><font size="3">"""),_display_(Seq[Any](/*62.157*/climateService/*62.171*/.getClimateServiceName())),format.raw/*62.195*/("""</a></font></div>
 						<span><div class="col-md-3 col-md-offset-2" ><input value ="3.7" class="rating-input" data-size="xs" type="number" readonly/></div></span>
 					</div>
-				""")))})),format.raw/*60.6*/("""
+				""")))})),format.raw/*65.6*/("""
 
-					<!-- """),_display_(Seq[Any](/*62.12*/if(!session.get("username"))/*62.40*/{_display_(Seq[Any](format.raw/*62.41*/(""" -->
+					<!-- """),_display_(Seq[Any](/*67.12*/if(!session.get("username"))/*67.40*/{_display_(Seq[Any](format.raw/*67.41*/(""" -->
 
 				<p>
-				"""),_display_(Seq[Any](/*65.6*/if(false)/*65.15*/{_display_(Seq[Any](format.raw/*65.16*/(""" <a class="btn btn-primary" href="climate/register"
-				role="button">Register &raquo;</a> """)))})),format.raw/*66.41*/("""
+				"""),_display_(Seq[Any](/*70.6*/if(false)/*70.15*/{_display_(Seq[Any](format.raw/*70.16*/(""" <a class="btn btn-primary" href="climate/register"
+				role="button">Register &raquo;</a> """)))})),format.raw/*71.41*/("""
 				</p>
-					<!-- """)))})),format.raw/*68.12*/(""" -->
+					<!-- """)))})),format.raw/*73.12*/(""" -->
 			</div>
 		</div>
 	</div>
 	<script>
-			jQuery(document).ready(function () """),format.raw/*73.39*/("""{"""),format.raw/*73.40*/("""
-				$('.rating-input').rating("""),format.raw/*74.31*/("""{"""),format.raw/*74.32*/("""
+			jQuery(document).ready(function () """),format.raw/*78.39*/("""{"""),format.raw/*78.40*/("""
+				$('.rating-input').rating("""),format.raw/*79.31*/("""{"""),format.raw/*79.32*/("""
 					min: 0,
 					max: 5,
 					step: 0.1,
@@ -121,10 +126,10 @@ Seq[Any](format.raw/*18.97*/("""
 					showCaption: false,
 					hoverEnabled:false,
 					hoverChangeStars: false
-				"""),format.raw/*83.5*/("""}"""),format.raw/*83.6*/(""");
-			"""),format.raw/*84.4*/("""}"""),format.raw/*84.5*/(""");
+				"""),format.raw/*88.5*/("""}"""),format.raw/*88.6*/(""");
+			"""),format.raw/*89.4*/("""}"""),format.raw/*89.5*/(""");
 	</script>
-""")))})),format.raw/*86.2*/("""
+""")))})),format.raw/*91.2*/("""
 
 
 """))}
@@ -139,11 +144,11 @@ Seq[Any](format.raw/*18.97*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Nov 24 21:45:42 EST 2015
-                    SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/home.scala.html
-                    HASH: a28a035be9800418e1589e530f854ab38dc678c1
-                    MATRIX: 3220->1205|3426->1300|3455->1319|3493->1322|3520->1340|3560->1342|3625->1372|3703->1441|3742->1442|3991->1660|4031->1665|4091->1716|4130->1717|4371->1927|4411->1932|4472->1984|4511->1985|4761->2204|5007->2415|5061->2453|5100->2454|5200->2518|5321->2616|5376->2634|5400->2648|5447->2672|5658->2852|5707->2865|5744->2893|5783->2894|5837->2913|5855->2922|5894->2923|6018->3015|6071->3036|6179->3116|6208->3117|6267->3148|6296->3149|6489->3315|6517->3316|6550->3322|6578->3323|6624->3338
-                    LINES: 56->18|60->18|62->21|64->23|64->23|64->23|67->26|67->26|67->26|72->31|74->33|74->33|74->33|79->38|81->40|81->40|81->40|86->45|96->55|96->55|96->55|98->57|98->57|98->57|98->57|98->57|101->60|103->62|103->62|103->62|106->65|106->65|106->65|107->66|109->68|114->73|114->73|115->74|115->74|124->83|124->83|125->84|125->84|127->86
+                    DATE: Sun Nov 29 14:06:10 EST 2015
+                    SOURCE: /Users/jiyushi1/Desktop/18655/tangzhongao/ApacheCMDA-Frontend/app/views/climate/home.scala.html
+                    HASH: 9530ffb103d2a2064cf16a186ddfc9c61aa77c3c
+                    MATRIX: 3220->1205|3426->1300|3455->1319|3493->1322|3520->1340|3560->1342|3630->1384|3659->1385|3710->1409|3738->1410|3813->1450|3891->1519|3930->1520|4179->1738|4219->1743|4279->1794|4318->1795|4559->2005|4599->2010|4660->2062|4699->2063|4949->2282|5213->2511|5267->2549|5306->2550|5406->2614|5527->2712|5582->2730|5606->2744|5653->2768|5864->2948|5913->2961|5950->2989|5989->2990|6043->3009|6061->3018|6100->3019|6224->3111|6277->3132|6385->3212|6414->3213|6473->3244|6502->3245|6695->3411|6723->3412|6756->3418|6784->3419|6830->3434
+                    LINES: 56->18|60->18|62->21|64->23|64->23|64->23|66->25|66->25|68->27|68->27|72->31|72->31|72->31|77->36|79->38|79->38|79->38|84->43|86->45|86->45|86->45|91->50|101->60|101->60|101->60|103->62|103->62|103->62|103->62|103->62|106->65|108->67|108->67|108->67|111->70|111->70|111->70|112->71|114->73|119->78|119->78|120->79|120->79|129->88|129->88|130->89|130->89|132->91
                     -- GENERATED --
                 */
             

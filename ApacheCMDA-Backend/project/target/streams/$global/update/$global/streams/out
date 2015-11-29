@@ -12997,7 +12997,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.5!apply-macro.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 10692ms :: artifacts dl 228ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 11883ms :: artifacts dl 236ms[0m
 [0m[[0mdebug[0m] [0m	report for default#apachecmda-backend-build;0.1-SNAPSHOT compile produced in /home/SOC-Fall-2015/Dev/ApacheCMDA-Backend/project/target/resolution-cache/reports/default-apachecmda-backend-build-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#apachecmda-backend-build;0.1-SNAPSHOT runtime produced in /home/SOC-Fall-2015/Dev/ApacheCMDA-Backend/project/target/resolution-cache/reports/default-apachecmda-backend-build-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#apachecmda-backend-build;0.1-SNAPSHOT test produced in /home/SOC-Fall-2015/Dev/ApacheCMDA-Backend/project/target/resolution-cache/reports/default-apachecmda-backend-build-test.xml[0m
@@ -13011,5 +13011,5 @@
 [0m[[0mdebug[0m] [0m	report for default#apachecmda-backend-build;0.1-SNAPSHOT docs produced in /home/SOC-Fall-2015/Dev/ApacheCMDA-Backend/project/target/resolution-cache/reports/default-apachecmda-backend-build-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#apachecmda-backend-build;0.1-SNAPSHOT pom produced in /home/SOC-Fall-2015/Dev/ApacheCMDA-Backend/project/target/resolution-cache/reports/default-apachecmda-backend-build-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#apachecmda-backend-build;0.1-SNAPSHOT scala-tool produced in /home/SOC-Fall-2015/Dev/ApacheCMDA-Backend/project/target/resolution-cache/reports/default-apachecmda-backend-build-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (10692ms resolve - 228ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (11883ms resolve - 236ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

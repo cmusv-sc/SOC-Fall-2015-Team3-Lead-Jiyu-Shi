@@ -49,29 +49,24 @@ public class PostController extends Controller{
     }
 
     public Result createPost(){
+//        System.out.println("Body:" + request().body());
         JsonNode json = request().body().asJson();
         if (json == null) {
             System.out
                     .println("Post not saved, expecting Json data");
             return badRequest("Post not saved, expecting Json data");
         }
-
+        System.out.println("59:");
         // Parse JSON file
 //        long postId = json.findPath("postId").asLong();
         String comment = json.findPath("comment").asText();
         String userEmail = json.findPath("userEmail").asText();
         long climateId = json.findPath("climateId").asLong();
         double grade = json.findPath("grade").asDouble();
-
-        Date createTime = new Date();
-        SimpleDateFormat format = new SimpleDateFormat(Common.DATE_PATTERN);
-        try {
-            createTime = format.parse(json.findPath("createTime").asText());
-        } catch (ParseException e) {
-            System.out
-                    .println("No creation date specified, set to current time");
-        }
-
+        System.out.println("66:" + comment + userEmail + climateId + grade);
+        Long createTime = Long.parseLong(json.findPath("createTime").asText());
+//        SimpleDateFormat format = new SimpleDateFormat(Common.DATE_PATTERN);
+        System.out.println("75:" + comment + userEmail + climateId + grade + createTime);
         try {
             User user = userRepository.findByEmail(userEmail);
             ClimateService climateService = climateServiceRepository
@@ -82,8 +77,11 @@ public class PostController extends Controller{
             // Update the postNum and grade
             climateService.setPostNum(postNum+1);
             climateService.setGrade( (oldGrade+grade)/(postNum+1) );
-
-            Post post = new Post( comment,  createTime,  user.getUserName(), grade, climateService.getName());
+            String email = "Guest";
+            if (user != null) {
+                email = user.getUserName();
+            }
+            Post post = new Post( comment,createTime, email , grade, climateService.getName());
             postRepository.save(post);
 
             return created(new Gson().toJson(post));

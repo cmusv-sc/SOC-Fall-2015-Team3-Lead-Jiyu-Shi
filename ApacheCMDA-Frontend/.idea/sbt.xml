@@ -19,6 +19,11 @@
           </set>
         </option>
       </SbtProjectSettings>
+      <SbtProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/.idea/modules" />
+        <option name="useAutoImport" value="true" />
+        <option name="useOurOwnAutoImport" value="true" />
+      </SbtProjectSettings>
     </option>
   </component>
 </project>

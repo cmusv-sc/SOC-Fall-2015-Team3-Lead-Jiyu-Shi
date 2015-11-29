@@ -17,22 +17,25 @@
     }
     </style>
   </html>
-@if(flag == "failure"){
-  <div class="alert alert-danger fade in">
-    <strong>User ID has been used!</strong>
-    <button class="btn btn-danger pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
-  </div>
-}
 
-@if(flag == "invalid"){
-  <div class="alert alert-danger">
-    <strong>Invalid User ID or Password!</strong>
-    <button class="btn btn-danger pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
-  </div>
-}
+
 
   @main("Sign Up",null) {
 
+  @if(flag == "failure"){
+    <div class="alert alert-danger fade in">
+      <strong>User ID has been used!</strong>
+      <button class="btn btn-danger pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+    </div>
+  }
+
+
+  @if(flag == "invalid"){
+    <div class="alert alert-danger">
+      <strong>Invalid User ID or Password!</strong>
+      <button class="btn btn-danger pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+    </div>
+  }
 
     @helper.form(routes.Application.authenticate) {
       <div class="form-signin">

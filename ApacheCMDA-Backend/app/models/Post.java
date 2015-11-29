@@ -14,7 +14,7 @@ public class Post {
 //    private long postId;
 
     private String comment;
-    private Date postTime;
+    private Long postTime;
     private String user;
     private String climateService;
 
@@ -26,7 +26,7 @@ public class Post {
     public Post(){
     }
 
-    public Post(String comment, Date postTime, String user, double grade, String climateService){
+    public Post(String comment, Long postTime, String user, double grade, String climateService){
         super();
 //        this.postId = postId;
         this.comment = comment;
@@ -60,7 +60,7 @@ public class Post {
         return comment;
     }
 
-    public Date getDate(){
+    public Long getDate(){
         return postTime;
     }
 
@@ -84,7 +84,7 @@ public class Post {
         this.comment = comment;
     }
 
-    public void setDate(Date postTime){
+    public void setDate(Long postTime){
         this.postTime = postTime;
     }
 
