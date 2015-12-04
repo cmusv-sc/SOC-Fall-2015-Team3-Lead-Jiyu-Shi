@@ -115,6 +115,7 @@ public class ClimateService {
 
 	//group 3 add here
 	private static final String PUT_UPDATE_FREQUENCY = Constants.NEW_BACKEND + "climateService/addFreq/";
+	private static final String POST_AT_REQ = Constants.NEW_BACKEND+"posts/getAllAtClimateServices/name";
 
 	public ClimateService() {
 		// TODO Auto-generated constructor stub
@@ -516,7 +517,6 @@ public class ClimateService {
 		List<ClimateService> result = new ArrayList<ClimateService>();
 
 
-
 		List<ClimateService> allList = all();
 		int count = 0;
 		for (ClimateService element : allList) {
@@ -529,7 +529,6 @@ public class ClimateService {
 			}
 
 		}
-
 		return result;
 	}
 
@@ -548,6 +547,21 @@ public class ClimateService {
 		if (userServiceNode == null || userServiceNode.has("error")) {
 			System.out.println("error");
 		}
+	}
+
+	public static String findAtService(String keyWords) {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode queryJson = mapper.createObjectNode();
+		queryJson.put("name", keyWords);
+
+		JsonNode userServiceNode = APICall
+				.postAPI(POST_AT_REQ,queryJson);
+		String result = userServiceNode.toString();
+		System.out.println("shou dao " + result);
+		if (result.compareTo("[]") == 0){
+			result = "";
+		}
+		return result;
 	}
 
 	public double getGrade() {

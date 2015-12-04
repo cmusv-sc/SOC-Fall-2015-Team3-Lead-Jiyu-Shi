@@ -64,4 +64,4 @@ GET           /assets/*file                                                     
 # Post
 GET           /posts/getAllPosts/json                                                                   @controllers.PostController.getAllPosts(format: String="json")
 POST          /posts/add                                                                                @controllers.PostController.createPost
-GET           /posts/getAllAtClimateServices/name/:name/json                                            @controllers.PostController.getAllAtClimateServices(name: String, format: String="json")
+POST          /posts/getAllAtClimateServices/name                                                       @controllers.PostController.getAllAtClimateServices

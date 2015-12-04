@@ -1,19 +1,19 @@
 @*******************************************************************************
- * Licensed to the Apache Software Foundation (ASF) under one or more		   *
- * contributor license agreements.  See the NOTICE file distributed with	   *
- * this work for additional information regarding copyright ownership.         *
- * The ASF licenses this file to You under the Apache License, Version 2.0     *
- * (the "License"); you may not use this file except in compliance with        *
- * the License.  You may obtain a copy of the License at                       *
- *                                                                             *
- *    http://www.apache.org/licenses/LICENSE-2.0                               *
- *																			   *
- * Unless required by applicable law or agreed to in writing, software         *
- * distributed under the License is distributed on an "AS IS" BASIS,           *
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.    *
- * See the License for the specific language governing permissions and         *
- * limitations under the License.											   *
- *******************************************************************************@
+* Licensed to the Apache Software Foundation (ASF) under one or more		   *
+* contributor license agreements.  See the NOTICE file distributed with	   *
+* this work for additional information regarding copyright ownership.         *
+* The ASF licenses this file to You under the Apache License, Version 2.0     *
+* (the "License"); you may not use this file except in compliance with        *
+* the License.  You may obtain a copy of the License at                       *
+*                                                                             *
+*    http://www.apache.org/licenses/LICENSE-2.0                               *
+*																			   *
+* Unless required by applicable law or agreed to in writing, software         *
+* distributed under the License is distributed on an "AS IS" BASIS,           *
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.    *
+* See the License for the specific language governing permissions and         *
+* limitations under the License.											   *
+*******************************************************************************@
 
 @(url: String, email: String, id: String,climateServices: List[metadata.ClimateService],friendList: List[String])
 
@@ -25,9 +25,9 @@
     .atwho-inserted {
     color: #4183C4;
     }
-    .atwho-query {
-    color: #4183C4;
-    }
+    /*.atwho-query {*/
+    /*color: #4183C4;*/
+    /*}*/
     </style>
     <script src='@routes.Assets.at("javascripts/jquery.atwho.js")'
     type="text/javascript"></script>
@@ -36,124 +36,148 @@
     <link href='@routes.Assets.at("stylesheets/jquery.atwho.css")'
     rel="stylesheet" />
     <script type="text/javascript" src="http://ichord.github.io/Caret.js/src/jquery.caret.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		var obj = document.getElementById("iframe");
-		resizeIframe(obj);
-	});
+    <script type="text/javascript">
+            $(document).ready(function(){
+                var obj = document.getElementById("iframe");
+                resizeIframe(obj);
+            });
 
-	function resizeIframe(obj) {
-		obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-	}
+            function resizeIframe(obj) {
+                obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+            }
 
-    $(function(){
-        var idNumber = 0;
-        var tags = ["ShiZong","Tangzhongao","WangXiaoYu","LiuYuan"];
-        $('#commentActionArea').atwho({
-            at: "@@",
-            data: tags,
-            limit: 200,
-        });
-        $('#commentActionArea').atwho({
-            at: "#",
-            data: tags,
-            limit: 200,
-        });
-        $.ajax({
-            type: 'GET',
-            url: 'http://localhost:9034/posts/getAllPosts/json',
-            success: function(data) {
-                console.log(data);
+            $(function(){
+                var idNumber = 0;
+                var ServiceList = [];
+                var i = 0;
+                @for(climateService <- climateServices) {
+                ServiceList[i] = ("@climateService.getClimateServiceName");
+                i = i + 1;
+                }
+//        console.log(ServiceList);
+                var tags = ["ShiZong","Tangzhongao","WangXiaoYu","LiuYuan"];
+                $('#commentActionArea').atwho({
+                    at: "@@",
+                    data: tags,
+                    limit: 200,
+                });
+                $('#commentActionArea').atwho({
+                    at: "#",
+                    data: ServiceList,
+                    limit: 200,
+                });
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://localhost:9034/posts/getAllPosts/json',
+                    success: function(data) {
+                        console.log(data);
 
-                $.each($.parseJSON(data), function(i, aComment) {
-                    var climateID = aComment.climateServiceID;
-                    if (climateID == @id){
-                        var postTime = new Date(aComment.postTime);
-                        idNumber = idNumber + 1;
-                        var year = postTime.getFullYear();
-                        var month = postTime.getMonth() + 1;
-                        var day = postTime.getDate();
-                        var hours=postTime.getHours();
-                        var minutes = postTime.getMinutes();
+                        $.each($.parseJSON(data), function(i, aComment) {
+                            var climateID = aComment.climateServiceID;
+                            if (climateID == @id){
+                                var postTime = new Date(aComment.postTime);
+                                idNumber = idNumber + 1;
+                                var year = postTime.getFullYear();
+                                var month = postTime.getMonth() + 1;
+                                var day = postTime.getDate();
+                                var hours=postTime.getHours();
+                                var minutes = postTime.getMinutes();
+                                if(parseInt(minutes) < 10){
+                                    minutes = "0" + minutes;
+                                }
+                                var seconds =postTime.getSeconds();
+                                if(parseInt(seconds) < 10){
+                                    seconds = "0" + seconds;
+                                }
+                                var dateString = year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
+                                $("#post").append("<div id='"+idNumber+"'class='col-md-8 blogShort'></div>");
+                                var imgString = "<img id='userIcon' class='pull-left img-responsive thumb margin10 img-thumbnail' src='@routes.Assets.at("images/Usericon.jpg")'>";
+                                $("#"+idNumber).append("<h4>By " +aComment.user +"</h4>");
+                                $("#"+idNumber).append("<input id='rating" +idNumber +"' value="+ aComment.grade +" class='rating userRating' type='number' data-size='xs' readonly/>");
+                                $("#rating"+idNumber).rating('create');
+                                $("#"+idNumber).append(imgString);
+                                $("#"+idNumber).append("</img>");
+                                $("#"+idNumber).append("<article><p>"+aComment.comment+"<article></p>");
+                                $("#"+idNumber).append("<p class='text-right'>"+dateString+"</p>");
+                            }
+                        });
+                    },
+                    error: function() {
+                        alert('error');
+                    }
+                });
+                $("#submitComment").click(function(){
+                    var hashText = $("#commentActionArea").find(".atwho-inserted").text();
+                    var comment = $("#commentActionArea").text();
+                    if(hashText != ""){
+                        var hashTagIndex = comment.indexOf("#");
+                        SymbolIndex = hashTagIndex + hashText.length;
+                        comment = comment.substr(0,SymbolIndex) + comment.substr(SymbolIndex + 1);
+                        hashTagIndex = comment.indexOf("#");
+                        comment = comment.substr(0,hashTagIndex)+"<span style='color:#4183C4'>" + comment.substr(hashTagIndex,hashTagIndex+hashText.length)
+                                +"</span>" + comment.substr(hashTagIndex+hashText.length);
+        //            console.log(SymbolIndex);
+                        var atService = "null";
+                        if(hashText.indexOf("#") > -1) {
+                            atService = hashText.substring(1);
+                        }
+                    }
+                    console.log(atService);
+                    if(comment.length > 0) {
+                        var star_rating = $("#commentRating").val();
+                        var date = new Date();
+                        var year = date.getFullYear();
+                        var month = date.getMonth() + 1;
+                        var day = date.getDate();
+                        var hours=date.getHours();
+                        var minutes = date.getMinutes();
+                        var email = "@email";
+                        if(email=="")
+                            email = "Guest";
+                        var serviceID = -1;
+                        serviceID = "@id";
                         if(parseInt(minutes) < 10){
                             minutes = "0" + minutes;
                         }
-                        var seconds =postTime.getSeconds();
-                        if(parseInt(seconds) < 10){
-                            seconds = "0" + seconds;
-                        }
+                        var seconds =date.getSeconds();
                         var dateString = year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
-                        $("#post").append("<div id='"+idNumber+"'class='col-md-8 blogShort'></div>");
-                        var imgString = "<img id='userIcon' class='pull-left img-responsive thumb margin10 img-thumbnail' src='@routes.Assets.at("images/Usericon.jpg")'>";
-                        $("#"+idNumber).append("<h4>By " +aComment.user +"</h4>");
-                        $("#"+idNumber).append("<input id='rating" +idNumber +"' value="+ aComment.grade +" class='rating userRating' type='number' data-size='xs' readonly/>");
-                        $("#rating"+idNumber).rating('create');
-                        $("#"+idNumber).append(imgString);
-                        $("#"+idNumber).append("</img>");
-                        $("#"+idNumber).append("<article><p>"+aComment.comment+"<article></p>");
-                        $("#"+idNumber).append("<p class='text-right'>"+dateString+"</p>");
+                        var commentContent = new Object();
+                        commentContent.comment = comment;
+                        commentContent.userEmail = email;
+                        commentContent.climateId = serviceID;
+                        commentContent.grade = star_rating;
+                        commentContent.createTime = date.getTime();
+                        commentContent.atService = atService;
+                        var commentJson = JSON.stringify(commentContent);
+//                console.log(commentJson);
+                        $.ajax({
+                            type: 'POST',
+                            url: 'http://localhost:9034/posts/add',
+                            data: commentJson,
+                            dataType: 'json',
+                            contentType: 'application/json',
+                            success: function(){
+                                $('#CommentPrompt').modal('show');
+                                idNumber = idNumber + 1;
+                                $("#post").append("<div id='"+idNumber+"'class='col-md-8 blogShort'></div>");
+                                var imgString = "<img id='userIcon' class='pull-left img-responsive thumb margin10 img-thumbnail' src='@routes.Assets.at("images/Usericon.jpg")'>";
+                                $("#"+idNumber).append('<h4>By'+email+'</h4>');
+                                $("#"+idNumber).append("<input id='rating" +idNumber +"' value="+ star_rating +" class='rating userRating' type='number' data-size='xs' readonly/>");
+                                $("#rating"+idNumber).rating('create');
+                                $("#"+idNumber).append(imgString);
+                                $("#"+idNumber).append("</img>");
+                                $("#"+idNumber).append("<article><p>"+comment+"<article></p>");
+                                $("#"+idNumber).append("<p class='text-right'>"+dateString+"</p>");
+                                $("#commentActionArea").html("");
+                            },
+                            error: function() {
+                                alert('error' + commentJson);
+                            }
+                        });
                     }
                 });
-            },
-            error: function() {
-                alert('error');
-            }
-        });
-        $("#submitComment").click(function(){
-            var comment = $("#commentActionArea").html();
-            if(comment.length > 0) {
-                var star_rating = $("#commentRating").val();
-                var date = new Date();
-                var year = date.getFullYear();
-                var month = date.getMonth() + 1;
-                var day = date.getDate();
-                var hours=date.getHours();
-                var minutes = date.getMinutes();
-                var email = "@email";
-                if(email=="")
-                    email = "Guest";
-                var serviceID = -1;
-                serviceID = "@id";
-                if(parseInt(minutes) < 10){
-                    minutes = "0" + minutes;
-                }
-                var seconds =date.getSeconds();
-                var dateString = year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
-                var commentContent = new Object();
-                commentContent.comment = comment;
-                commentContent.userEmail = email;
-                commentContent.climateId = serviceID;
-                commentContent.grade = star_rating;
-                commentContent.createTime = date.getTime();
-                var commentJson = JSON.stringify(commentContent);
-                console.log(commentJson);
-                $.ajax({
-                    type: 'POST',
-                    url: 'http://localhost:9034/posts/add',
-                    data: commentJson,
-                    dataType: 'json',
-                    contentType: 'application/json',
-                    success: function(){
-                        $('#CommentPrompt').modal('show');
-                        idNumber = idNumber + 1;
-                        $("#post").append("<div id='"+idNumber+"'class='col-md-8 blogShort'></div>");
-                        var imgString = "<img id='userIcon' class='pull-left img-responsive thumb margin10 img-thumbnail' src='@routes.Assets.at("images/Usericon.jpg")'>";
-                        $("#"+idNumber).append('<h4>By Username</h4>');
-                        $("#"+idNumber).append("<input id='rating" +idNumber +"' value="+ star_rating +" class='rating userRating' type='number' data-size='xs' readonly/>");
-                        $("#rating"+idNumber).rating('create');
-                        $("#"+idNumber).append(imgString);
-                        $("#"+idNumber).append("</img>");
-                        $("#"+idNumber).append("<article><p>"+comment+"<article></p>");
-                        $("#"+idNumber).append("<p class='text-right'>"+dateString+"</p>");
-                     },
-                    error: function() {
-                        alert('error' + commentJson);
-                    }
-                });
-            }
-        });
-    });
-</script>
+            });
+    </script>
 }
 
 @main("Service",email, scripts) {
@@ -164,37 +188,37 @@
     </script>
 
     <style>
-        #commentActionArea{
-            resize: none;
-            width: 760px;
-            margin-left: 5px;
-        }
-        #commentActionContainer{
-            border:1px solid #9e9e9e;
-            width: 780px;
-            margin-top: 10px;
-        }
+    #commentActionArea{
+    resize: none;
+    width: 760px;
+    margin-left: 5px;
+    }
+    #commentActionContainer{
+    border:1px solid #9e9e9e;
+    width: 780px;
+    margin-top: 10px;
+    }
 
-        #commentAction{
-            margin-top: 5px;
-        }
+    #commentAction{
+    margin-top: 5px;
+    }
 
-        #userIcon{
-            height: 50px;
-        }
+    #userIcon{
+    height: 50px;
+    }
 
-        .text-right{
-            font-size: x-small;
-        }
+    .text-right{
+    font-size: x-small;
+    }
 
-        .blogShort{
-            border:1px solid dimgray;
-            margin-top: 10px;
-        }
+    .blogShort{
+    border:1px solid dimgray;
+    margin-top: 10px;
+    }
 
-        article{
-            margin-left: 90px;
-        }
+    article{
+    margin-left: 90px;
+    }
     </style>
     <iframe id="iframe" width="100%" height="600px" src="@url" frameborder="0" >
     </iframe>

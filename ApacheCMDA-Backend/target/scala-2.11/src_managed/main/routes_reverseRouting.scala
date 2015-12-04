@@ -1,6 +1,6 @@
 // @SOURCE:/home/SOC-Fall-2015/Dev/ApacheCMDA-Backend/conf/routes
-// @HASH:0926e901c062b102db9b43e1e9ffe90451c69e6f
-// @DATE:Thu Nov 26 00:37:29 UTC 2015
+// @HASH:c243c0d2aad0fe72f92bd78da4bbb7302afcb131
+// @DATE:Fri Dec 04 01:45:09 UTC 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -253,9 +253,9 @@ class ReversePostController {
 
 
 // @LINE:67
-def getAllAtClimateServices(name:String): Call = {
-   implicit val _rrc = new ReverseRouteContext(Map(("format", "json")))
-   Call("GET", _prefix + { _defaultPrefix } + "posts/getAllAtClimateServices/name/" + implicitly[PathBindable[String]].unbind("name", dynamicString(name)) + "/json")
+def getAllAtClimateServices(): Call = {
+   import ReverseRouteContext.empty
+   Call("POST", _prefix + { _defaultPrefix } + "posts/getAllAtClimateServices/name")
 }
                         
 
@@ -789,8 +789,8 @@ class ReversePostController {
 def getAllAtClimateServices : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.PostController.getAllAtClimateServices",
    """
-      function(name) {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "posts/getAllAtClimateServices/name/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("name", encodeURIComponent(name)) + "/json"})
+      function() {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "posts/getAllAtClimateServices/name"})
       }
    """
 )
@@ -1319,8 +1319,8 @@ class ReversePostController {
 
 
 // @LINE:67
-def getAllAtClimateServices(name:String, format:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.PostController]).getAllAtClimateServices(name, format), HandlerDef(this.getClass.getClassLoader, "", "controllers.PostController", "getAllAtClimateServices", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """posts/getAllAtClimateServices/name/$name<[^/]+>/json""")
+def getAllAtClimateServices(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.PostController]).getAllAtClimateServices(), HandlerDef(this.getClass.getClassLoader, "", "controllers.PostController", "getAllAtClimateServices", Seq(), "POST", """""", _prefix + """posts/getAllAtClimateServices/name""")
 )
                       
 

@@ -1,8 +1,10 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.gson.Gson;
 import models.*;
+import play.libs.Json;
 import play.mvc.*;
 import util.Common;
 
@@ -61,6 +63,7 @@ public class PostController extends Controller{
 //        long postId = json.findPath("postId").asLong();
         String comment = json.findPath("comment").asText();
         String userEmail = json.findPath("userEmail").asText();
+        String atService = json.findPath("atService").asText();
         long climateId = json.findPath("climateId").asLong();
         double grade = json.findPath("grade").asDouble();
         System.out.println("66:" + comment + userEmail + climateId + grade);
@@ -84,6 +87,8 @@ public class PostController extends Controller{
                 email = user.getUserName();
             }
             Post post = new Post( comment,createTime, email , grade, climateService.getName(),climateId);
+            post.setAtClimateService(atService);
+            System.out.println("atServiceatService:" + atService);
             postRepository.save(post);
             climateServiceRepository.save(climateService);
             return created(new Gson().toJson(post));
@@ -95,7 +100,31 @@ public class PostController extends Controller{
         }
     }
 
-    public Result getAllAtClimateServices(String name, String format) {
+//    public Result getAllAtClimateServices(String name, String format) {
+//
+//
+//
+//        Iterable<Post> posts = postRepository
+//                .findAllByAtClimateService(name);
+//        if (posts == null) {
+//            System.out.println("No Posts found");
+//        }
+//
+//        String result = new String();
+//        if (format.equals("json")) {
+//            result = new Gson().toJson(posts);
+//        }
+//
+//        return ok(result);
+//    }
+    public Result getAllAtClimateServices() {
+        JsonNode json = request().body().asJson();
+
+        String name = json.path("name").asText();
+        System.out.println();
+        System.out.println("AT CALLED");
+        System.out.println("name = " + name);
+
         Iterable<Post> posts = postRepository
                 .findAllByAtClimateService(name);
         if (posts == null) {
@@ -103,9 +132,9 @@ public class PostController extends Controller{
         }
 
         String result = new String();
-        if (format.equals("json")) {
-            result = new Gson().toJson(posts);
-        }
+        result = new Gson().toJson(posts);
+        System.out.println();
+        System.out.println("result = " + result);
 
         return ok(result);
     }

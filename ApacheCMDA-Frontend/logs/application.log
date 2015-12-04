@@ -1,3 +1,269 @@
-2015-12-03 16:27:29,036 - [INFO] - from play in pool-4-thread-3 
+2015-12-03 22:22:19,518 - [INFO] - from play in pool-4-thread-1 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-12-03 22:22:23,429 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 22:22:23,706 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 22:22:24,946 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-12-03 22:22:25,620 - [INFO] - from application in play-akka.actor.default-dispatcher-8 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:23:13,199 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:23:22,691 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:23:23,930 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:23:35,767 - [INFO] - from application in play-akka.actor.default-dispatcher-13 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:25:30,788 - [INFO] - from application in play-akka.actor.default-dispatcher-14 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:25:53,826 - [INFO] - from application in play-akka.actor.default-dispatcher-14 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:25:55,264 - [INFO] - from application in play-akka.actor.default-dispatcher-14 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:27:17,807 - [INFO] - from application in play-akka.actor.default-dispatcher-31 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:27:50,346 - [INFO] - from application in play-akka.actor.default-dispatcher-36 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:28:24,774 - [INFO] - from application in play-akka.actor.default-dispatcher-30 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:28:26,558 - [INFO] - from application in play-akka.actor.default-dispatcher-42 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:30:11,436 - [INFO] - from application in play-akka.actor.default-dispatcher-42 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:34:05,635 - [INFO] - from application in play-akka.actor.default-dispatcher-49 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:34:27,153 - [INFO] - from application in play-akka.actor.default-dispatcher-52 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:34:28,904 - [INFO] - from application in play-akka.actor.default-dispatcher-50 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:35:23,511 - [INFO] - from application in play-akka.actor.default-dispatcher-57 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:35:51,038 - [INFO] - from application in play-akka.actor.default-dispatcher-58 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:36:49,165 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 22:36:49,170 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 22:36:49,338 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-12-03 22:38:57,095 - [INFO] - from play in play-internal-execution-context-2 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 22:38:57,102 - [INFO] - from play in play-internal-execution-context-2 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 22:38:57,253 - [INFO] - from play in play-internal-execution-context-2 
+Application started (Dev)
+
+2015-12-03 22:38:57,267 - [INFO] - from application in play-akka.actor.default-dispatcher-73 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:38:57,267 - [INFO] - from application in play-akka.actor.default-dispatcher-72 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:38:59,146 - [INFO] - from application in play-akka.actor.default-dispatcher-77 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:39:09,377 - [INFO] - from application in play-akka.actor.default-dispatcher-78 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:45:12,562 - [INFO] - from play in play-internal-execution-context-3 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 22:45:12,565 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 22:45:12,834 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
+
+2015-12-03 22:45:12,843 - [INFO] - from application in play-akka.actor.default-dispatcher-73 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:45:15,478 - [INFO] - from application in play-akka.actor.default-dispatcher-85 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:47:05,154 - [INFO] - from play in play-internal-execution-context-3 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 22:47:05,159 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 22:47:05,352 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
+
+2015-12-03 22:47:05,363 - [INFO] - from application in play-akka.actor.default-dispatcher-79 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:47:09,595 - [INFO] - from application in play-akka.actor.default-dispatcher-92 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:50:31,053 - [INFO] - from play in play-internal-execution-context-4 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 22:50:31,056 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 22:50:31,271 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2015-12-03 22:51:23,205 - [INFO] - from play in play-internal-execution-context-4 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 22:51:23,221 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 22:51:23,347 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2015-12-03 22:55:28,114 - [INFO] - from play in play-internal-execution-context-4 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 22:55:28,120 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 22:55:28,311 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2015-12-03 22:55:28,320 - [INFO] - from application in play-akka.actor.default-dispatcher-108 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:55:51,650 - [INFO] - from application in play-akka.actor.default-dispatcher-108 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:56:22,166 - [INFO] - from application in play-akka.actor.default-dispatcher-115 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:56:31,361 - [INFO] - from application in play-akka.actor.default-dispatcher-117 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:58:18,542 - [INFO] - from play in play-internal-execution-context-7 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 22:58:18,545 - [INFO] - from play in play-internal-execution-context-7 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 22:58:18,710 - [INFO] - from play in play-internal-execution-context-7 
+Application started (Dev)
+
+2015-12-03 22:58:18,762 - [INFO] - from application in play-akka.actor.default-dispatcher-125 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:58:35,445 - [INFO] - from application in play-akka.actor.default-dispatcher-130 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:59:06,448 - [INFO] - from application in play-akka.actor.default-dispatcher-131 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:59:08,220 - [INFO] - from application in play-akka.actor.default-dispatcher-138 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 22:59:21,133 - [INFO] - from application in play-akka.actor.default-dispatcher-137 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 23:02:17,146 - [INFO] - from play in play-internal-execution-context-7 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 23:02:17,150 - [INFO] - from play in play-internal-execution-context-7 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 23:02:17,284 - [INFO] - from play in play-internal-execution-context-7 
+Application started (Dev)
+
+2015-12-03 23:02:23,809 - [INFO] - from application in play-akka.actor.default-dispatcher-139 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 23:09:44,118 - [ERROR] - from application in New I/O worker #6 
+
+
+! @6ob6f7j4g - Internal server error, for (GET) [/climate/searchService] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: method render in class searchService cannot be applied to given types;]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+
+2015-12-03 23:10:41,736 - [INFO] - from play in play-internal-execution-context-7 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 23:10:41,739 - [INFO] - from play in play-internal-execution-context-7 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 23:10:41,903 - [INFO] - from play in play-internal-execution-context-7 
+Application started (Dev)
+
+2015-12-03 23:10:41,911 - [INFO] - from application in play-akka.actor.default-dispatcher-140 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 23:10:46,841 - [INFO] - from application in play-akka.actor.default-dispatcher-150 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 23:10:47,773 - [INFO] - from application in play-akka.actor.default-dispatcher-152 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 23:11:40,946 - [INFO] - from play in play-internal-execution-context-7 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 23:11:40,950 - [INFO] - from play in play-internal-execution-context-7 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 23:11:41,067 - [INFO] - from play in play-internal-execution-context-7 
+Application started (Dev)
+
+2015-12-03 23:11:41,184 - [INFO] - from application in play-akka.actor.default-dispatcher-152 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 23:11:54,696 - [INFO] - from application in play-akka.actor.default-dispatcher-148 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 23:11:56,825 - [INFO] - from application in play-akka.actor.default-dispatcher-160 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 23:12:03,711 - [INFO] - from application in play-akka.actor.default-dispatcher-158 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 23:12:05,477 - [INFO] - from application in play-akka.actor.default-dispatcher-158 
+http://localhost:9034/climateService/getAllClimateServices/json
 

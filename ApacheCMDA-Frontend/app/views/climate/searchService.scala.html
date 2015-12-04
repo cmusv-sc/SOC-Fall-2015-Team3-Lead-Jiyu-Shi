@@ -1,4 +1,4 @@
-@(climateServiceForm: play.data.Form[metadata.ClimateService],email:String)
+@(climateServiceForm: play.data.Form[metadata.ClimateService],email:String,comment:String)
 
 @import helper._
 
@@ -47,7 +47,7 @@
           <input type="text" class="hidden" name="email" value=@email>
       </div>
       <div align="center">
-        <input class="btn btn-info" type="submit" value="Search">
+        <input class="btn btn-info" type="submit" value="GO">
       </div>
     </div>
     @*</form>*@

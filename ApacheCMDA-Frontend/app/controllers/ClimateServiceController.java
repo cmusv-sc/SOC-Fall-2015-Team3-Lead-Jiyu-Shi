@@ -37,6 +37,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -193,14 +194,21 @@ public class ClimateServiceController extends Controller {
 
 	// new added by group 3
 	public static Result searchService(String email){
-		return ok(searchService.render(climateServiceForm,email));
+		return ok(searchService.render(climateServiceForm,email,null));
 	}
 
 	public static Result oneService(String url,String email,String id) {
 		System.out.println(id);
 		ClimateService.updateFrequency(id);
 		//return ok(oneService.render("/assets/html/" + url,email,id,ClimateService.all()));
-		return ok(oneService.render("/assets/html/" + url,email,id,ClimateService.all(), UserService.getFriends(email)));
+		//return ok(oneService.render("/assets/html/" + url,email,id,ClimateService.all(), UserService.getFriends(email)));
+		List<String> fakeRelationShip = new ArrayList<String>();
+		fakeRelationShip.add("Jiyu Shi");
+		fakeRelationShip.add("Zhongao Tang");
+		fakeRelationShip.add("Yuan Liu");
+		fakeRelationShip.add("Xiaoyu Wang");
+
+		return ok(oneService.render("/assets/html/" + url,email,id,ClimateService.all(),fakeRelationShip));
 	}
 
 
@@ -215,11 +223,23 @@ public class ClimateServiceController extends Controller {
 		String keywords = serviceForm.field("Search").value();
 		if (keywords.contains("#")){
 			System.out.println("find the #");
+			int index = keywords.indexOf("#");
+			keywords = keywords.substring(index+1);
+			System.out.println(keywords);
+
+			String result = ClimateService.findAtService(keywords);
+			return ok(searchService.render(climateServiceForm,email,result));
 
 		}else if(keywords.contains("@")) {
 			System.out.println("find the @");
 
+			int index = keywords.indexOf("@");
+			keywords = keywords.substring(index+1);
+			System.out.println(keywords);
+			String result = ClimateService.findAtService(keywords);
+			return ok(searchService.render(climateServiceForm,email,result));
 		}
+
 		return ok(climateServices.render(ClimateService.findService(serviceForm.field("Search").value()),
 				climateServiceForm,serviceForm.field("email").value()));
 	}
