@@ -19,6 +19,7 @@ package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import models.UserService;
 import models.metadata.ClimateService;
 import play.Logger;
 import play.data.Form;
@@ -198,7 +199,8 @@ public class ClimateServiceController extends Controller {
 	public static Result oneService(String url,String email,String id) {
 		System.out.println(id);
 		ClimateService.updateFrequency(id);
-		return ok(oneService.render("/assets/html/" + url,email,id));
+		//return ok(oneService.render("/assets/html/" + url,email,id,ClimateService.all()));
+		return ok(oneService.render("/assets/html/" + url,email,id,ClimateService.all(), UserService.getFriends(email)));
 	}
 
 
@@ -210,7 +212,15 @@ public class ClimateServiceController extends Controller {
 		//get the string of key words.
 
 		System.out.println(serviceForm.field("email").value());
-		return ok(climateServices.render(ClimateService.findService(serviceForm.field("Search Service").value()),
+		String keywords = serviceForm.field("Search").value();
+		if (keywords.contains("#")){
+			System.out.println("find the #");
+
+		}else if(keywords.contains("@")) {
+			System.out.println("find the @");
+
+		}
+		return ok(climateServices.render(ClimateService.findService(serviceForm.field("Search").value()),
 				climateServiceForm,serviceForm.field("email").value()));
 	}
 

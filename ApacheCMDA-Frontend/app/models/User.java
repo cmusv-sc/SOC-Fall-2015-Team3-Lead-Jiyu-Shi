@@ -16,6 +16,9 @@
  */
 package models;
 
+import models.metadata.ClimateService;
+import play.data.Form;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +29,8 @@ import javax.persistence.Id;
 @Entity
 public class User {
 
-
+	final static Form<String> userFriends = Form
+			.form(String.class);
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;

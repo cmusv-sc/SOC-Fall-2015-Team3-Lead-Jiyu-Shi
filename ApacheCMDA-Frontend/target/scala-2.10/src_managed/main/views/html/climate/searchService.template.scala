@@ -73,7 +73,7 @@ Seq[Any](format.raw/*1.76*/("""
     """),format.raw/*43.100*/("""
     <div class="ui-widget col-sm-offset-3 col-sm-7">
       <div class = "form-group" align="center" >
-      """),_display_(Seq[Any](/*46.8*/inputText(climateServiceForm("Search Service"), 'class -> "form-control",'id -> "serviceName", 'placeholder -> "Service Name", 'size->70))),format.raw/*46.145*/("""
+      """),_display_(Seq[Any](/*46.8*/inputText(climateServiceForm("Search"), 'class -> "form-control",'id -> "serviceName", 'placeholder -> "Service Name", 'size->70))),format.raw/*46.137*/("""
           <input type="text" class="hidden" name="email" value="""),_display_(Seq[Any](/*47.65*/email)),format.raw/*47.70*/(""">
       </div>
       <div align="center">
@@ -94,10 +94,10 @@ Seq[Any](format.raw/*1.76*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Nov 29 14:06:11 EST 2015
-                    SOURCE: /Users/jiyushi1/Desktop/18655/tangzhongao/ApacheCMDA-Frontend/app/views/climate/searchService.scala.html
-                    HASH: b5a342bf484de4ce87864b12ffd672aa030d81e3
-                    MATRIX: 830->1|997->96|1011->103|1095->107|1147->124|1161->130|1222->170|1540->460|1569->461|2362->1226|2391->1227|2477->1285|2506->1286|2547->1299|2576->1300|2633->75|2661->94|2689->1318|2727->1321|2772->1357|2811->1358|2850->1362|2887->1377|2919->1434|2960->1440|3036->1507|3076->1509|3110->1609|3255->1719|3415->1856|3516->1921|3543->1926|3707->2073|3744->2079
+                    DATE: Thu Dec 03 14:44:12 EST 2015
+                    SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/searchService.scala.html
+                    HASH: e052a589fa5ba9da90500868ce289c5db07fb6cc
+                    MATRIX: 830->1|997->96|1011->103|1095->107|1147->124|1161->130|1222->170|1540->460|1569->461|2362->1226|2391->1227|2477->1285|2506->1286|2547->1299|2576->1300|2633->75|2661->94|2689->1318|2727->1321|2772->1357|2811->1358|2850->1362|2887->1377|2919->1434|2960->1440|3036->1507|3076->1509|3110->1609|3255->1719|3407->1848|3508->1913|3535->1918|3699->2065|3736->2071
                     LINES: 26->1|29->5|29->5|31->5|32->6|32->6|32->6|37->11|37->11|55->29|55->29|57->31|57->31|58->32|58->32|63->1|65->4|66->36|68->38|68->38|68->38|69->39|69->39|71->41|72->42|72->42|72->42|73->43|76->46|76->46|77->47|77->47|83->53|84->54
                     -- GENERATED --
                 */

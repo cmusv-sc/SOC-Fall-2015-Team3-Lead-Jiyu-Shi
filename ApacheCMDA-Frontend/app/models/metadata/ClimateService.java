@@ -37,7 +37,7 @@ public class ClimateService {
 	private String version;
 	private String rootservice;
 	private String photo;
-
+	private double grade;
 
 	//I added this part here to version control
 	//Hashmap to store version and related url
@@ -226,7 +226,8 @@ public class ClimateService {
 				//newService.setVerionNum();
 				newService.setVersionList(json.path("versionNo").asText());
 				newService.setVersionMap(json.path("versionNo").asText(),json.path("url").asText());
-
+				newService.setGrade(json.path("grade").asDouble());
+				System.out.println("grade " + newService.getGrade());
 				climateMap.put(json.get("name").asText(),newService);
 				//fake some version here, will be erased if real duplicated service exisits.
 				if (json.get("url").asText().contains("twoDimTimeSeries.html")){
@@ -513,6 +514,9 @@ public class ClimateService {
 	//requriements 2 key words search.
 	public static List<ClimateService> findService(String keyWords) {
 		List<ClimateService> result = new ArrayList<ClimateService>();
+
+
+
 		List<ClimateService> allList = all();
 		int count = 0;
 		for (ClimateService element : allList) {
@@ -525,6 +529,7 @@ public class ClimateService {
 			}
 
 		}
+
 		return result;
 	}
 
@@ -545,5 +550,12 @@ public class ClimateService {
 		}
 	}
 
+	public double getGrade() {
+		return grade;
+	}
+
+	public void setGrade(double grade) {
+		this.grade = grade;
+	}
 }
 

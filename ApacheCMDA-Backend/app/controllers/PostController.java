@@ -75,15 +75,17 @@ public class PostController extends Controller{
             double oldGrade = climateService.getGrade();
 
             // Update the postNum and grade
-            climateService.setPostNum(postNum+1);
-            climateService.setGrade( (oldGrade+grade)/(postNum+1) );
+            if(grade != 0) {
+                climateService.setPostNum(postNum + 1);
+                climateService.setGrade((oldGrade + grade) / (postNum + 1));
+            }
             String email = "Guest";
             if (user != null) {
                 email = user.getUserName();
             }
-            Post post = new Post( comment,createTime, email , grade, climateService.getName());
+            Post post = new Post( comment,createTime, email , grade, climateService.getName(),climateId);
             postRepository.save(post);
-
+            climateServiceRepository.save(climateService);
             return created(new Gson().toJson(post));
 
         } catch (PersistenceException pe) {

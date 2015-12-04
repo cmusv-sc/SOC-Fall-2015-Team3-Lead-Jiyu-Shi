@@ -15,7 +15,7 @@
  * limitations under the License.											   *
  *******************************************************************************@
 
-@(url: String, email: String, id: String)
+@(url: String, email: String, id: String,climateServices: List[metadata.ClimateService],friendList: List[String])
 
 @import helper._
 
@@ -66,30 +66,33 @@
                 console.log(data);
 
                 $.each($.parseJSON(data), function(i, aComment) {
-                    var postTime = new Date(aComment.postTime);
-                    idNumber = idNumber + 1;
-                    var year = postTime.getFullYear();
-                    var month = postTime.getMonth() + 1;
-                    var day = postTime.getDate();
-                    var hours=postTime.getHours();
-                    var minutes = postTime.getMinutes();
-                    if(parseInt(minutes) < 10){
-                        minutes = "0" + minutes;
+                    var climateID = aComment.climateServiceID;
+                    if (climateID == @id){
+                        var postTime = new Date(aComment.postTime);
+                        idNumber = idNumber + 1;
+                        var year = postTime.getFullYear();
+                        var month = postTime.getMonth() + 1;
+                        var day = postTime.getDate();
+                        var hours=postTime.getHours();
+                        var minutes = postTime.getMinutes();
+                        if(parseInt(minutes) < 10){
+                            minutes = "0" + minutes;
+                        }
+                        var seconds =postTime.getSeconds();
+                        if(parseInt(seconds) < 10){
+                            seconds = "0" + seconds;
+                        }
+                        var dateString = year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
+                        $("#post").append("<div id='"+idNumber+"'class='col-md-8 blogShort'></div>");
+                        var imgString = "<img id='userIcon' class='pull-left img-responsive thumb margin10 img-thumbnail' src='@routes.Assets.at("images/Usericon.jpg")'>";
+                        $("#"+idNumber).append("<h4>By " +aComment.user +"</h4>");
+                        $("#"+idNumber).append("<input id='rating" +idNumber +"' value="+ aComment.grade +" class='rating userRating' type='number' data-size='xs' readonly/>");
+                        $("#rating"+idNumber).rating('create');
+                        $("#"+idNumber).append(imgString);
+                        $("#"+idNumber).append("</img>");
+                        $("#"+idNumber).append("<article><p>"+aComment.comment+"<article></p>");
+                        $("#"+idNumber).append("<p class='text-right'>"+dateString+"</p>");
                     }
-                    var seconds =postTime.getSeconds();
-                    if(parseInt(seconds) < 10){
-                        seconds = "0" + seconds;
-                    }
-                    var dateString = year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
-                    $("#post").append("<div id='"+idNumber+"'class='col-md-8 blogShort'></div>");
-                    var imgString = "<img id='userIcon' class='pull-left img-responsive thumb margin10 img-thumbnail' src='@routes.Assets.at("images/Usericon.jpg")'>";
-                    $("#"+idNumber).append("<h4>By " +aComment.user +"</h4>");
-                    $("#"+idNumber).append("<input id='rating" +idNumber +"' value="+ aComment.grade +" class='rating userRating' type='number' data-size='xs' readonly/>");
-                    $("#rating"+idNumber).rating('create');
-                    $("#"+idNumber).append(imgString);
-                    $("#"+idNumber).append("</img>");
-                    $("#"+idNumber).append("<article><p>"+aComment.comment+"<article></p>");
-                    $("#"+idNumber).append("<p class='text-right'>"+dateString+"</p>");
                 });
             },
             error: function() {
@@ -154,6 +157,9 @@
 }
 
 @main("Service",email, scripts) {
+
+
+
     <script type="text/javascript">
     </script>
 

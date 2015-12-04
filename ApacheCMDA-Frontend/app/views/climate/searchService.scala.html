@@ -43,7 +43,7 @@
     @*<form action="@routes.ClimateServiceController.getSearchServiceResult(email)" method="get">*@
     <div class="ui-widget col-sm-offset-3 col-sm-7">
       <div class = "form-group" align="center" >
-      @inputText(climateServiceForm("Search Service"), 'class -> "form-control",'id -> "serviceName", 'placeholder -> "Service Name", 'size->70)
+      @inputText(climateServiceForm("Search"), 'class -> "form-control",'id -> "serviceName", 'placeholder -> "Service Name", 'size->70)
           <input type="text" class="hidden" name="email" value=@email>
       </div>
       <div align="center">

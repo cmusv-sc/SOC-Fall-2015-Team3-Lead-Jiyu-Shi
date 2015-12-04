@@ -35,7 +35,7 @@ import views.html._
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-object oneService extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template3[String,String,String,play.api.templates.HtmlFormat.Appendable] {
+object oneService extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template5[String,String,String,List[metadata.ClimateService],List[String],play.api.templates.HtmlFormat.Appendable] {
 
     /*******************************************************************************
  * Licensed to the Apache Software Foundation (ASF) under one or more		   *
@@ -53,7 +53,7 @@ object oneService extends BaseScalaTemplate[play.api.templates.HtmlFormat.Append
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-    def apply/*18.2*/(url: String, email: String, id: String):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*18.2*/(url: String, email: String, id: String,climateServices: List[metadata.ClimateService],friendList: List[String]):play.api.templates.HtmlFormat.Appendable = {
         _display_ {import helper._
 
 def /*22.2*/scripts/*22.9*/:play.api.templates.HtmlFormat.Appendable = {_display_(
@@ -105,39 +105,42 @@ Seq[Any](format.raw/*22.13*/("""
                 console.log(data);
 
                 $.each($.parseJSON(data), function(i, aComment) """),format.raw/*68.65*/("""{"""),format.raw/*68.66*/("""
-                    var postTime = new Date(aComment.postTime);
-                    idNumber = idNumber + 1;
-                    var year = postTime.getFullYear();
-                    var month = postTime.getMonth() + 1;
-                    var day = postTime.getDate();
-                    var hours=postTime.getHours();
-                    var minutes = postTime.getMinutes();
-                    if(parseInt(minutes) < 10)"""),format.raw/*76.47*/("""{"""),format.raw/*76.48*/("""
-                        minutes = "0" + minutes;
-                    """),format.raw/*78.21*/("""}"""),format.raw/*78.22*/("""
-                    var seconds =postTime.getSeconds();
-                    if(parseInt(seconds) < 10)"""),format.raw/*80.47*/("""{"""),format.raw/*80.48*/("""
-                        seconds = "0" + seconds;
-                    """),format.raw/*82.21*/("""}"""),format.raw/*82.22*/("""
-                    var dateString = year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
-                    $("#post").append("<div id='"+idNumber+"'class='col-md-8 blogShort'></div>");
-                    var imgString = "<img id='userIcon' class='pull-left img-responsive thumb margin10 img-thumbnail' src='"""),_display_(Seq[Any](/*85.125*/routes/*85.131*/.Assets.at("images/Usericon.jpg"))),format.raw/*85.164*/("""'>";
-                    $("#"+idNumber).append("<h4>By " +aComment.user +"</h4>");
-                    $("#"+idNumber).append("<input id='rating" +idNumber +"' value="+ aComment.grade +" class='rating userRating' type='number' data-size='xs' readonly/>");
-                    $("#rating"+idNumber).rating('create');
-                    $("#"+idNumber).append(imgString);
-                    $("#"+idNumber).append("</img>");
-                    $("#"+idNumber).append("<article><p>"+aComment.comment+"<article></p>");
-                    $("#"+idNumber).append("<p class='text-right'>"+dateString+"</p>");
-                """),format.raw/*93.17*/("""}"""),format.raw/*93.18*/(""");
-            """),format.raw/*94.13*/("""}"""),format.raw/*94.14*/(""",
-            error: function() """),format.raw/*95.31*/("""{"""),format.raw/*95.32*/("""
+                    var climateID = aComment.climateServiceID;
+                    if (climateID == """),_display_(Seq[Any](/*70.39*/id)),format.raw/*70.41*/(""")"""),format.raw/*70.42*/("""{"""),format.raw/*70.43*/("""
+                        var postTime = new Date(aComment.postTime);
+                        idNumber = idNumber + 1;
+                        var year = postTime.getFullYear();
+                        var month = postTime.getMonth() + 1;
+                        var day = postTime.getDate();
+                        var hours=postTime.getHours();
+                        var minutes = postTime.getMinutes();
+                        if(parseInt(minutes) < 10)"""),format.raw/*78.51*/("""{"""),format.raw/*78.52*/("""
+                            minutes = "0" + minutes;
+                        """),format.raw/*80.25*/("""}"""),format.raw/*80.26*/("""
+                        var seconds =postTime.getSeconds();
+                        if(parseInt(seconds) < 10)"""),format.raw/*82.51*/("""{"""),format.raw/*82.52*/("""
+                            seconds = "0" + seconds;
+                        """),format.raw/*84.25*/("""}"""),format.raw/*84.26*/("""
+                        var dateString = year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
+                        $("#post").append("<div id='"+idNumber+"'class='col-md-8 blogShort'></div>");
+                        var imgString = "<img id='userIcon' class='pull-left img-responsive thumb margin10 img-thumbnail' src='"""),_display_(Seq[Any](/*87.129*/routes/*87.135*/.Assets.at("images/Usericon.jpg"))),format.raw/*87.168*/("""'>";
+                        $("#"+idNumber).append("<h4>By " +aComment.user +"</h4>");
+                        $("#"+idNumber).append("<input id='rating" +idNumber +"' value="+ aComment.grade +" class='rating userRating' type='number' data-size='xs' readonly/>");
+                        $("#rating"+idNumber).rating('create');
+                        $("#"+idNumber).append(imgString);
+                        $("#"+idNumber).append("</img>");
+                        $("#"+idNumber).append("<article><p>"+aComment.comment+"<article></p>");
+                        $("#"+idNumber).append("<p class='text-right'>"+dateString+"</p>");
+                    """),format.raw/*95.21*/("""}"""),format.raw/*95.22*/("""
+                """),format.raw/*96.17*/("""}"""),format.raw/*96.18*/(""");
+            """),format.raw/*97.13*/("""}"""),format.raw/*97.14*/(""",
+            error: function() """),format.raw/*98.31*/("""{"""),format.raw/*98.32*/("""
                 alert('error');
-            """),format.raw/*97.13*/("""}"""),format.raw/*97.14*/("""
-        """),format.raw/*98.9*/("""}"""),format.raw/*98.10*/(""");
-        $("#submitComment").click(function()"""),format.raw/*99.45*/("""{"""),format.raw/*99.46*/("""
+            """),format.raw/*100.13*/("""}"""),format.raw/*100.14*/("""
+        """),format.raw/*101.9*/("""}"""),format.raw/*101.10*/(""");
+        $("#submitComment").click(function()"""),format.raw/*102.45*/("""{"""),format.raw/*102.46*/("""
             var comment = $("#commentActionArea").html();
-            if(comment.length > 0) """),format.raw/*101.36*/("""{"""),format.raw/*101.37*/("""
+            if(comment.length > 0) """),format.raw/*104.36*/("""{"""),format.raw/*104.37*/("""
                 var star_rating = $("#commentRating").val();
                 var date = new Date();
                 var year = date.getFullYear();
@@ -145,14 +148,14 @@ Seq[Any](format.raw/*22.13*/("""
                 var day = date.getDate();
                 var hours=date.getHours();
                 var minutes = date.getMinutes();
-                var email = """"),_display_(Seq[Any](/*109.31*/email)),format.raw/*109.36*/("""";
+                var email = """"),_display_(Seq[Any](/*112.31*/email)),format.raw/*112.36*/("""";
                 if(email=="")
                     email = "Guest";
                 var serviceID = -1;
-                serviceID = """"),_display_(Seq[Any](/*113.31*/id)),format.raw/*113.33*/("""";
-                if(parseInt(minutes) < 10)"""),format.raw/*114.43*/("""{"""),format.raw/*114.44*/("""
+                serviceID = """"),_display_(Seq[Any](/*116.31*/id)),format.raw/*116.33*/("""";
+                if(parseInt(minutes) < 10)"""),format.raw/*117.43*/("""{"""),format.raw/*117.44*/("""
                     minutes = "0" + minutes;
-                """),format.raw/*116.17*/("""}"""),format.raw/*116.18*/("""
+                """),format.raw/*119.17*/("""}"""),format.raw/*119.18*/("""
                 var seconds =date.getSeconds();
                 var dateString = year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
                 var commentContent = new Object();
@@ -163,17 +166,17 @@ Seq[Any](format.raw/*22.13*/("""
                 commentContent.createTime = date.getTime();
                 var commentJson = JSON.stringify(commentContent);
                 console.log(commentJson);
-                $.ajax("""),format.raw/*127.24*/("""{"""),format.raw/*127.25*/("""
+                $.ajax("""),format.raw/*130.24*/("""{"""),format.raw/*130.25*/("""
                     type: 'POST',
                     url: 'http://localhost:9034/posts/add',
                     data: commentJson,
                     dataType: 'json',
                     contentType: 'application/json',
-                    success: function()"""),format.raw/*133.40*/("""{"""),format.raw/*133.41*/("""
+                    success: function()"""),format.raw/*136.40*/("""{"""),format.raw/*136.41*/("""
                         $('#CommentPrompt').modal('show');
                         idNumber = idNumber + 1;
                         $("#post").append("<div id='"+idNumber+"'class='col-md-8 blogShort'></div>");
-                        var imgString = "<img id='userIcon' class='pull-left img-responsive thumb margin10 img-thumbnail' src='"""),_display_(Seq[Any](/*137.129*/routes/*137.135*/.Assets.at("images/Usericon.jpg"))),format.raw/*137.168*/("""'>";
+                        var imgString = "<img id='userIcon' class='pull-left img-responsive thumb margin10 img-thumbnail' src='"""),_display_(Seq[Any](/*140.129*/routes/*140.135*/.Assets.at("images/Usericon.jpg"))),format.raw/*140.168*/("""'>";
                         $("#"+idNumber).append('<h4>By Username</h4>');
                         $("#"+idNumber).append("<input id='rating" +idNumber +"' value="+ star_rating +" class='rating userRating' type='number' data-size='xs' readonly/>");
                         $("#rating"+idNumber).rating('create');
@@ -181,59 +184,62 @@ Seq[Any](format.raw/*22.13*/("""
                         $("#"+idNumber).append("</img>");
                         $("#"+idNumber).append("<article><p>"+comment+"<article></p>");
                         $("#"+idNumber).append("<p class='text-right'>"+dateString+"</p>");
-                     """),format.raw/*145.22*/("""}"""),format.raw/*145.23*/(""",
-                    error: function() """),format.raw/*146.39*/("""{"""),format.raw/*146.40*/("""
+                     """),format.raw/*148.22*/("""}"""),format.raw/*148.23*/(""",
+                    error: function() """),format.raw/*149.39*/("""{"""),format.raw/*149.40*/("""
                         alert('error' + commentJson);
-                    """),format.raw/*148.21*/("""}"""),format.raw/*148.22*/("""
-                """),format.raw/*149.17*/("""}"""),format.raw/*149.18*/(""");
-            """),format.raw/*150.13*/("""}"""),format.raw/*150.14*/("""
-        """),format.raw/*151.9*/("""}"""),format.raw/*151.10*/(""");
-    """),format.raw/*152.5*/("""}"""),format.raw/*152.6*/(""");
+                    """),format.raw/*151.21*/("""}"""),format.raw/*151.22*/("""
+                """),format.raw/*152.17*/("""}"""),format.raw/*152.18*/(""");
+            """),format.raw/*153.13*/("""}"""),format.raw/*153.14*/("""
+        """),format.raw/*154.9*/("""}"""),format.raw/*154.10*/(""");
+    """),format.raw/*155.5*/("""}"""),format.raw/*155.6*/(""");
 </script>
 """)))};
-Seq[Any](format.raw/*18.42*/("""
+Seq[Any](format.raw/*18.114*/("""
 
 """),format.raw/*21.1*/("""
-"""),format.raw/*154.2*/("""
+"""),format.raw/*157.2*/("""
 
-"""),_display_(Seq[Any](/*156.2*/main("Service",email, scripts)/*156.32*/ {_display_(Seq[Any](format.raw/*156.34*/("""
+"""),_display_(Seq[Any](/*159.2*/main("Service",email, scripts)/*159.32*/ {_display_(Seq[Any](format.raw/*159.34*/("""
+
+
+
     <script type="text/javascript">
     </script>
 
     <style>
-        #commentActionArea"""),format.raw/*161.27*/("""{"""),format.raw/*161.28*/("""
+        #commentActionArea"""),format.raw/*167.27*/("""{"""),format.raw/*167.28*/("""
             resize: none;
             width: 760px;
             margin-left: 5px;
-        """),format.raw/*165.9*/("""}"""),format.raw/*165.10*/("""
-        #commentActionContainer"""),format.raw/*166.32*/("""{"""),format.raw/*166.33*/("""
+        """),format.raw/*171.9*/("""}"""),format.raw/*171.10*/("""
+        #commentActionContainer"""),format.raw/*172.32*/("""{"""),format.raw/*172.33*/("""
             border:1px solid #9e9e9e;
             width: 780px;
             margin-top: 10px;
-        """),format.raw/*170.9*/("""}"""),format.raw/*170.10*/("""
+        """),format.raw/*176.9*/("""}"""),format.raw/*176.10*/("""
 
-        #commentAction"""),format.raw/*172.23*/("""{"""),format.raw/*172.24*/("""
+        #commentAction"""),format.raw/*178.23*/("""{"""),format.raw/*178.24*/("""
             margin-top: 5px;
-        """),format.raw/*174.9*/("""}"""),format.raw/*174.10*/("""
+        """),format.raw/*180.9*/("""}"""),format.raw/*180.10*/("""
 
-        #userIcon"""),format.raw/*176.18*/("""{"""),format.raw/*176.19*/("""
+        #userIcon"""),format.raw/*182.18*/("""{"""),format.raw/*182.19*/("""
             height: 50px;
-        """),format.raw/*178.9*/("""}"""),format.raw/*178.10*/("""
+        """),format.raw/*184.9*/("""}"""),format.raw/*184.10*/("""
 
-        .text-right"""),format.raw/*180.20*/("""{"""),format.raw/*180.21*/("""
+        .text-right"""),format.raw/*186.20*/("""{"""),format.raw/*186.21*/("""
             font-size: x-small;
-        """),format.raw/*182.9*/("""}"""),format.raw/*182.10*/("""
+        """),format.raw/*188.9*/("""}"""),format.raw/*188.10*/("""
 
-        .blogShort"""),format.raw/*184.19*/("""{"""),format.raw/*184.20*/("""
+        .blogShort"""),format.raw/*190.19*/("""{"""),format.raw/*190.20*/("""
             border:1px solid dimgray;
             margin-top: 10px;
-        """),format.raw/*187.9*/("""}"""),format.raw/*187.10*/("""
+        """),format.raw/*193.9*/("""}"""),format.raw/*193.10*/("""
 
-        article"""),format.raw/*189.16*/("""{"""),format.raw/*189.17*/("""
+        article"""),format.raw/*195.16*/("""{"""),format.raw/*195.17*/("""
             margin-left: 90px;
-        """),format.raw/*191.9*/("""}"""),format.raw/*191.10*/("""
+        """),format.raw/*197.9*/("""}"""),format.raw/*197.10*/("""
     </style>
-    <iframe id="iframe" width="100%" height="600px" src=""""),_display_(Seq[Any](/*193.59*/url)),format.raw/*193.62*/("""" frameborder="0" >
+    <iframe id="iframe" width="100%" height="600px" src=""""),_display_(Seq[Any](/*199.59*/url)),format.raw/*199.62*/("""" frameborder="0" >
     </iframe>
 
 
@@ -276,20 +282,20 @@ Seq[Any](format.raw/*18.42*/("""
 """)))})))}
     }
     
-    def render(url:String,email:String,id:String): play.api.templates.HtmlFormat.Appendable = apply(url,email,id)
+    def render(url:String,email:String,id:String,climateServices:List[metadata.ClimateService],friendList:List[String]): play.api.templates.HtmlFormat.Appendable = apply(url,email,id,climateServices,friendList)
     
-    def f:((String,String,String) => play.api.templates.HtmlFormat.Appendable) = (url,email,id) => apply(url,email,id)
+    def f:((String,String,String,List[metadata.ClimateService],List[String]) => play.api.templates.HtmlFormat.Appendable) = (url,email,id,climateServices,friendList) => apply(url,email,id,climateServices,friendList)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Nov 29 14:06:11 EST 2015
-                    SOURCE: /Users/jiyushi1/Desktop/18655/tangzhongao/ApacheCMDA-Frontend/app/views/climate/oneService.scala.html
-                    HASH: fe3ed82af72b5a94fe50a16be95daa5f711522b0
-                    MATRIX: 3196->1204|3330->1265|3345->1272|3430->1276|3538->1356|3567->1357|3619->1382|3647->1383|3693->1401|3722->1402|3774->1427|3802->1428|3870->1460|3885->1466|3948->1507|4040->1563|4055->1569|4116->1608|4195->1651|4210->1657|4274->1699|4493->1890|4522->1891|4619->1961|4647->1962|4707->1994|4736->1995|4839->2071|4867->2072|4913->2090|4942->2091|5104->2225|5133->2226|5238->2305|5267->2306|5336->2347|5365->2348|5470->2426|5499->2427|5545->2445|5574->2446|5729->2573|5758->2574|5887->2675|5916->2676|6370->3102|6399->3103|6497->3173|6526->3174|6657->3277|6686->3278|6784->3348|6813->3349|7168->3667|7184->3673|7240->3706|7891->4329|7920->4330|7963->4345|7992->4346|8052->4378|8081->4379|8154->4424|8183->4425|8219->4434|8248->4435|8323->4482|8352->4483|8475->4577|8505->4578|8903->4939|8931->4944|9104->5080|9129->5082|9203->5127|9233->5128|9324->5190|9354->5191|9971->5779|10001->5780|10294->6044|10324->6045|10701->6384|10718->6390|10775->6423|11437->7056|11467->7057|11536->7097|11566->7098|11670->7173|11700->7174|11746->7191|11776->7192|11820->7207|11850->7208|11887->7217|11917->7218|11952->7225|11981->7226|12035->1244|12064->1263|12093->7240|12132->7243|12172->7273|12213->7275|12332->7365|12362->7366|12481->7457|12511->7458|12572->7490|12602->7491|12733->7594|12763->7595|12816->7619|12846->7620|12912->7658|12942->7659|12990->7678|13020->7679|13083->7714|13113->7715|13163->7736|13193->7737|13262->7778|13292->7779|13341->7799|13371->7800|13476->7877|13506->7878|13552->7895|13582->7896|13650->7936|13680->7937|13789->8009|13815->8012
-                    LINES: 56->18|59->22|59->22|61->22|64->25|64->25|66->27|66->27|67->28|67->28|69->30|69->30|71->32|71->32|71->32|73->34|73->34|73->34|75->36|75->36|75->36|79->40|79->40|82->43|82->43|84->45|84->45|86->47|86->47|88->49|88->49|91->52|91->52|95->56|95->56|96->57|96->57|100->61|100->61|101->62|101->62|104->65|104->65|107->68|107->68|115->76|115->76|117->78|117->78|119->80|119->80|121->82|121->82|124->85|124->85|124->85|132->93|132->93|133->94|133->94|134->95|134->95|136->97|136->97|137->98|137->98|138->99|138->99|140->101|140->101|148->109|148->109|152->113|152->113|153->114|153->114|155->116|155->116|166->127|166->127|172->133|172->133|176->137|176->137|176->137|184->145|184->145|185->146|185->146|187->148|187->148|188->149|188->149|189->150|189->150|190->151|190->151|191->152|191->152|194->18|196->21|197->154|199->156|199->156|199->156|204->161|204->161|208->165|208->165|209->166|209->166|213->170|213->170|215->172|215->172|217->174|217->174|219->176|219->176|221->178|221->178|223->180|223->180|225->182|225->182|227->184|227->184|230->187|230->187|232->189|232->189|234->191|234->191|236->193|236->193
+                    DATE: Thu Dec 03 16:11:41 EST 2015
+                    SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/oneService.scala.html
+                    HASH: 9c100ea413456f1f9099031b43f6f8fbd06be7d5
+                    MATRIX: 3239->1204|3445->1337|3460->1344|3545->1348|3653->1428|3682->1429|3734->1454|3762->1455|3808->1473|3837->1474|3889->1499|3917->1500|3985->1532|4000->1538|4063->1579|4155->1635|4170->1641|4231->1680|4310->1723|4325->1729|4389->1771|4608->1962|4637->1963|4734->2033|4762->2034|4822->2066|4851->2067|4954->2143|4982->2144|5028->2162|5057->2163|5219->2297|5248->2298|5353->2377|5382->2378|5451->2419|5480->2420|5585->2498|5614->2499|5660->2517|5689->2518|5844->2645|5873->2646|6002->2747|6031->2748|6169->2850|6193->2852|6222->2853|6251->2854|6737->3312|6766->3313|6872->3391|6901->3392|7040->3503|7069->3504|7175->3582|7204->3583|7571->3913|7587->3919|7643->3952|8326->4607|8355->4608|8400->4625|8429->4626|8472->4641|8501->4642|8561->4674|8590->4675|8664->4720|8694->4721|8731->4730|8761->4731|8837->4778|8867->4779|8990->4873|9020->4874|9418->5235|9446->5240|9619->5376|9644->5378|9718->5423|9748->5424|9839->5486|9869->5487|10486->6075|10516->6076|10809->6340|10839->6341|11216->6680|11233->6686|11290->6719|11952->7352|11982->7353|12051->7393|12081->7394|12185->7469|12215->7470|12261->7487|12291->7488|12335->7503|12365->7504|12402->7513|12432->7514|12467->7521|12496->7522|12551->1316|12580->1335|12609->7536|12648->7539|12688->7569|12729->7571|12851->7664|12881->7665|13000->7756|13030->7757|13091->7789|13121->7790|13252->7893|13282->7894|13335->7918|13365->7919|13431->7957|13461->7958|13509->7977|13539->7978|13602->8013|13632->8014|13682->8035|13712->8036|13781->8077|13811->8078|13860->8098|13890->8099|13995->8176|14025->8177|14071->8194|14101->8195|14169->8235|14199->8236|14308->8308|14334->8311
+                    LINES: 56->18|59->22|59->22|61->22|64->25|64->25|66->27|66->27|67->28|67->28|69->30|69->30|71->32|71->32|71->32|73->34|73->34|73->34|75->36|75->36|75->36|79->40|79->40|82->43|82->43|84->45|84->45|86->47|86->47|88->49|88->49|91->52|91->52|95->56|95->56|96->57|96->57|100->61|100->61|101->62|101->62|104->65|104->65|107->68|107->68|109->70|109->70|109->70|109->70|117->78|117->78|119->80|119->80|121->82|121->82|123->84|123->84|126->87|126->87|126->87|134->95|134->95|135->96|135->96|136->97|136->97|137->98|137->98|139->100|139->100|140->101|140->101|141->102|141->102|143->104|143->104|151->112|151->112|155->116|155->116|156->117|156->117|158->119|158->119|169->130|169->130|175->136|175->136|179->140|179->140|179->140|187->148|187->148|188->149|188->149|190->151|190->151|191->152|191->152|192->153|192->153|193->154|193->154|194->155|194->155|197->18|199->21|200->157|202->159|202->159|202->159|210->167|210->167|214->171|214->171|215->172|215->172|219->176|219->176|221->178|221->178|223->180|223->180|225->182|225->182|227->184|227->184|229->186|229->186|231->188|231->188|233->190|233->190|236->193|236->193|238->195|238->195|240->197|240->197|242->199|242->199
                     -- GENERATED --
                 */
             

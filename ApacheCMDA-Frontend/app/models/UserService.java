@@ -6,13 +6,18 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import util.APICall;
 import util.Constants;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by jiyushi1 on 11/7/15.
  */
 public class UserService {
     private static final String POST_USER_INFO = Constants.NEW_BACKEND+"users/add";
     private static final String POST_USER_VALID = Constants.NEW_BACKEND+"users/isUserValid";
+    private static final String POST_FRIEND_FRIEND = Constants.NEW_BACKEND+"";
     public static boolean login;
+
     public static String register(User user){
 
         ObjectMapper mapper = new ObjectMapper();
@@ -79,6 +84,31 @@ public class UserService {
 
         return result;
     }
+
+    public static List<String> getFriends(String email){
+        List<String> friendList = new ArrayList<String>();
+
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode queryJson = mapper.createObjectNode();
+        queryJson.put("email",email );
+
+        JsonNode userServiceNode = APICall
+                .postAPI(POST_FRIEND_FRIEND,queryJson);
+
+        System.out.println("shou dao getFriends" + userServiceNode);
+
+        if (userServiceNode == null || userServiceNode.has("error")) {
+            return null;
+        }
+
+        for (int i = 0; i < userServiceNode.size(); i++) {
+            JsonNode json = userServiceNode.path(i);
+            friendList.add(json.path("friend").asText());
+        }
+
+        return friendList;
+    }
+
     public static boolean getLogin(){
         return login;
     }

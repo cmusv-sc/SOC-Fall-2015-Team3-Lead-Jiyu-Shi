@@ -92,8 +92,8 @@ In these videos, we will help you learn the available web services, how to use t
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Nov 29 14:06:11 EST 2015
-                    SOURCE: /Users/jiyushi1/Desktop/18655/tangzhongao/ApacheCMDA-Frontend/app/views/climate/tutorial.scala.html
+                    DATE: Wed Dec 02 22:30:19 EST 2015
+                    SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/tutorial.scala.html
                     HASH: 03e8eb14556f23f1f27f285f7afc9b6be8d256ac
                     MATRIX: 3270->1205|3300->1226|3340->1228
                     LINES: 59->18|59->18|59->18

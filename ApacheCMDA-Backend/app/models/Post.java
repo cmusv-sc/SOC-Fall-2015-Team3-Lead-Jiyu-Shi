@@ -17,6 +17,7 @@ public class Post {
     private Long postTime;
     private String user;
     private String climateService;
+    private long climateServiceID;
 
     private String atUser;
     private String atClimateService;
@@ -26,7 +27,7 @@ public class Post {
     public Post(){
     }
 
-    public Post(String comment, Long postTime, String user, double grade, String climateService){
+    public Post(String comment, Long postTime, String user, double grade, String climateService, long climateServiceID){
         super();
 //        this.postId = postId;
         this.comment = comment;
@@ -34,6 +35,7 @@ public class Post {
         this.user = user;
         this.grade = grade;
         this.climateService = climateService;
+        this.climateServiceID = climateServiceID;
     }
 
     public String getAtUser(){
@@ -60,6 +62,10 @@ public class Post {
         return comment;
     }
 
+    public long getclimateServiceID(){
+        return climateServiceID;
+    }
+
     public Long getDate(){
         return postTime;
     }
@@ -83,6 +89,8 @@ public class Post {
     public void setComment(){
         this.comment = comment;
     }
+
+    public void setClimateServiceID(long climateServiceID) {this.climateServiceID = climateServiceID;}
 
     public void setDate(Long postTime){
         this.postTime = postTime;
