@@ -46,4 +46,6 @@ GET 		/climate/getSearchServiceResult				 		controllers.ClimateServiceController
 #Sign Up Page
 GET     /climate/sign                                           controllers.Application.sign()
 POST    /climate/authenticate                                   controllers.Application.authenticate()
-GET     /climate/log                                           controllers.Application.login()
+GET     /climate/log                                            controllers.Application.login()
+GET     /cimate/findFriend                                      controllers.Application.findFriend(email: String ?= "")
+GET     /cimate/findFriendResult                                controllers.Application.getFindFriendResult(email: String ?= "")

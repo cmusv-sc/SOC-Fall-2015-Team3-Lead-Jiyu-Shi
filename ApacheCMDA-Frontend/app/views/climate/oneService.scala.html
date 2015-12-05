@@ -107,21 +107,43 @@
                     }
                 });
                 $("#submitComment").click(function(){
-                    var hashText = $("#commentActionArea").find(".atwho-inserted").text();
                     var comment = $("#commentActionArea").text();
-                    if(hashText != ""){
-                        var hashTagIndex = comment.indexOf("#");
-                        SymbolIndex = hashTagIndex + hashText.length;
-                        comment = comment.substr(0,SymbolIndex) + comment.substr(SymbolIndex + 1);
-                        hashTagIndex = comment.indexOf("#");
-                        comment = comment.substr(0,hashTagIndex)+"<span style='color:#4183C4'>" + comment.substr(hashTagIndex,hashTagIndex+hashText.length)
-                                +"</span>" + comment.substr(hashTagIndex+hashText.length);
-        //            console.log(SymbolIndex);
-                        var atService = "null";
-                        if(hashText.indexOf("#") > -1) {
-                            atService = hashText.substring(1);
+                    var atService = "null";
+                    var Count = 1;
+                    console.log(comment);
+                    var start_index = -1;
+                    $('.atwho-inserted').each(function(){
+                        if($(this).text().indexOf("#") > -1) {
+                            var hashTagInThis  = $(this).text().indexOf("#");
+                            var hashTagIndex = comment.indexOf("#",start_index+1 );
+                            start_index = hashTagIndex;
+                        } else {
+                            hashTagInThis = $(this).text().indexOf("@@");
+                            var hashTagIndex = comment.indexOf("@@",start_index+1);
+                            start_index = hashTagIndex;
                         }
-                    }
+                        console.log(hashTagIndex + "......");
+                        console.log(hashTagInThis + "dddddd");
+                        if(hashTagIndex > -1){
+                            var hashText = $(this).text();
+                            console.log(hashText);
+                            Count = 2;
+                            SymbolIndex = hashTagIndex + hashText.length;
+                            comment = comment.substr(0,SymbolIndex) + comment.substr(SymbolIndex + 1);
+//                            hashTagIndex = comment.indexOf("#");
+//                            comment = comment.substr(0,hashTagIndex)+ "<span>" + comment.substr(hashTagIndex,hashTagIndex+hashText.length)
+//                                    +"</span>" + comment.substr(hashTagIndex+hashText.length);
+//                            start_index = hashTagIndex+hashText.length;
+                            //            console.log(SymbolIndex);
+                            console.log(comment);
+                            if(hashText.indexOf("#") > -1) {
+                                atService = hashText.substring(1);
+                            }
+                        }
+                    });
+//                    var hashText = $("#commentActionArea").find(".atwho-inserted").text();
+//                    if(hashText != ""){
+//                    }
                     console.log(atService);
                     if(comment.length > 0) {
                         var star_rating = $("#commentRating").val();
@@ -161,7 +183,7 @@
                                 idNumber = idNumber + 1;
                                 $("#post").append("<div id='"+idNumber+"'class='col-md-8 blogShort'></div>");
                                 var imgString = "<img id='userIcon' class='pull-left img-responsive thumb margin10 img-thumbnail' src='@routes.Assets.at("images/Usericon.jpg")'>";
-                                $("#"+idNumber).append('<h4>By'+email+'</h4>');
+                                $("#"+idNumber).append('<h4>By '+email+'</h4>');
                                 $("#"+idNumber).append("<input id='rating" +idNumber +"' value="+ star_rating +" class='rating userRating' type='number' data-size='xs' readonly/>");
                                 $("#rating"+idNumber).rating('create');
                                 $("#"+idNumber).append(imgString);

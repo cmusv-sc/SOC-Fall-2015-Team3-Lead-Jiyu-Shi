@@ -17,6 +17,7 @@
 
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map.Entry;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -103,6 +104,30 @@ public class Application extends Controller {
         return null;
     }
 
+
+    public static Result findFriend(String email){
+        return ok(searchFriend.render(ClimateServiceController.climateServiceForm,email,null));
+    }
+
+
+    public static Result getFindFriendResult(String email){
+
+        Form<ClimateService> serviceForm = ClimateServiceController.climateServiceForm.bindFromRequest();
+        System.out.println(serviceForm.field("email").value());
+        String keywords = serviceForm.field("Find friend").value();
+        System.out.println("keywords = "+ keywords);
+        //ArrayList<String> result = userService.findByUsername();
+        //find backend
+        //
+        //
+        //
+        //
+        //
+        //
+
+        return ok(searchFriend.render(ClimateServiceController.climateServiceForm,email,null));
+
+    }
 //    public static void setUserLogout(){
 //        System.out.println("Set log out");
 //        userService.setLogin(false);

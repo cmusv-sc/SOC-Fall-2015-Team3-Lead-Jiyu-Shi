@@ -1,6 +1,6 @@
 // @SOURCE:/Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/conf/routes
-// @HASH:09cf922b5129e53856ed6dc930a752a0f017f667
-// @DATE:Wed Dec 02 22:30:16 EST 2015
+// @HASH:272459cea41803f543808435f6dc0cc43b21ce2e
+// @DATE:Fri Dec 04 16:46:11 EST 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,6 +13,8 @@ import play.libs.F
 import Router.queryString
 
 
+// @LINE:51
+// @LINE:50
 // @LINE:49
 // @LINE:48
 // @LINE:47
@@ -120,12 +122,32 @@ def newReport(): Call = {
 }
                           
 
+// @LINE:51
+// @LINE:50
 // @LINE:49
 // @LINE:48
 // @LINE:47
 // @LINE:8
 class ReverseApplication {
     
+
+// @LINE:51
+def getFindFriendResult(email:String = ""): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "cimate/findFriendResult" + queryString(List(if(email == "") None else Some(implicitly[QueryStringBindable[String]].unbind("email", email)))))
+}
+                                                
+
+// @LINE:8
+def createSuccess(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "createSuccess")
+}
+                                                
+
+// @LINE:50
+def findFriend(email:String = ""): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "cimate/findFriend" + queryString(List(if(email == "") None else Some(implicitly[QueryStringBindable[String]].unbind("email", email)))))
+}
+                                                
 
 // @LINE:47
 def sign(): Call = {
@@ -142,12 +164,6 @@ def authenticate(): Call = {
 // @LINE:49
 def login(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "climate/log")
-}
-                                                
-
-// @LINE:8
-def createSuccess(): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "createSuccess")
 }
                                                 
     
@@ -302,6 +318,8 @@ def deleteClimateService(): Call = {
                   
 
 
+// @LINE:51
+// @LINE:50
 // @LINE:49
 // @LINE:48
 // @LINE:47
@@ -449,12 +467,47 @@ def newReport : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:51
+// @LINE:50
 // @LINE:49
 // @LINE:48
 // @LINE:47
 // @LINE:8
 class ReverseApplication {
     
+
+// @LINE:51
+def getFindFriendResult : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.getFindFriendResult",
+   """
+      function(email) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "cimate/findFriendResult" + _qS([(email == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("email", email))])})
+      }
+   """
+)
+                        
+
+// @LINE:8
+def createSuccess : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.createSuccess",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "createSuccess"})
+      }
+   """
+)
+                        
+
+// @LINE:50
+def findFriend : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.findFriend",
+   """
+      function(email) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "cimate/findFriend" + _qS([(email == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("email", email))])})
+      }
+   """
+)
+                        
 
 // @LINE:47
 def sign : JavascriptReverseRoute = JavascriptReverseRoute(
@@ -484,17 +537,6 @@ def login : JavascriptReverseRoute = JavascriptReverseRoute(
    """
       function() {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "climate/log"})
-      }
-   """
-)
-                        
-
-// @LINE:8
-def createSuccess : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.createSuccess",
-   """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "createSuccess"})
       }
    """
 )
@@ -734,6 +776,8 @@ def deleteClimateService : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
+// @LINE:51
+// @LINE:50
 // @LINE:49
 // @LINE:48
 // @LINE:47
@@ -842,12 +886,32 @@ def newReport(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
+// @LINE:51
+// @LINE:50
 // @LINE:49
 // @LINE:48
 // @LINE:47
 // @LINE:8
 class ReverseApplication {
     
+
+// @LINE:51
+def getFindFriendResult(email:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.getFindFriendResult(email), HandlerDef(this, "controllers.Application", "getFindFriendResult", Seq(classOf[String]), "GET", """""", _prefix + """cimate/findFriendResult""")
+)
+                      
+
+// @LINE:8
+def createSuccess(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.createSuccess(), HandlerDef(this, "controllers.Application", "createSuccess", Seq(), "GET", """""", _prefix + """createSuccess""")
+)
+                      
+
+// @LINE:50
+def findFriend(email:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.findFriend(email), HandlerDef(this, "controllers.Application", "findFriend", Seq(classOf[String]), "GET", """""", _prefix + """cimate/findFriend""")
+)
+                      
 
 // @LINE:47
 def sign(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
@@ -864,12 +928,6 @@ def authenticate(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 // @LINE:49
 def login(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.login(), HandlerDef(this, "controllers.Application", "login", Seq(), "GET", """""", _prefix + """climate/log""")
-)
-                      
-
-// @LINE:8
-def createSuccess(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.createSuccess(), HandlerDef(this, "controllers.Application", "createSuccess", Seq(), "GET", """""", _prefix + """createSuccess""")
 )
                       
     
