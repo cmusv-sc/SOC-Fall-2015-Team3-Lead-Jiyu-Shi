@@ -19,6 +19,7 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map.Entry;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -106,7 +107,7 @@ public class Application extends Controller {
 
 
     public static Result findFriend(String email){
-        return ok(searchFriend.render(ClimateServiceController.climateServiceForm,email,null));
+        return ok(searchFriend.render(ClimateServiceController.climateServiceForm,email,null,""));
     }
 
 
@@ -116,16 +117,11 @@ public class Application extends Controller {
         System.out.println(serviceForm.field("email").value());
         String keywords = serviceForm.field("Find friend").value();
         System.out.println("keywords = "+ keywords);
-        //ArrayList<String> result = userService.findByUsername();
-        //find backend
-        //
-        //
-        //
-        //
-        //
-        //
 
-        return ok(searchFriend.render(ClimateServiceController.climateServiceForm,email,null));
+        String result = userService.addFriend(email,keywords);
+
+
+        return ok(searchFriend.render(ClimateServiceController.climateServiceForm,email,result, keywords));
 
     }
 //    public static void setUserLogout(){

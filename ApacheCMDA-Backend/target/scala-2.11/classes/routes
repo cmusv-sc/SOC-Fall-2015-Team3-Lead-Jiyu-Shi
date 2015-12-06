@@ -56,6 +56,9 @@ DELETE        /users/delete/:id                                                 
 GET			  /users/getAllUsers/json																	@controllers.UserController.getAllUsers(format: String="json")
 POST		  /users/isUserValid																		@controllers.UserController.isUserValid
 DELETE		  /users/delete/userName/:userName/password/:password										@controllers.UserController.deleteUserByUserNameandPassword(userName: String, password: String)
+POST		  /users/isUserEmailValid																	@controllers.UserController.isUserEmailValid
+POST          /users/addFriend                                                                          @controllers.UserController.addFriend
+POST          /users/getFriends                                                                         @controllers.UserController.getFriends
 
 # Map static resources from the /public folder to the /assets URL path
 GET           /assets/*file                                                                             controllers.Assets.at(path="/public", file)

@@ -202,14 +202,14 @@ public class ClimateServiceController extends Controller {
 		ClimateService.updateFrequency(id);
 		//return ok(oneService.render("/assets/html/" + url,email,id,ClimateService.all()));
 
-		//return ok(oneService.render("/assets/html/" + url,email,id,ClimateService.all(), UserService.getFriends(email)));
-		List<String> fakeRelationShip = new ArrayList<String>();
-		fakeRelationShip.add("Jiyu Shi");
-		fakeRelationShip.add("Zhongao Tang");
-		fakeRelationShip.add("Yuan Liu");
-		fakeRelationShip.add("Xiaoyu Wang");
-
-		return ok(oneService.render("/assets/html/" + url,email,id,ClimateService.all(),fakeRelationShip));
+		return ok(oneService.render("/assets/html/" + url,email,id,ClimateService.all(), UserService.getFriends(email)));
+//		List<String> fakeRelationShip = new ArrayList<String>();
+//		fakeRelationShip.add("Jiyu Shi");
+//		fakeRelationShip.add("Zhongao Tang");
+//		fakeRelationShip.add("Yuan Liu");
+//		fakeRelationShip.add("Xiaoyu Wang");
+//
+//		return ok(oneService.render("/assets/html/" + url,email,id,ClimateService.all(),fakeRelationShip));
 	}
 
 

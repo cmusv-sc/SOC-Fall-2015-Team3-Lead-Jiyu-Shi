@@ -1,4 +1,4 @@
-@(climateServiceForm: play.data.Form[metadata.ClimateService],email:String,result:List[String])
+@(climateServiceForm: play.data.Form[metadata.ClimateService],email:String,result:String,friend:String)
 
 @import helper._
 
@@ -28,7 +28,28 @@
 @main("Find Friend",email,scripts){
   @flash_message()
 
-  @*<h1 style="margin-left:490px">Search Service</h1>*@
+    @if(result!= null && result.compareTo("success")==0){
+        <div class="alert alert-success fade in">
+            <strong>YOU HAS ADDED @friend SUCCEEFULLY!</strong>
+            <button class="btn btn-success pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+        </div>
+    }
+
+    @if(result!= null && result.compareTo("error")==0){
+        <div class="alert alert-warning fade in">
+            <strong>NO USER HAS BEEN FOUND, PLEASE GIVE THE CORRECT USER!</strong>
+            <button class="btn btn-warning  pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+        </div>
+    }
+
+    @if(result!= null && result.compareTo("failure")==0){
+        <div class="alert alert-info fade in">
+            <strong>You and @friend are friends already!</strong>
+            <button class="btn btn-info pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+        </div>
+    }
+
+    @*<h1 style="margin-left:490px">Search Service</h1>*@
   @form(routes.Application.getFindFriendResult(email)) {
     @*<form action="@routes.ClimateServiceController.getSearchServiceResult(email)" method="get">*@
     <div class="ui-widget col-sm-offset-3 col-sm-7">

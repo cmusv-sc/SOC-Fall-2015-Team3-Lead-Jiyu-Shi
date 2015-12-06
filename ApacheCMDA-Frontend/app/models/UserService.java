@@ -15,7 +15,10 @@ import java.util.List;
 public class UserService {
     private static final String POST_USER_INFO = Constants.NEW_BACKEND+"users/add";
     private static final String POST_USER_VALID = Constants.NEW_BACKEND+"users/isUserValid";
-    private static final String POST_FRIEND_FRIEND = Constants.NEW_BACKEND+"";
+
+    private static final String POST_FIND_FRIEND = Constants.NEW_BACKEND+"users/getFriends";
+    private static final String POST_ADD_FRIEND  = Constants.NEW_BACKEND+"users/addFriend";
+
     public static boolean login;
 
     public static String register(User user){
@@ -79,7 +82,7 @@ public class UserService {
 
         JsonNode json = userServiceNode.path("_children").path("result"); //only one string message is returned!
 
-        //System.out.println(" json child: " + json);
+
         String result = json.path("_value").asText();
 
         return result;
@@ -90,10 +93,10 @@ public class UserService {
 
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode queryJson = mapper.createObjectNode();
-        queryJson.put("email",email );
+        queryJson.put("user1",email );
 
         JsonNode userServiceNode = APICall
-                .postAPI(POST_FRIEND_FRIEND,queryJson);
+                .postAPI(POST_FIND_FRIEND,queryJson);
 
         System.out.println("shou dao getFriends" + userServiceNode);
 
@@ -103,10 +106,51 @@ public class UserService {
 
         for (int i = 0; i < userServiceNode.size(); i++) {
             JsonNode json = userServiceNode.path(i);
-            friendList.add(json.path("friend").asText());
+            friendList.add(json.path("user2").asText());
+        }
+        System.out.println(friendList);
+        
+        return friendList;
+    }
+    public static List<String> findByUsername(String keywords){
+        List<String> result  = new ArrayList<String>();
+
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode queryJson = mapper.createObjectNode();
+        queryJson.put("keywords",keywords);
+
+        JsonNode userServiceNode = APICall
+                .postAPI(POST_ADD_FRIEND,queryJson);
+        System.out.println("shou dao searchFrinedns" + userServiceNode);
+
+        for(int i =  0; i < userServiceNode.size(); i++){
+            JsonNode json = userServiceNode.path(i);
+            result.add(json.path("friend").asText());
         }
 
-        return friendList;
+        return result;
+    }
+
+    public static String addFriend(String user1,String user2){
+
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode queryJson = mapper.createObjectNode();
+        queryJson.put("user1",user1);
+        queryJson.put("user2",user2);
+
+        JsonNode userServiceNode = APICall
+                .postAPI(POST_ADD_FRIEND,queryJson);
+        System.out.println("shou dao addFriend" + userServiceNode);
+
+        JsonNode json = userServiceNode.path("_children").path("result"); //only one string message is returned!
+        String result = json.path("_value").asText();
+
+        System.out.println(result);
+        if (result.compareTo("failure") != 0 && result.compareTo("success") != 0){
+            result = "error";
+        }
+        //"return result , have the value of success or failure"
+        return result;
     }
 
     public static boolean getLogin(){
