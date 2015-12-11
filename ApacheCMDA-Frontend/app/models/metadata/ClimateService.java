@@ -104,9 +104,9 @@ public class ClimateService {
 	private static final String GET_MOST_RECENTLY_ADDED_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getAllMostRecentClimateServicesByCreateTime/json";
 	
 	//private static final String GET_MOST_RECENTLY_USED_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getAllMostRecentClimateServicesByLatestAccessTime/json";
-	private static final String GET_MOST_RECENTLY_USED_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getTop3MostRecentlyUsedServices/json";
-	private static final String GET_MOST_POPULAR_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getTop3GradesServices/json";
-	
+	private static final String GET_MOST_RECENTLY_USED_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getTop3MostRecentServices/json";
+	private static final String GET_MOST_POPULAR_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getTop3MostRecentlyUsedServices/json";
+
 	private static final String ADD_CLIMATE_SERVICE_CALL = Constants.NEW_BACKEND+"climateService/addClimateService";
 
 	private static final String DELETE_CLIMATE_SERVICE_CALL = Constants.NEW_BACKEND + util.Constants.NEW_DELETE_CLIMATE_SERVICE;
@@ -115,6 +115,7 @@ public class ClimateService {
 
 	//group 3 add here
 	private static final String PUT_UPDATE_FREQUENCY = Constants.NEW_BACKEND + "climateService/addFreq/";
+	private static final String PUT_UPDATE_Time = Constants.NEW_BACKEND + "climateService/setTime/";
 	private static final String POST_AT_REQ = Constants.NEW_BACKEND+"posts/getAllAtClimateServices/name";
 
 	public ClimateService() {
@@ -318,12 +319,70 @@ public class ClimateService {
 	}
 	
 	public static List<ClimateService> getMostRecentlyUsed() {
-
 		List<ClimateService> climateServices = new ArrayList<ClimateService>();
 
 		JsonNode climateServicesNode = APICall
 				.callAPI(GET_MOST_RECENTLY_USED_CLIMATE_SERVICES_CALL);
+		if (climateServicesNode == null || climateServicesNode.has("error")
+				|| !climateServicesNode.isArray()) {
+			return climateServices;
+		}
+		System.out.println(climateServicesNode);
+		HashMap<String,ClimateService> climateMap = new HashMap<String,ClimateService>();
+		ArrayList<String> ServiceNameList = new ArrayList<>();
+		for (int i = 0; i < Math.min(climateServicesNode.size(),3); i++) {
+			JsonNode json = climateServicesNode.path(i);
+			ClimateService newService = new ClimateService();
 
+			if (climateMap.containsKey(json.get("name").asText())){
+				ClimateService temp = climateMap.get(json.get("name").asText()); //old service
+				String newUrl = temp.getUrl()+ " " + json.path("url").asText();
+				String newVersion = temp.getVersion() + " " + json.path("versionNo").asText();
+				climateMap.get(json.get("name").asText()).setUrl(newUrl); //this one and the one below is not needed now.
+				climateMap.get(json.get("name").asText()).setVersion(newVersion);
+				//climateMap.get(json.get("name").asText()).setVerionNum();
+				climateMap.get(json.get("name").asText()).setVersionList(json.path("versionNo").asText());
+				climateMap.get(json.get("name").asText()).setVersionMap( json.path("versionNo").asText(), json.path("url").asText());
+			}else{
+				newService.setId(json.path("id").asText());
+				newService.setClimateServiceName(json.get(
+						"name").asText());
+				newService.setPurpose(json.path("purpose").asText());
+				newService.setUrl(json.path("url").asText());
+				//newService.setCreateTime(json.path("createTime").asText());
+				newService.setScenario(json.path("scenario").asText());
+				newService.setVersion(json.path("versionNo").asText());
+				newService.setRootservice(json.path("rootServiceId").asText());
+
+				//newService.setVerionNum();
+				newService.setVersionList(json.path("versionNo").asText());
+				newService.setVersionMap(json.path("versionNo").asText(),json.path("url").asText());
+
+
+				//fake some version to make presentation
+				newService.setVersionList("1.1");
+				newService.setVersionMap("1.1",json.path("url").asText());
+				newService.setVersionList("1.2");
+				newService.setVersionMap("1.2",json.path("url").asText());
+
+				climateMap.put(json.get("name").asText(),newService);
+				ServiceNameList.add(json.get("name").asText());
+			}
+		}
+		for (int i = 0; i < ServiceNameList.size(); i++) {
+//			System.out.println("Service Name:" + ServiceNameList.get(i));
+			climateServices.add(climateMap.get(ServiceNameList.get(i)));
+		}
+
+		return climateServices;
+	}
+	
+	public static List<ClimateService> getMostPopular() {
+
+		List<ClimateService> climateServices = new ArrayList<ClimateService>();
+		ArrayList<String> ServiceNameList = new ArrayList<>();
+		JsonNode climateServicesNode = APICall
+				.callAPI(GET_MOST_POPULAR_CLIMATE_SERVICES_CALL);
 		if (climateServicesNode == null || climateServicesNode.has("error")
 				|| !climateServicesNode.isArray()) {
 			return climateServices;
@@ -366,65 +425,13 @@ public class ClimateService {
 				newService.setVersionMap("1.2",json.path("url").asText());
 
 				climateMap.put(json.get("name").asText(),newService);
+				ServiceNameList.add(json.get("name").asText());
 			}
 
 		}
-		for (ClimateService value : climateMap.values()){
-			climateServices.add(value);
-		}
-		return climateServices;
-	}
-	
-	public static List<ClimateService> getMostPopular() {
-
-		List<ClimateService> climateServices = new ArrayList<ClimateService>();
-
-		JsonNode climateServicesNode = APICall
-				.callAPI(GET_MOST_POPULAR_CLIMATE_SERVICES_CALL);
-		HashMap<String,ClimateService> climateMap = new HashMap<String,ClimateService>();
-
-		for (int i = 0; i < Math.min(climateServicesNode.size(),3); i++) {
-			JsonNode json = climateServicesNode.path(i);
-			ClimateService newService = new ClimateService();
-
-			if (climateMap.containsKey(json.get("name").asText())){
-				ClimateService temp = climateMap.get(json.get("name").asText()); //old service
-				String newUrl = temp.getUrl()+ " " + json.path("url").asText();
-				String newVersion = temp.getVersion() + " " + json.path("versionNo").asText();
-				climateMap.get(json.get("name").asText()).setUrl(newUrl); //this one and the one below is not needed now.
-				climateMap.get(json.get("name").asText()).setVersion(newVersion);
-				//climateMap.get(json.get("name").asText()).setVerionNum();
-				climateMap.get(json.get("name").asText()).setVersionList(json.path("versionNo").asText());
-				climateMap.get(json.get("name").asText()).setVersionMap( json.path("versionNo").asText(), json.path("url").asText());
-			}else{
-				newService.setId(json.path("id").asText());
-				newService.setClimateServiceName(json.get(
-						"name").asText());
-				newService.setPurpose(json.path("purpose").asText());
-				newService.setUrl(json.path("url").asText());
-				//newService.setCreateTime(json.path("createTime").asText());
-				newService.setScenario(json.path("scenario").asText());
-				newService.setVersion(json.path("versionNo").asText());
-				newService.setRootservice(json.path("rootServiceId").asText());
-
-				//newService.setVerionNum();
-				newService.setVersionList(json.path("versionNo").asText());
-				newService.setVersionMap(json.path("versionNo").asText(),json.path("url").asText());
-
-
-
-				//fake some version to make presentation
-				newService.setVersionList("1.1");
-				newService.setVersionMap("1.1",json.path("url").asText());
-				newService.setVersionList("1.2");
-				newService.setVersionMap("1.2",json.path("url").asText());
-
-				climateMap.put(json.get("name").asText(),newService);
-			}
-
-		}
-		for (ClimateService value : climateMap.values()){
-			climateServices.add(value);
+		for (int i = 0; i < ServiceNameList.size(); i++) {
+//			System.out.println("Service Name:" + ServiceNameList.get(i));
+			climateServices.add(climateMap.get(ServiceNameList.get(i)));
 		}
 		return climateServices;
 	}
@@ -541,7 +548,11 @@ public class ClimateService {
 
 		JsonNode userServiceNode = APICall
 				.putAPI(PUT_UPDATE_FREQUENCY,queryJson);
-
+		long time = new Date().getTime();
+		queryJson.put("time",time);
+		JsonNode userServiceNode2 = APICall
+				.putAPI(PUT_UPDATE_Time,queryJson);
+		System.out.println("Update Time: " + time);
 		System.out.println("shou dao frequency" + userServiceNode);
 
 		if (userServiceNode == null || userServiceNode.has("error")) {
@@ -571,5 +582,6 @@ public class ClimateService {
 	public void setGrade(double grade) {
 		this.grade = grade;
 	}
+
 }
 

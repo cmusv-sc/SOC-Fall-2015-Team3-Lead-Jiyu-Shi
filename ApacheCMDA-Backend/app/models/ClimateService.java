@@ -51,6 +51,7 @@ public class ClimateService {
 	private double grade;
 	private int postNum;
 
+	private long time;
 
 	public ClimateService() {
 	}
@@ -70,6 +71,11 @@ public class ClimateService {
 			createTime = new Date();
 		this.createTime = createTime;
 		this.versionNo = versionNo;
+	}
+	public long getTime(){ return time; }
+
+	public void setTime( long time ){
+		this.time = time;
 	}
 
 	public int getPostNum(){

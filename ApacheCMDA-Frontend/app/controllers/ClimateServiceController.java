@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.UserService;
 import models.metadata.ClimateService;
+import models.metadata.ServiceComparator;
 import play.Logger;
 import play.data.Form;
 import play.libs.Json;
@@ -38,6 +39,7 @@ import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -48,7 +50,9 @@ public class ClimateServiceController extends Controller {
 			.form(ClimateService.class);
 
 	public static Result home(String email, String vfile, String dataset) {
-		return ok(home.render(email, vfile, dataset, ClimateService.all()));
+		List<ClimateService> ServiceList = ClimateService.all();
+		Collections.sort(ServiceList,new ServiceComparator());
+		return ok(home.render(email, vfile, dataset, ServiceList));
 	}
 
 	public static Result addClimateServices() {
@@ -73,7 +77,7 @@ public class ClimateServiceController extends Controller {
 		return ok(mostRecentlyUsedServices.render(ClimateService.getMostRecentlyUsed(),
 				climateServiceForm,email));
 	}
-	
+
 	public static Result mostPopularClimateServices(String email) {
 		return ok(mostPopularServices.render(ClimateService.getMostPopular(),
 				climateServiceForm,email));
@@ -236,7 +240,10 @@ public class ClimateServiceController extends Controller {
 			int index = keywords.indexOf("@");
 			keywords = keywords.substring(index+1);
 			System.out.println(keywords);
+
 			String result = ClimateService.findAtService(keywords);
+			System.out.println("result = " + result +",");
+
 			return ok(searchService.render(climateServiceForm,email,result));
 		}
 

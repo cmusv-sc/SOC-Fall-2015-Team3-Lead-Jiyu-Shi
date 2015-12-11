@@ -42,6 +42,14 @@
         </div>
     }
 
+    @if(result!= null && result.compareTo("friendyourself")==0){
+        <div class="alert alert-warning fade in">
+            <strong>You can't add yourself as friend.</strong>
+            <button class="btn btn-warning  pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+        </div>
+    }
+
+
     @if(result!= null && result.compareTo("failure")==0){
         <div class="alert alert-info fade in">
             <strong>You and @friend are friends already!</strong>

@@ -57,6 +57,11 @@ object header extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable
         _display_ {
 
 Seq[Any](format.raw/*19.4*/("""
+<style>
+	#myButtons"""),format.raw/*21.12*/("""{"""),format.raw/*21.13*/("""
+		margin-top: 15px;
+	"""),format.raw/*23.2*/("""}"""),format.raw/*23.3*/("""
+</style>
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
 		<div class="row">
@@ -67,42 +72,45 @@ Seq[Any](format.raw/*19.4*/("""
 				class="icon-bar"></span> <span class="icon-bar"></span> <span
 				class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" style="padding-bottom: 0 ;" href="/climate"><img
-				src='"""),_display_(Seq[Any](/*31.11*/routes/*31.17*/.Assets.at("images/logo.png"))),format.raw/*31.46*/("""' style="height: 15px ; width: 250px ;">
+				<a class="navbar-brand navbar-collapse collapse" style="padding-bottom: 0 ;" href="/climate">
+					<img
+					src='"""),_display_(Seq[Any](/*37.12*/routes/*37.18*/.Assets.at("images/NASA_JPL_logo.png"))),format.raw/*37.56*/("""' style="height: 40px ; width: 220px ;">
+					<img
+					src='"""),_display_(Seq[Any](/*39.12*/routes/*39.18*/.Assets.at("images/logo.png"))),format.raw/*39.47*/("""' style="height: 15px ; width: 250px ;">
 				</a>
 			</div>
-			<div class="navbar-collapse collapse" style="height:">
+			<div id="myButtons" class="navbar-collapse collapse" style="height:">
 				<form class="navbar-form navbar-right" role="register">
 					<a class="btn btn-primary" href="/climate/sign" role="button">Register&raquo;</a>
 				</form>
 				<ul class="nav navbar-nav navbar-right">
 
-					"""),format.raw/*40.62*/("""
-						"""),format.raw/*41.35*/("""
-							"""),format.raw/*42.84*/("""
-							"""),format.raw/*43.79*/("""
-						"""),format.raw/*44.17*/("""
-						"""),format.raw/*45.72*/("""
-					"""),format.raw/*46.17*/("""
+					"""),format.raw/*48.62*/("""
+						"""),format.raw/*49.35*/("""
+							"""),format.raw/*50.84*/("""
+							"""),format.raw/*51.79*/("""
+						"""),format.raw/*52.17*/("""
+						"""),format.raw/*53.72*/("""
+					"""),format.raw/*54.17*/("""
 
 				<div class="navbar-form navbar-right">
-					"""),_display_(Seq[Any](/*49.7*/helper/*49.13*/.form(routes.Application.login)/*49.44*/{_display_(Seq[Any](format.raw/*49.45*/("""
+					"""),_display_(Seq[Any](/*57.7*/helper/*57.13*/.form(routes.Application.login)/*57.44*/{_display_(Seq[Any](format.raw/*57.45*/("""
 						<div class="form-group">
 							<input class="form-control" id="ex1" type="email" name="email" placeholder="Email" >
 							<input type="password" class="form-control" name="password" placeholder="Password" >
 							<button type="submit" class="btn btn-success" >Login</button>
 						</div>
-					""")))})),format.raw/*55.7*/("""
+					""")))})),format.raw/*63.7*/("""
 				</div>
 
 					<li class="dropdown"><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown">Service<b class="caret"></b> </a>
 						<ul class="dropdown-menu">
-							<li><a href=""""),_display_(Seq[Any](/*61.22*/routes/*61.28*/.ClimateServiceController.searchService())),format.raw/*61.69*/("""">Search Service </a></li>
-							<li><a href=""""),_display_(Seq[Any](/*62.22*/routes/*62.28*/.ClimateServiceController.climateServices())),format.raw/*62.71*/("""">Service List</a></li>
-							<li><a href=""""),_display_(Seq[Any](/*63.22*/routes/*63.28*/.ClimateServiceController.mostPopularClimateServices())),format.raw/*63.82*/("""">Most Popular Service</a></li>
-							<li><a href=""""),_display_(Seq[Any](/*64.22*/routes/*64.28*/.ClimateServiceController.mostRecentlyAddedClimateServices())),format.raw/*64.88*/("""">Recent Added Service</a></li>
-							<li><a href=""""),_display_(Seq[Any](/*65.22*/routes/*65.28*/.ClimateServiceController.mostRecentlyUsedClimateServices())),format.raw/*65.87*/("""">Recent Used  Service</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*69.22*/routes/*69.28*/.ClimateServiceController.searchService())),format.raw/*69.69*/("""">Search Service </a></li>
+							<li><a href=""""),_display_(Seq[Any](/*70.22*/routes/*70.28*/.ClimateServiceController.climateServices())),format.raw/*70.71*/("""">Service List</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*71.22*/routes/*71.28*/.ClimateServiceController.mostPopularClimateServices())),format.raw/*71.82*/("""">Most Popular Service</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*72.22*/routes/*72.28*/.ClimateServiceController.mostRecentlyAddedClimateServices())),format.raw/*72.88*/("""">Recent Added Service</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*73.22*/routes/*73.28*/.ClimateServiceController.mostRecentlyUsedClimateServices())),format.raw/*73.87*/("""">Recent Used  Service</a></li>
 						</ul>
 					</li>
 					<li class="dropdown"><a href="#"
@@ -110,25 +118,25 @@ Seq[Any](format.raw/*19.4*/("""
 					class="caret"></b> </a>
 						<ul class="dropdown-menu">
 
-							<li><a href=""""),_display_(Seq[Any](/*73.22*/routes/*73.28*/.DatasetController.datasetList())),format.raw/*73.60*/("""">Dataset List</a></li>
-							<li><a href=""""),_display_(Seq[Any](/*74.22*/routes/*74.28*/.DatasetController.searchDataset())),format.raw/*74.62*/("""">Search dataset</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*81.22*/routes/*81.28*/.DatasetController.datasetList())),format.raw/*81.60*/("""">Dataset List</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*82.22*/routes/*82.28*/.DatasetController.searchDataset())),format.raw/*82.62*/("""">Search dataset</a></li>
 						</ul>
 					</li>
-					"""),format.raw/*77.42*/("""
-					"""),format.raw/*78.66*/("""
-					"""),format.raw/*79.32*/("""
-					"""),format.raw/*80.36*/("""
-					"""),format.raw/*81.99*/("""
-					"""),format.raw/*82.104*/("""
-					"""),format.raw/*83.15*/("""
-					"""),format.raw/*84.15*/("""
+					"""),format.raw/*85.42*/("""
+					"""),format.raw/*86.66*/("""
+					"""),format.raw/*87.32*/("""
+					"""),format.raw/*88.36*/("""
+					"""),format.raw/*89.99*/("""
+					"""),format.raw/*90.104*/("""
+					"""),format.raw/*91.15*/("""
+					"""),format.raw/*92.15*/("""
 					<li class="dropdown"><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown">About<b
 					class="caret"></b> </a>
 						<ul class="dropdown-menu">
-							<li><a href=""""),_display_(Seq[Any](/*89.22*/routes/*89.28*/.ClimateServiceController.home())),format.raw/*89.60*/("""">Home</a></li>
-							<li><a href=""""),_display_(Seq[Any](/*90.22*/routes/*90.28*/.AboutusController.aboutUs())),format.raw/*90.56*/("""">About Us</a></li>
-							<li><a href=""""),_display_(Seq[Any](/*91.22*/routes/*91.28*/.AboutusController.aboutProject())),format.raw/*91.61*/("""">About project</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*97.22*/routes/*97.28*/.ClimateServiceController.home())),format.raw/*97.60*/("""">Home</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*98.22*/routes/*98.28*/.AboutusController.aboutUs())),format.raw/*98.56*/("""">About Us</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*99.22*/routes/*99.28*/.AboutusController.aboutProject())),format.raw/*99.61*/("""">About project</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -148,11 +156,11 @@ Seq[Any](format.raw/*19.4*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Dec 04 15:30:00 EST 2015
+                    DATE: Thu Dec 10 19:42:51 EST 2015
                     SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/header.scala.html
-                    HASH: 188a191d1301ec80f7aa32de400f5c523f3fd683
-                    MATRIX: 3171->1205|3267->1207|3812->1716|3827->1722|3878->1751|4234->2135|4269->2170|4305->2254|4341->2333|4376->2350|4411->2422|4445->2439|4531->2490|4546->2496|4586->2527|4625->2528|4960->2832|5187->3023|5202->3029|5265->3070|5349->3118|5364->3124|5429->3167|5510->3212|5525->3218|5601->3272|5690->3325|5705->3331|5787->3391|5876->3444|5891->3450|5972->3509|6247->3748|6262->3754|6316->3786|6397->3831|6412->3837|6468->3871|6550->3961|6584->4027|6618->4059|6652->4095|6686->4194|6721->4298|6755->4313|6789->4328|7007->4510|7022->4516|7076->4548|7149->4585|7164->4591|7214->4619|7291->4660|7306->4666|7361->4699
-                    LINES: 56->19|59->19|71->31|71->31|71->31|80->40|81->41|82->42|83->43|84->44|85->45|86->46|89->49|89->49|89->49|89->49|95->55|101->61|101->61|101->61|102->62|102->62|102->62|103->63|103->63|103->63|104->64|104->64|104->64|105->65|105->65|105->65|113->73|113->73|113->73|114->74|114->74|114->74|117->77|118->78|119->79|120->80|121->81|122->82|123->83|124->84|129->89|129->89|129->89|130->90|130->90|130->90|131->91|131->91|131->91
+                    HASH: 0f71a7448e57512d1a5c4f6c39c577077e963c06
+                    MATRIX: 3171->1205|3267->1207|3315->1227|3344->1228|3393->1250|3421->1251|4007->1801|4022->1807|4082->1845|4180->1907|4195->1913|4246->1942|4617->2341|4652->2376|4688->2460|4724->2539|4759->2556|4794->2628|4828->2645|4914->2696|4929->2702|4969->2733|5008->2734|5343->3038|5570->3229|5585->3235|5648->3276|5732->3324|5747->3330|5812->3373|5893->3418|5908->3424|5984->3478|6073->3531|6088->3537|6170->3597|6259->3650|6274->3656|6355->3715|6630->3954|6645->3960|6699->3992|6780->4037|6795->4043|6851->4077|6933->4167|6967->4233|7001->4265|7035->4301|7069->4400|7104->4504|7138->4519|7172->4534|7390->4716|7405->4722|7459->4754|7532->4791|7547->4797|7597->4825|7674->4866|7689->4872|7744->4905
+                    LINES: 56->19|59->19|61->21|61->21|63->23|63->23|77->37|77->37|77->37|79->39|79->39|79->39|88->48|89->49|90->50|91->51|92->52|93->53|94->54|97->57|97->57|97->57|97->57|103->63|109->69|109->69|109->69|110->70|110->70|110->70|111->71|111->71|111->71|112->72|112->72|112->72|113->73|113->73|113->73|121->81|121->81|121->81|122->82|122->82|122->82|125->85|126->86|127->87|128->88|129->89|130->90|131->91|132->92|137->97|137->97|137->97|138->98|138->98|138->98|139->99|139->99|139->99
                     -- GENERATED --
                 */
             

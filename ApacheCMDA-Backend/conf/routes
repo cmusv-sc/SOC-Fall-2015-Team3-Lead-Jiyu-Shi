@@ -23,6 +23,8 @@ DELETE        /climateService/deleteClimateService/name/:name                   
 GET           /climateService/getTop3GradesServices/json                                                @controllers.ClimateServiceController.getTop3GradesServices(format: String="json")
 GET           /climateService/getTop3MostRecentlyUsedServices/json                                      @controllers.ClimateServiceController.getTop3MostRecentlyUsedServices(format: String="json")
 PUT           /climateService/addFreq/                                                                  @controllers.ClimateServiceController.addFreq
+GET           /climateService/getTop3MostRecentServices/json                                            @controllers.ClimateServiceController.getTop3MostRecentServices(format: String="json")
+PUT           /climateService/setTime/                                                                  @controllers.ClimateServiceController.setTime
 
 # Instrument
 GET           /instrument/getAllInstruments/json                                                        @controllers.InstrumentController.getAllInstruments(format: String="json")

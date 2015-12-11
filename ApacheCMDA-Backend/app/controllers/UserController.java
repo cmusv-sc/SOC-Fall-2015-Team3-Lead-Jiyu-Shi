@@ -89,6 +89,11 @@ public class UserController extends Controller {
 //				return badRequest("UserName has been used");
 				obj.put("result", "failure");
 				return badRequest(new Gson().toJson(obj));
+			}else if (userRepository.findByEmail(email) != null) {
+				System.out.println("Email has been used: " + userName);
+//				return badRequest("UserName has been used");
+				obj.put("result", "failure");
+				return badRequest(new Gson().toJson(obj));
 			}
 //			User user = new User(userName, password, firstName, lastName, middleInitial, affiliation, title, email, mailingAddress, phoneNumber, faxNumber, researchFields, highestDegree);
 			User user = new User(userName, password, firstName, lastName, email);

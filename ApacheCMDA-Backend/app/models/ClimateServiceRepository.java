@@ -42,4 +42,7 @@ public interface ClimateServiceRepository extends CrudRepository<ClimateService,
 
 	List<ClimateService> findByOrderByGradeDesc();
 
+	List<ClimateService> findByOrderByTimeDesc();
+
+
 }

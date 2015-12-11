@@ -53,10 +53,10 @@
 			<div class="col-lg-5" id="climateImage">
 				<br>
 				<br>
-				<img src="/assets/images/iceberg.jpg" height="550" width="430" />
+				<img src="/assets/images/iceberg.jpg" height="550" width="420" />
 			</div>
-			<div class="col-lg-7">
-				<h2>Climate Service List</h2>
+			<div class="col-lg-7" >
+				<h2>Climate Service List (Sorted By Grades)</h2>
 				@for(climateService <- climateServices){
 					<div class="row">
 						<div class="col-md-7"><a href = "@{routes.ClimateServiceController.oneService(climateService.getUrl(),email,climateService.getId())}"><font size="3">@climateService.getClimateServiceName()</a></font></div>

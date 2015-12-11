@@ -118,6 +118,10 @@ public class Application extends Controller {
         String keywords = serviceForm.field("Find friend").value();
         System.out.println("keywords = "+ keywords);
 
+        if (email.compareTo(keywords) == 0){
+            return ok(searchFriend.render(ClimateServiceController.climateServiceForm,email,"friendyourself", keywords));
+        }
+
         String result = userService.addFriend(email,keywords);
 
 

@@ -103,7 +103,12 @@
 
     @main("Search Service",email,scripts){
 
-
+        @if(comment!= null && comment.compareTo("")==0){
+            <div class="alert alert-warning fade in">
+                <strong>No results found!</strong>
+                <button class="btn btn-warning  pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+            </div>
+        }
         @flash_message()
         @*<h1 style="margin-left:490px">Search Service</h1>*@
         @form(routes.ClimateServiceController.getSearchServiceResult(email)) {

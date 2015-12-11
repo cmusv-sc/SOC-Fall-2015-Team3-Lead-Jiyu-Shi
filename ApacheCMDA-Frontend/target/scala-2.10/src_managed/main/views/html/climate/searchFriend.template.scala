@@ -72,27 +72,35 @@ Seq[Any](format.raw/*1.104*/("""
         </div>
     """)))})),format.raw/*43.6*/("""
 
-    """),_display_(Seq[Any](/*45.6*/if(result!= null && result.compareTo("failure")==0)/*45.57*/{_display_(Seq[Any](format.raw/*45.58*/("""
-        <div class="alert alert-info fade in">
-            <strong>You and """),_display_(Seq[Any](/*47.30*/friend)),format.raw/*47.36*/(""" are friends already!</strong>
-            <button class="btn btn-info pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+    """),_display_(Seq[Any](/*45.6*/if(result!= null && result.compareTo("friendyourself")==0)/*45.64*/{_display_(Seq[Any](format.raw/*45.65*/("""
+        <div class="alert alert-warning fade in">
+            <strong>You can't add yourself as friend.</strong>
+            <button class="btn btn-warning  pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
         </div>
     """)))})),format.raw/*50.6*/("""
 
-    """),format.raw/*52.58*/("""
-  """),_display_(Seq[Any](/*53.4*/form(routes.Application.getFindFriendResult(email))/*53.55*/ {_display_(Seq[Any](format.raw/*53.57*/("""
-    """),format.raw/*54.100*/("""
+
+    """),_display_(Seq[Any](/*53.6*/if(result!= null && result.compareTo("failure")==0)/*53.57*/{_display_(Seq[Any](format.raw/*53.58*/("""
+        <div class="alert alert-info fade in">
+            <strong>You and """),_display_(Seq[Any](/*55.30*/friend)),format.raw/*55.36*/(""" are friends already!</strong>
+            <button class="btn btn-info pull-right" aria-label="Close" data-dismiss="alert">  OK  </button>
+        </div>
+    """)))})),format.raw/*58.6*/("""
+
+    """),format.raw/*60.58*/("""
+  """),_display_(Seq[Any](/*61.4*/form(routes.Application.getFindFriendResult(email))/*61.55*/ {_display_(Seq[Any](format.raw/*61.57*/("""
+    """),format.raw/*62.100*/("""
     <div class="ui-widget col-sm-offset-3 col-sm-7">
       <div class = "form-group" align="center" >
-        """),_display_(Seq[Any](/*57.10*/inputText(climateServiceForm("Find friend"), 'class -> "form-control",'id -> "firends", 'placeholder -> "Find your friend by email", 'size->70))),format.raw/*57.153*/("""
-        <input type="text" class="hidden" name="email" value="""),_display_(Seq[Any](/*58.63*/email)),format.raw/*58.68*/(""">
+        """),_display_(Seq[Any](/*65.10*/inputText(climateServiceForm("Find friend"), 'class -> "form-control",'id -> "firends", 'placeholder -> "Find your friend by email", 'size->70))),format.raw/*65.153*/("""
+        <input type="text" class="hidden" name="email" value="""),_display_(Seq[Any](/*66.63*/email)),format.raw/*66.68*/(""">
       </div>
       <div align="center">
         <input class="btn btn-info" type="submit" value="GO">
       </div>
     </div>
-    """),format.raw/*64.16*/("""
-  """)))})),format.raw/*65.4*/("""
+    """),format.raw/*72.16*/("""
+  """)))})),format.raw/*73.4*/("""
 """)))})))}
     }
     
@@ -105,11 +113,11 @@ Seq[Any](format.raw/*1.104*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sat Dec 05 21:01:37 EST 2015
+                    DATE: Thu Dec 10 20:36:41 EST 2015
                     SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/searchFriend.scala.html
-                    HASH: d2d45d57fa9634a2ef473c7ea3f5dabe6aa72341
-                    MATRIX: 843->1|1038->124|1052->131|1136->135|1188->152|1202->158|1263->198|1581->488|1610->489|1870->721|1899->722|1985->780|2014->781|2055->794|2084->795|2142->103|2170->122|2198->813|2236->816|2278->849|2317->850|2356->854|2393->869|2435->876|2495->927|2534->928|2656->1014|2684->1020|2869->1174|2911->1181|2969->1230|3008->1231|3305->1497|3347->1504|3407->1555|3446->1556|3559->1633|3587->1639|3777->1798|3811->1857|3850->1861|3910->1912|3950->1914|3984->2014|4132->2126|4298->2269|4397->2332|4424->2337|4584->2480|4619->2484
-                    LINES: 26->1|29->5|29->5|31->5|32->6|32->6|32->6|37->11|37->11|45->19|45->19|47->21|47->21|48->22|48->22|53->1|55->4|56->26|58->28|58->28|58->28|59->29|59->29|61->31|61->31|61->31|63->33|63->33|66->36|68->38|68->38|68->38|73->43|75->45|75->45|75->45|77->47|77->47|80->50|82->52|83->53|83->53|83->53|84->54|87->57|87->57|88->58|88->58|94->64|95->65
+                    HASH: 6a859d9aa71ec7b04fbb6942e53a7d5a599f3273
+                    MATRIX: 843->1|1038->124|1052->131|1136->135|1188->152|1202->158|1263->198|1581->488|1610->489|1870->721|1899->722|1985->780|2014->781|2055->794|2084->795|2142->103|2170->122|2198->813|2236->816|2278->849|2317->850|2356->854|2393->869|2435->876|2495->927|2534->928|2656->1014|2684->1020|2869->1174|2911->1181|2969->1230|3008->1231|3305->1497|3347->1504|3414->1562|3453->1563|3730->1809|3773->1817|3833->1868|3872->1869|3985->1946|4013->1952|4203->2111|4237->2170|4276->2174|4336->2225|4376->2227|4410->2327|4558->2439|4724->2582|4823->2645|4850->2650|5010->2793|5045->2797
+                    LINES: 26->1|29->5|29->5|31->5|32->6|32->6|32->6|37->11|37->11|45->19|45->19|47->21|47->21|48->22|48->22|53->1|55->4|56->26|58->28|58->28|58->28|59->29|59->29|61->31|61->31|61->31|63->33|63->33|66->36|68->38|68->38|68->38|73->43|75->45|75->45|75->45|80->50|83->53|83->53|83->53|85->55|85->55|88->58|90->60|91->61|91->61|91->61|92->62|95->65|95->65|96->66|96->66|102->72|103->73
                     -- GENERATED --
                 */
             

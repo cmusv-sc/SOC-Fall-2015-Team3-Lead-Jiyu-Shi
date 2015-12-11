@@ -552,8 +552,8 @@ public class ClimateServiceController extends Controller {
 
 		long id = json.path("id").asLong();
 		String name = "";
-
 		try {
+
 			ClimateService climateService = climateServiceRepository
 					.findOne(id);
 
@@ -572,6 +572,62 @@ public class ClimateServiceController extends Controller {
 			System.out.println("Climate Service freq not updated: " + name);
 			return badRequest("Climate Service freq not updated: " + name);
 		}
+	}
+
+	public Result setTime(){
+		JsonNode json = request().body().asJson();
+		ObjectNode obj = Json.newObject();
+
+
+		long id = json.path("id").asLong();
+		long time = json.path("time").asLong();
+		String name = "";
+		try {
+
+			ClimateService climateService = climateServiceRepository
+					.findOne(id);
+
+			climateService.setTime(time);
+
+			ClimateService newClimateService = climateServiceRepository.save(climateService);
+
+			name = newClimateService.getName();
+			System.out.println("Climate Service freq updated: "
+					+ name);
+			return created("Climate Service freq updated: "
+					+ name);
+		} catch (PersistenceException pe) {
+			pe.printStackTrace();
+			System.out.println("Climate Service freq not updated: " + name);
+			return badRequest("Climate Service freq not updated: " + name);
+		}
+	}
+
+	public Result getTop3MostRecentServices(String format){
+		Iterable<ClimateService> services = climateServiceRepository
+				.findByOrderByTimeDesc();
+		if( services == null ){
+			System.out.println("No top 3 climate services");
+		}
+
+		List<ClimateService> top3 = new ArrayList<>();
+
+		int i = 0;
+		for (ClimateService each : services){
+			i ++ ;
+			top3.add(each);
+
+			if( i == 3 ){
+				break;
+			}
+		}
+
+		String result = new String();
+		if (format.equals("json")) {
+			result = new Gson().toJson(top3);
+		}
+
+		return ok(result);
 	}
 
 }
