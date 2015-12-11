@@ -106,8 +106,9 @@ public class UserService {
 
         for (int i = 0; i < userServiceNode.size(); i++) {
             JsonNode json = userServiceNode.path(i);
-            friendList.add(json.path("user2").asText());
+            friendList.add(json.path("userName").asText());
         }
+        
         System.out.println(friendList);
         
         return friendList;

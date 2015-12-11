@@ -351,10 +351,15 @@ public class UserController extends Controller {
 
 
 		Iterable<Friend> userIterable = friendRepository.findAllByUser1(usr1);
-		List<Friend> userList = new ArrayList<Friend>();
+		List<User> userList = new ArrayList<User>();
 		for (Friend user : userIterable) {
-			userList.add(user);
+//			userList.add(user);
+			User temp = userRepository.findByEmail(user.getUser2());
+			if( temp != null ){
+				userList.add(temp);
+			}
 		}
+
 		String result = new String();
 		result = new Gson().toJson(userList);
 
