@@ -25,6 +25,8 @@ GET			/climate/climateServices							controllers.ClimateServiceController.climat
 GET			/climate/mostRecentlyAddedClimateServices			controllers.ClimateServiceController.mostRecentlyAddedClimateServices(email ?= null)
 GET			/climate/mostRecentlyUsedClimateServices			controllers.ClimateServiceController.mostRecentlyUsedClimateServices(email ?= null)
 GET			/climate/mostPopularClimateServices					controllers.ClimateServiceController.mostPopularClimateServices(email ?= null)
+GET			/climate/top3					                    controllers.ClimateServiceController.top3(email ?= null)
+
 POST		/climate/new/climateServices    					controllers.ClimateServiceController.newClimateService()
 POST    	/climate/delete/climateServices   					controllers.ClimateServiceController.deleteClimateService()
 POST		/climate/download/climateServices					controllers.ClimateServiceController.downloadClimateService()

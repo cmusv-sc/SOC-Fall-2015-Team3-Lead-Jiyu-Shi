@@ -111,6 +111,7 @@ Seq[Any](format.raw/*19.4*/("""
 							<li><a href=""""),_display_(Seq[Any](/*71.22*/routes/*71.28*/.ClimateServiceController.mostPopularClimateServices())),format.raw/*71.82*/("""">Most Popular Service</a></li>
 							<li><a href=""""),_display_(Seq[Any](/*72.22*/routes/*72.28*/.ClimateServiceController.mostRecentlyAddedClimateServices())),format.raw/*72.88*/("""">Recent Added Service</a></li>
 							<li><a href=""""),_display_(Seq[Any](/*73.22*/routes/*73.28*/.ClimateServiceController.mostRecentlyUsedClimateServices())),format.raw/*73.87*/("""">Recent Used  Service</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*74.22*/routes/*74.28*/.ClimateServiceController.top3())),format.raw/*74.60*/("""">Top 3 Graded Service</a></li>
 						</ul>
 					</li>
 					<li class="dropdown"><a href="#"
@@ -118,25 +119,25 @@ Seq[Any](format.raw/*19.4*/("""
 					class="caret"></b> </a>
 						<ul class="dropdown-menu">
 
-							<li><a href=""""),_display_(Seq[Any](/*81.22*/routes/*81.28*/.DatasetController.datasetList())),format.raw/*81.60*/("""">Dataset List</a></li>
-							<li><a href=""""),_display_(Seq[Any](/*82.22*/routes/*82.28*/.DatasetController.searchDataset())),format.raw/*82.62*/("""">Search dataset</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*82.22*/routes/*82.28*/.DatasetController.datasetList())),format.raw/*82.60*/("""">Dataset List</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*83.22*/routes/*83.28*/.DatasetController.searchDataset())),format.raw/*83.62*/("""">Search dataset</a></li>
 						</ul>
 					</li>
-					"""),format.raw/*85.42*/("""
-					"""),format.raw/*86.66*/("""
-					"""),format.raw/*87.32*/("""
-					"""),format.raw/*88.36*/("""
-					"""),format.raw/*89.99*/("""
-					"""),format.raw/*90.104*/("""
-					"""),format.raw/*91.15*/("""
+					"""),format.raw/*86.42*/("""
+					"""),format.raw/*87.66*/("""
+					"""),format.raw/*88.32*/("""
+					"""),format.raw/*89.36*/("""
+					"""),format.raw/*90.99*/("""
+					"""),format.raw/*91.104*/("""
 					"""),format.raw/*92.15*/("""
+					"""),format.raw/*93.15*/("""
 					<li class="dropdown"><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown">About<b
 					class="caret"></b> </a>
 						<ul class="dropdown-menu">
-							<li><a href=""""),_display_(Seq[Any](/*97.22*/routes/*97.28*/.ClimateServiceController.home())),format.raw/*97.60*/("""">Home</a></li>
-							<li><a href=""""),_display_(Seq[Any](/*98.22*/routes/*98.28*/.AboutusController.aboutUs())),format.raw/*98.56*/("""">About Us</a></li>
-							<li><a href=""""),_display_(Seq[Any](/*99.22*/routes/*99.28*/.AboutusController.aboutProject())),format.raw/*99.61*/("""">About project</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*98.22*/routes/*98.28*/.ClimateServiceController.home())),format.raw/*98.60*/("""">Home</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*99.22*/routes/*99.28*/.AboutusController.aboutUs())),format.raw/*99.56*/("""">About Us</a></li>
+							<li><a href=""""),_display_(Seq[Any](/*100.22*/routes/*100.28*/.AboutusController.aboutProject())),format.raw/*100.61*/("""">About project</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -156,11 +157,11 @@ Seq[Any](format.raw/*19.4*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Dec 10 19:42:51 EST 2015
+                    DATE: Fri Dec 11 10:48:50 EST 2015
                     SOURCE: /Users/jiyushi1/Desktop/18655/git/SOC-Fall-2015-Team3-Lead-Jiyu-Shi/ApacheCMDA-Frontend/app/views/climate/header.scala.html
-                    HASH: 0f71a7448e57512d1a5c4f6c39c577077e963c06
-                    MATRIX: 3171->1205|3267->1207|3315->1227|3344->1228|3393->1250|3421->1251|4007->1801|4022->1807|4082->1845|4180->1907|4195->1913|4246->1942|4617->2341|4652->2376|4688->2460|4724->2539|4759->2556|4794->2628|4828->2645|4914->2696|4929->2702|4969->2733|5008->2734|5343->3038|5570->3229|5585->3235|5648->3276|5732->3324|5747->3330|5812->3373|5893->3418|5908->3424|5984->3478|6073->3531|6088->3537|6170->3597|6259->3650|6274->3656|6355->3715|6630->3954|6645->3960|6699->3992|6780->4037|6795->4043|6851->4077|6933->4167|6967->4233|7001->4265|7035->4301|7069->4400|7104->4504|7138->4519|7172->4534|7390->4716|7405->4722|7459->4754|7532->4791|7547->4797|7597->4825|7674->4866|7689->4872|7744->4905
-                    LINES: 56->19|59->19|61->21|61->21|63->23|63->23|77->37|77->37|77->37|79->39|79->39|79->39|88->48|89->49|90->50|91->51|92->52|93->53|94->54|97->57|97->57|97->57|97->57|103->63|109->69|109->69|109->69|110->70|110->70|110->70|111->71|111->71|111->71|112->72|112->72|112->72|113->73|113->73|113->73|121->81|121->81|121->81|122->82|122->82|122->82|125->85|126->86|127->87|128->88|129->89|130->90|131->91|132->92|137->97|137->97|137->97|138->98|138->98|138->98|139->99|139->99|139->99
+                    HASH: 574beeede6533b5d2dbbddd55739494f64e9ddcb
+                    MATRIX: 3171->1205|3267->1207|3315->1227|3344->1228|3393->1250|3421->1251|4007->1801|4022->1807|4082->1845|4180->1907|4195->1913|4246->1942|4617->2341|4652->2376|4688->2460|4724->2539|4759->2556|4794->2628|4828->2645|4914->2696|4929->2702|4969->2733|5008->2734|5343->3038|5570->3229|5585->3235|5648->3276|5732->3324|5747->3330|5812->3373|5893->3418|5908->3424|5984->3478|6073->3531|6088->3537|6170->3597|6259->3650|6274->3656|6355->3715|6444->3768|6459->3774|6513->3806|6788->4045|6803->4051|6857->4083|6938->4128|6953->4134|7009->4168|7091->4258|7125->4324|7159->4356|7193->4392|7227->4491|7262->4595|7296->4610|7330->4625|7548->4807|7563->4813|7617->4845|7690->4882|7705->4888|7755->4916|7833->4957|7849->4963|7905->4996
+                    LINES: 56->19|59->19|61->21|61->21|63->23|63->23|77->37|77->37|77->37|79->39|79->39|79->39|88->48|89->49|90->50|91->51|92->52|93->53|94->54|97->57|97->57|97->57|97->57|103->63|109->69|109->69|109->69|110->70|110->70|110->70|111->71|111->71|111->71|112->72|112->72|112->72|113->73|113->73|113->73|114->74|114->74|114->74|122->82|122->82|122->82|123->83|123->83|123->83|126->86|127->87|128->88|129->89|130->90|131->91|132->92|133->93|138->98|138->98|138->98|139->99|139->99|139->99|140->100|140->100|140->100
                     -- GENERATED --
                 */
             

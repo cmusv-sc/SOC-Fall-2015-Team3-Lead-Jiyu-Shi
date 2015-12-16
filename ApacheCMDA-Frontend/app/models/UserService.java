@@ -108,7 +108,7 @@ public class UserService {
             JsonNode json = userServiceNode.path(i);
             friendList.add(json.path("userName").asText());
         }
-        
+
         System.out.println(friendList);
         
         return friendList;

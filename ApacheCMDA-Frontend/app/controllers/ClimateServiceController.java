@@ -83,6 +83,12 @@ public class ClimateServiceController extends Controller {
 				climateServiceForm,email));
 	}
 
+	public static Result top3(String email) {
+		return ok(top3.render(ClimateService.top3(),
+				climateServiceForm,email));
+	}
+
+
 	public static Result newClimateService() {
 		Form<ClimateService> dc = climateServiceForm.bindFromRequest();
 		ObjectNode jsonData = Json.newObject();
